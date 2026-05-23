@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/corelogic/main/json-schema/corelogic-member-schema.json",
+  "title": "RESO Member",
+  "description": "A RESO Member (MLS agent) record from the CoreLogic Trestle RESO Web API.",
+  "type": "object",
+  "required": ["MemberKey"],
+  "properties": {
+    "MemberKey": { "type": "string" },
+    "MemberFirstName": { "type": "string" },
+    "MemberLastName": { "type": "string" },
+    "MemberFullName": { "type": "string" },
+    "MemberLoginId": { "type": "string" },
+    "MemberStatus": { "type": "string", "description": "MLS-defined member status (Active, Inactive, etc.)." },
+    "MemberEmail": { "type": "string", "format": "email" },
+    "MemberPreferredPhone": { "type": "string" },
+    "OfficeKey": { "type": "string", "description": "Foreign key to the Office record." },
+    "OriginatingSystemName": { "type": "string" },
+    "ModificationTimestamp": { "type": "string", "format": "date-time" }
+  }
+}

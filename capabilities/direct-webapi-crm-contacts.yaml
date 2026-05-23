@@ -1,0 +1,94 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Trestle Direct Web API — CRM Contacts
+  description: 'Trestle Direct Web API — CRM Contacts. 4 operations. Lead operation: Query Contacts.
+    Self-contained Naftiko capability for managing Matrix MLS CRM Contact records (create, read, update,
+    delete) via the Direct Web API OData endpoint.'
+  tags:
+    - CoreLogic
+    - Trestle
+    - Direct Web API
+    - CRM
+    - Contacts
+  created: '2026-05-23'
+  modified: '2026-05-23'
+binds:
+  - namespace: env
+    keys:
+      CORELOGIC_TRESTLE_CLAREITY_TOKEN: CORELOGIC_TRESTLE_CLAREITY_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: direct-webapi-crm-contacts
+      baseUri: https://api.cotality.com/trestle/odata
+      description: Trestle Direct Web API — CRM Contacts capability. Self-contained.
+      resources:
+        - name: contacts
+          path: /Contacts
+          operations:
+            - name: querycontacts
+              method: GET
+              description: Query Contacts
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: $filter
+                  in: query
+                  type: string
+                - name: $top
+                  in: query
+                  type: integer
+            - name: createcontact
+              method: POST
+              description: Create Contact
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: New Contact record payload.
+        - name: contact-by-key
+          path: /Contacts({ContactKeyNumeric})
+          operations:
+            - name: getcontact
+              method: GET
+              description: Get Contact
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: ContactKeyNumeric
+                  in: path
+                  type: integer
+                  required: true
+            - name: updatecontact
+              method: PATCH
+              description: Update Contact
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: ContactKeyNumeric
+                  in: path
+                  type: integer
+                  required: true
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+      authentication:
+        type: bearer
+        value: '{{env.CORELOGIC_TRESTLE_CLAREITY_TOKEN}}'
+        placement: header

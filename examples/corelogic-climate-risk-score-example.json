@@ -1,0 +1,16 @@
+{
+  "parcelId": "UPI-48-453-0123-0011-000-0",
+  "structureId": "S-1",
+  "peril": "extreme-precipitation",
+  "score": 73,
+  "scenario": "SSP3-7.0",
+  "horizon": 2050,
+  "indicesUsed": [
+    "annual-max-daily-precip",
+    "5-day-max-rainfall",
+    "wet-days-per-year",
+    "consecutive-wet-days"
+  ],
+  "economicImpactUSD": 24750,
+  "asOf": "2026-05-01"
+}

@@ -1,0 +1,87 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: CoreLogic (Cotality)
+providerId: corelogic
+created: '2026-05-23'
+modified: '2026-05-23'
+reconciled: false
+tags:
+  - CoreLogic
+  - MLS
+  - OData
+  - Quotas
+  - Rate Limiting
+  - RESO Web API
+  - Throttling
+  - Trestle
+description: >-
+  Trestle does not publish hard per-second rate limits in its public
+  documentation; instead it imposes per-request result-size caps and a
+  documented "Growing to Scale" pattern (Replication mode) for high-volume
+  consumers. The documented caps are: $top defaults to 10 and maxes at 1000
+  records per response (300000 records for key-only queries), $apply=groupby
+  returns at most 10000 unique values, and Replication=true enables bulk
+  replication for datasets exceeding 1 million rows. Quota enforcement is
+  signaled with HTTP 429.
+sources:
+  - https://trestle-documentation.corelogic.com/webapi-reference.html
+  - https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - https://trestle-documentation.corelogic.com/webapi.html
+responseCodes:
+  badRequest: 400
+  unauthorized: 401
+  notFound: 404
+  throttled: 429
+  quotaExceeded: 429
+  serverError: 500
+  gatewayTimeout: 504
+limits:
+  - name: Default page size ($top)
+    scope: request
+    metric: records_per_response
+    limit: 10
+    timeFrame: request
+    notes: Default when $top is omitted on collection endpoints.
+  - name: Maximum page size ($top)
+    scope: request
+    metric: records_per_response
+    limit: 1000
+    timeFrame: request
+    notes: Hard cap on standard collection queries.
+  - name: Maximum page size (key-only queries)
+    scope: request
+    metric: records_per_response
+    limit: 300000
+    timeFrame: request
+    notes: Higher cap when $select returns only the resource key field.
+  - name: $apply=groupby result cardinality
+    scope: request
+    metric: records_per_response
+    limit: 10000
+    timeFrame: request
+    notes: Maximum number of unique group rows returned per request.
+  - name: Replication mode threshold
+    scope: dataset
+    metric: rows
+    limit: 1000000
+    timeFrame: replication-window
+    notes: For datasets exceeding 1M rows, Replication=true must be used to traverse the catalogue.
+  - name: OAuth access-token lifetime
+    scope: api-key
+    metric: seconds
+    limit: 28800
+    timeFrame: token
+    notes: 8-hour token lifetime; tokens should be cached and refreshed only when near expiry.
+  - name: RETS Search default page size
+    scope: request
+    metric: records_per_response
+    limit: 10
+    timeFrame: request
+    notes: Default RETS Search Count parameter.
+  - name: RETS Search maximum page size
+    scope: request
+    metric: records_per_response
+    limit: 1000
+    timeFrame: request
+    notes: Hard cap on RETS Search responses.

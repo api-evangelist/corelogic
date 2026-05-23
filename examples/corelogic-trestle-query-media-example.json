@@ -1,0 +1,31 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.cotality.com/trestle/odata/Media?$filter=ResourceName eq 'Property' and ResourceRecordKey eq 'abc123def456'&$orderby=Order&$select=MediaKey,MediaURL,MediaType,Order",
+    "headers": {
+      "Authorization": "Bearer <access_token>",
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": { "Content-Type": "application/json" },
+    "body": {
+      "@odata.context": "https://api.cotality.com/trestle/odata/$metadata#Media",
+      "value": [
+        {
+          "MediaKey": "m-abc-1",
+          "MediaURL": "https://media.cotality.com/abc123def456/01.jpg",
+          "MediaType": "image/jpeg",
+          "Order": 1
+        },
+        {
+          "MediaKey": "m-abc-2",
+          "MediaURL": "https://media.cotality.com/abc123def456/02.jpg",
+          "MediaType": "image/jpeg",
+          "Order": 2
+        }
+      ]
+    }
+  }
+}

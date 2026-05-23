@@ -1,0 +1,36 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.cotality.com/trestle/odata/Contacts",
+    "headers": {
+      "Authorization": "Bearer <clareity_token>",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "FirstName": "Jane",
+      "LastName": "Doe",
+      "Email": "jane.doe@example.com",
+      "Phone": "555-0144",
+      "Address": "100 Main St",
+      "City": "Austin",
+      "StateOrProvince": "TX",
+      "PostalCode": "78701"
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": { "Content-Type": "application/json" },
+    "body": {
+      "ContactKeyNumeric": 873421,
+      "FirstName": "Jane",
+      "LastName": "Doe",
+      "Email": "jane.doe@example.com",
+      "Phone": "555-0144",
+      "Address": "100 Main St",
+      "City": "Austin",
+      "StateOrProvince": "TX",
+      "PostalCode": "78701",
+      "ModificationTimestamp": "2026-05-23T16:21:08Z"
+    }
+  }
+}

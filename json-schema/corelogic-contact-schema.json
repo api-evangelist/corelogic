@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/corelogic/main/json-schema/corelogic-contact-schema.json",
+  "title": "Direct Web API CRM Contact",
+  "description": "A Matrix MLS CRM Contact record from the CoreLogic Trestle Direct Web API.",
+  "type": "object",
+  "required": ["ContactKeyNumeric"],
+  "properties": {
+    "ContactKeyNumeric": { "type": "integer" },
+    "FirstName": { "type": "string" },
+    "LastName": { "type": "string" },
+    "Email": { "type": "string", "format": "email" },
+    "Phone": { "type": "string" },
+    "Address": { "type": "string" },
+    "City": { "type": "string" },
+    "StateOrProvince": { "type": "string" },
+    "PostalCode": { "type": "string" },
+    "ModificationTimestamp": { "type": "string", "format": "date-time" }
+  }
+}

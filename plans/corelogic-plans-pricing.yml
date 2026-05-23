@@ -1,0 +1,103 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: CoreLogic (Cotality)
+providerId: corelogic
+created: '2026-05-23'
+modified: '2026-05-23'
+reconciled: false
+tags:
+  - Climate Risk
+  - CoreLogic
+  - Cotality
+  - Listings
+  - MLS
+  - Mortgage Data
+  - Property Data
+  - RESO Web API
+  - Trestle
+description: >-
+  CoreLogic / Cotality does not publish self-service pricing. Trestle is sold
+  per MLS (the MLS pays Cotality, then provisions data-share agreements to its
+  brokerage and tech-vendor members who consume the RESO Web API / RETS).
+  360 Property Data and Climate Risk Analytics are quoted per contract through
+  enterprise sales and delivered via cloud data shares or SFTP. Free
+  developer-portal signup exists at developer.corelogic.asia for evaluating
+  the documentation and metadata, but live data access requires an MLS-issued
+  client_id / client_secret pair or an enterprise data-share contract.
+sources:
+  - https://developer.corelogic.com/
+  - https://developer.corelogic.asia/
+  - https://trestle-documentation.corelogic.com/webapi.html
+  - https://trestle-documentation.corelogic.com/faq.html
+  - https://www.cotality.com/360-property-data
+  - https://www.cotality.com/360-property-data/climate-risk-analytics
+plans:
+  - id: corelogic-developer-portal
+    name: Developer Portal (Documentation Access)
+    type: free
+    description: >-
+      Free signup to developer.corelogic.asia for reading API documentation,
+      metadata, and FAQ. Does not include live data access — credentials must
+      be provisioned by an MLS data-share agreement or enterprise contract.
+    entries:
+      - label: Documentation access
+        name: documentation
+        type: feature
+        included: true
+        price: '0.00'
+  - id: corelogic-trestle-mls-vendor
+    name: Trestle (MLS-Provisioned Vendor Access)
+    type: contract
+    description: >-
+      Brokerages and tech vendors receive OAuth2 Client Credentials from an
+      MLS that has licensed Trestle. Pricing is governed by the MLS-Cotality
+      contract and the MLS-vendor data-share agreement; rates are not publicly
+      published.
+    entries:
+      - label: RESO Web API / RETS / Direct Web API access
+        name: trestle-access
+        type: feature
+        included: true
+        notes: Provisioning controlled by the licensing MLS.
+      - label: Pricing
+        name: pricing
+        type: contact
+        notes: Contact trestlesupport@cotality.com or the licensing MLS.
+  - id: corelogic-360-property-data
+    name: 360 Property Data (Enterprise Data Share)
+    type: enterprise
+    description: >-
+      Bulk delivery of property, ownership, tax, mortgage, and hazard data via
+      AWS, Databricks, Google Cloud, Microsoft Azure, Snowflake, or SFTP.
+      Custom-quoted; gated by enterprise sales.
+    entries:
+      - label: Cloud data share / SFTP delivery
+        name: bulk-delivery
+        type: feature
+        included: true
+      - label: Pricing
+        name: pricing
+        type: contact
+        notes: Enterprise sales — pricing not published.
+  - id: corelogic-climate-risk-analytics
+    name: Climate Risk Analytics (Enterprise Data Share)
+    type: enterprise
+    description: >-
+      Parcel- and structure-level chronic and acute peril scores delivered via
+      cloud data share. Chronic Perils Pack includes 84 indices covering cold
+      wave, heat wave, extreme precipitation, and drought across IPCC SSPs
+      projected to 2030, 2040, and 2050.
+    entries:
+      - label: Chronic Perils Pack
+        name: chronic-perils
+        type: feature
+        included: true
+      - label: Acute Perils Pack (wildfire, flood, hurricane, severe convective storm, earthquake)
+        name: acute-perils
+        type: feature
+        included: true
+      - label: Pricing
+        name: pricing
+        type: contact
+        notes: Enterprise sales — pricing not published.

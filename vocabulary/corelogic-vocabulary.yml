@@ -1,0 +1,145 @@
+name: CoreLogic / Cotality Vocabulary
+description: >-
+  Controlled vocabulary covering the resources, identifiers, and operational
+  terms used across CoreLogic / Cotality data products and the Trestle Web
+  API. Aligned with the RESO Data Dictionary 2.0 where applicable.
+url: https://trestle-documentation.corelogic.com/
+version: '1.0'
+created: '2026-05-23'
+modified: '2026-05-23'
+brands:
+  - name: CoreLogic
+    description: Original brand; legal entity in U.S. property data since 1971 (separated from First American in 2010).
+  - name: Cotality
+    description: 2025 global rebrand spanning U.S., Australia, New Zealand, U.K., Canada, Germany, and India operations.
+identifiers:
+  - name: ListingKey
+    description: RESO unique key for a listing record across all Trestle resources.
+  - name: ListingId
+    description: MLS-issued listing number visible to consumers.
+  - name: MemberKey
+    description: RESO unique key for an agent record.
+  - name: OfficeKey
+    description: RESO unique key for a brokerage office record.
+  - name: MediaKey
+    description: RESO unique key for a media (photo, video, document) record.
+  - name: ContactKeyNumeric
+    description: Matrix CRM numeric primary key for a Contact record.
+  - name: UPI
+    description: Universal Parcel Identifier — RESO 2.0 cross-MLS parcel identifier.
+  - name: CLIP
+    description: CoreLogic Linked Identifier for Parcels — proprietary machine-learning property ID.
+resources:
+  - name: Property
+    description: An MLS listing record under the RESO Data Dictionary.
+    standard: RESO Data Dictionary 2.0
+  - name: Member
+    description: An MLS agent record.
+    standard: RESO Data Dictionary 2.0
+  - name: Office
+    description: An MLS brokerage office record.
+    standard: RESO Data Dictionary 2.0
+  - name: Media
+    description: Photo, video, or document attached to a listing.
+    standard: RESO Data Dictionary 2.0
+  - name: OpenHouse
+    description: A scheduled open-house event for a listing.
+    standard: RESO Data Dictionary 2.0
+  - name: Teams
+    description: An MLS team grouping multiple members.
+  - name: TeamMembers
+    description: Membership relationships between Teams and Members.
+  - name: PropertyRooms
+    description: Per-room detail records for a listing.
+  - name: PropertyUnitTypes
+    description: Per-unit detail records for multi-unit listings.
+  - name: HistoryTransactional
+    description: Transactional change-history events for tracked resources.
+  - name: CustomProperty
+    description: MLS-specific extensions to the RESO Property resource.
+  - name: Contacts
+    description: Matrix MLS CRM contact records.
+  - name: EmailHistory
+    description: Messages sent to a CRM contact.
+  - name: Lists
+    description: Property lists / carts attached to a contact.
+  - name: PortalContents
+    description: Contact-scoped listing notes, views, and preferences.
+  - name: SavedSearches
+    description: Persistent listing search criteria with optional auto-email schedule.
+  - name: UserRegistry
+    description: Per-user preference key/value store.
+products:
+  - name: Trestle
+    description: Multi-MLS aggregation platform with RESO Web API, RETS, and Direct Web API surfaces.
+  - name: Matrix MLS
+    description: Cotality's flagship MLS front-end used by most U.S. MLS organizations.
+  - name: OneHome
+    description: Agent-to-client experience layer (portal, alerts, collaboration).
+  - name: 360 Property Data
+    description: Bulk cloud / SFTP delivery of property, ownership, tax, mortgage, and hazard data.
+  - name: Climate Risk Analytics
+    description: Parcel- and structure-level climate risk products (chronic and acute perils).
+  - name: Discovery Platform
+    description: Internal data-exploration and modeling surface (not publicly documented).
+  - name: Hazard HQ Command Central
+    description: Real-time event-driven hazard monitoring product.
+authentication:
+  - name: OAuth2 Client Credentials
+    description: Used by Trestle RESO Web API. POST to /trestle/oidc/connect/token with scope=api; tokens valid 8 hours.
+  - name: OAuth2 Bearer Token
+    description: Used by Trestle RETS with scope=rets.
+  - name: HTTP Basic
+    description: Allowed for Trestle RETS and Direct Web API.
+  - name: Clareity Single Sign-On (OIDC)
+    description: Used for end-user authentication with the Direct Web API.
+queryOptions:
+  - name: $filter
+    description: OData filter expression. Field names are case-sensitive.
+  - name: $select
+    description: Comma-separated list of fields to return.
+  - name: $expand
+    description: Inline-expand related resources.
+  - name: $orderby
+    description: Sort fields with optional asc/desc.
+  - name: $top
+    description: Max records per page (default 10, max 1000; 300000 for key-only queries).
+  - name: $skip
+    description: Pagination offset.
+  - name: $count
+    description: Boolean flag to include the total matching record count.
+  - name: $apply
+    description: Apply transformation (e.g. groupby); max 10000 result rows.
+  - name: Replication
+    description: Enable high-volume replication mode for 1M+ row datasets.
+  - name: PrettyEnums
+    description: Return human-readable enumeration values.
+perils:
+  chronic:
+    - cold-wave
+    - heat-wave
+    - extreme-precipitation
+    - drought
+  acute:
+    - wildfire
+    - flood
+    - hurricane
+    - severe-convective-storm
+    - earthquake
+ipccScenarios:
+  - SSP1-2.6
+  - SSP2-4.5
+  - SSP3-7.0
+  - SSP5-8.5
+projectionHorizons:
+  - 2030
+  - 2040
+  - 2050
+deliveryChannels:
+  - REST API (Trestle)
+  - AWS Data Share
+  - Databricks
+  - Google Cloud
+  - Microsoft Azure
+  - Snowflake
+  - SFTP

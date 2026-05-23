@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/corelogic/main/json-schema/corelogic-office-schema.json",
+  "title": "RESO Office",
+  "description": "A RESO Office (brokerage) record from the CoreLogic Trestle RESO Web API.",
+  "type": "object",
+  "required": ["OfficeKey"],
+  "properties": {
+    "OfficeKey": { "type": "string" },
+    "OfficeName": { "type": "string" },
+    "OfficeStatus": { "type": "string" },
+    "OfficePhone": { "type": "string" },
+    "OfficeAddress1": { "type": "string" },
+    "OfficeCity": { "type": "string" },
+    "OfficeStateOrProvince": { "type": "string" },
+    "OfficePostalCode": { "type": "string" },
+    "OriginatingSystemName": { "type": "string" },
+    "ModificationTimestamp": { "type": "string", "format": "date-time" }
+  }
+}

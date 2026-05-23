@@ -1,0 +1,74 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+provider: CoreLogic (Cotality)
+providerId: corelogic
+publisherName: CoreLogic Solutions, LLC (d/b/a Cotality)
+serviceCategory: Property & Climate Risk Data
+created: '2026-05-23'
+modified: '2026-05-23'
+reconciled: false
+tags:
+  - Climate Risk
+  - CoreLogic
+  - Cotality
+  - Cost Management
+  - Data Share
+  - FinOps
+  - FOCUS
+  - MLS
+  - Property Data
+  - Trestle
+description: >-
+  FOCUS-aligned FinOps view for CoreLogic / Cotality. Pricing is not
+  publicly published — Trestle is sold per MLS contract, then data-share
+  agreements grant tech vendors / brokerages access; 360 Property Data and
+  Climate Risk Analytics are quoted per enterprise contract and delivered via
+  cloud data shares. There are no usage-metered API credits or self-service
+  card-on-file billing. Cost optimization focuses on right-sizing data-share
+  scope, replication windows, and field-level $select projection.
+sources:
+  - https://www.cotality.com/360-property-data
+  - https://www.cotality.com/360-property-data/climate-risk-analytics
+  - https://trestle-documentation.corelogic.com/webapi.html
+  - https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - https://focus.finops.org/focus-specification/v1-3/
+billingModel:
+  pricingCategory: Enterprise Contract
+  billingFrequency: Annual or multi-year
+  billingCurrency: USD
+  chargeCategories:
+    - Subscription
+    - Purchase
+  meteringDimensions:
+    - Per MLS license (Trestle)
+    - Per data-share scope (geography, peril set, history depth)
+    - Per delivery channel (AWS, Databricks, Google Cloud, Azure, Snowflake, SFTP)
+costOptimization:
+  - lever: Replication mode
+    description: Use Replication=true for >1M-row datasets to avoid pagination thrash and re-billing overhead.
+  - lever: Field projection
+    description: Use $select to fetch only required fields — reduces payload size and downstream egress.
+  - lever: $apply=groupby
+    description: Use server-side groupby (max 10000 rows) to avoid pulling full datasets for aggregations.
+  - lever: Scenario / horizon scoping (Climate Risk)
+    description: License only the IPCC scenarios and horizons you intend to model rather than the full SSP grid.
+  - lever: Cloud data-share co-location
+    description: Co-locate consumer warehouse with the chosen delivery channel (e.g., Snowflake Marketplace) to avoid egress.
+focusMapping:
+  ServiceCategory: Property & Climate Risk Data
+  ServiceName: Trestle Web API / 360 Property Data / Climate Risk Analytics
+  ChargeCategory: Subscription / Purchase
+  BillingPeriodStart: Contract anniversary
+  BillingPeriodEnd: Contract anniversary + 1y
+  PricingCurrency: USD
+notes:
+  - Public pricing is not available; all figures negotiated per contract.
+  - No card-on-file or self-serve API top-ups exist.
+  - FinOps reporting must rely on contract artifacts, internal procurement records, and consumption telemetry from cloud-share landing zones.

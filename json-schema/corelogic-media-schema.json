@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/corelogic/main/json-schema/corelogic-media-schema.json",
+  "title": "RESO Media",
+  "description": "A RESO Media (listing photo, video, document) record from the CoreLogic Trestle RESO Web API.",
+  "type": "object",
+  "required": ["MediaKey"],
+  "properties": {
+    "MediaKey": { "type": "string" },
+    "ResourceRecordKey": { "type": "string", "description": "Key of the resource this media is attached to (e.g. ListingKey)." },
+    "ResourceName": { "type": "string" },
+    "ClassName": { "type": "string" },
+    "MediaURL": { "type": "string", "format": "uri" },
+    "MediaType": { "type": "string" },
+    "MediaCategory": { "type": "string" },
+    "Order": { "type": "integer" },
+    "ModificationTimestamp": { "type": "string", "format": "date-time" }
+  }
+}

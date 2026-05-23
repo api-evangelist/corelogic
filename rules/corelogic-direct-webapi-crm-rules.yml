@@ -1,0 +1,89 @@
+extends: ["spectral:oas"]
+documentationUrl: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+rules:
+  directcrm-info-contact:
+    description: API info object must declare contact info pointing at Trestle support.
+    given: "$.info"
+    severity: error
+    then:
+      field: contact
+      function: truthy
+  directcrm-server-https:
+    description: Servers must use HTTPS.
+    given: "$.servers[*].url"
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+  directcrm-base-url:
+    description: Base URL must reference the api.cotality.com Trestle OData endpoint.
+    given: "$.servers[*].url"
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "api.cotality.com/trestle/odata"
+  directcrm-oidc-or-basic:
+    description: Security must support OpenID Connect (Clareity SSO) or HTTP Basic.
+    given: "$.components.securitySchemes"
+    severity: error
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          anyOf:
+            - required: [oidcClareity]
+            - required: [basicAuth]
+  directcrm-core-resources:
+    description: API must expose the documented CRM resources.
+    given: "$.paths"
+    severity: warn
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          required:
+            - /Contacts
+            - /EmailHistory
+            - /Lists
+            - /PortalContents
+            - /SavedSearches
+            - /UserRegistry
+  directcrm-portal-actions:
+    description: PortalContents must expose AddListingNote / MarkAsViewed / SetListingPreference actions.
+    given: "$.paths"
+    severity: warn
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          required:
+            - /PortalContents/AddListingNote
+            - /PortalContents/MarkAsViewed
+            - /PortalContents/SetListingPreference
+  directcrm-operation-id:
+    description: Every operation must define a camelCase operationId.
+    given: "$.paths.*.*"
+    severity: error
+    then:
+      field: operationId
+      function: truthy
+  directcrm-summary-title-case:
+    description: Operation summaries must be in Title Case.
+    given: "$.paths.*.*.summary"
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-zA-Z0-9]*)(\\s+[A-Z$][a-zA-Z0-9$()]*)*$"
+  directcrm-tags-required:
+    description: Every operation must declare at least one tag.
+    given: "$.paths.*.*"
+    severity: error
+    then:
+      field: tags
+      function: truthy

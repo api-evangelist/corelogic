@@ -1,0 +1,39 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.cotality.com/trestle/odata/Property?$top=2&$select=ListingKey,ListingId,StandardStatus,ListPrice,BedroomsTotal,City,StateOrProvince&$filter=StandardStatus eq 'Active' and ListPrice ge 500000",
+    "headers": {
+      "Authorization": "Bearer <access_token>",
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": { "Content-Type": "application/json" },
+    "body": {
+      "@odata.context": "https://api.cotality.com/trestle/odata/$metadata#Property",
+      "@odata.count": 18437,
+      "@odata.nextLink": "https://api.cotality.com/trestle/odata/Property?$top=2&$skip=2&$select=ListingKey,ListingId,StandardStatus,ListPrice,BedroomsTotal,City,StateOrProvince&$filter=StandardStatus eq 'Active' and ListPrice ge 500000",
+      "value": [
+        {
+          "ListingKey": "abc123def456",
+          "ListingId": "23-1185",
+          "StandardStatus": "Active",
+          "ListPrice": 749000,
+          "BedroomsTotal": 4,
+          "City": "Austin",
+          "StateOrProvince": "TX"
+        },
+        {
+          "ListingKey": "abc123def457",
+          "ListingId": "23-1186",
+          "StandardStatus": "Active",
+          "ListPrice": 1295000,
+          "BedroomsTotal": 5,
+          "City": "Austin",
+          "StateOrProvince": "TX"
+        }
+      ]
+    }
+  }
+}

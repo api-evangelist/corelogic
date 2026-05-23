@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/corelogic/main/json-schema/corelogic-climate-risk-schema.json",
+  "title": "CoreLogic Climate Risk Score",
+  "description": "A parcel- or structure-level climate risk score from Cotality Climate Risk Analytics (CRA). Chronic Perils covers cold wave, heat wave, extreme precipitation, and drought across IPCC SSP scenarios projected to 2030, 2040, and 2050.",
+  "type": "object",
+  "required": ["parcelId", "peril", "score"],
+  "properties": {
+    "parcelId": { "type": "string", "description": "Cotality parcel identifier (UPI or proprietary CLIP)." },
+    "structureId": { "type": "string", "description": "Optional structure-level identifier within the parcel." },
+    "peril": {
+      "type": "string",
+      "enum": ["cold-wave", "heat-wave", "extreme-precipitation", "drought", "wildfire", "flood", "hurricane", "severe-convective-storm", "earthquake"]
+    },
+    "score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "description": "Property-level risk score (scaled 1-100)."
+    },
+    "scenario": {
+      "type": "string",
+      "enum": ["SSP1-2.6", "SSP2-4.5", "SSP3-7.0", "SSP5-8.5"],
+      "description": "IPCC shared socioeconomic pathway scenario."
+    },
+    "horizon": {
+      "type": "integer",
+      "enum": [2030, 2040, 2050],
+      "description": "Projection horizon year."
+    },
+    "indicesUsed": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of the 84 chronic-peril indices that contributed to the score, where applicable."
+    },
+    "economicImpactUSD": {
+      "type": "number",
+      "description": "Estimated annual economic impact in USD, when available."
+    },
+    "asOf": { "type": "string", "format": "date" }
+  }
+}

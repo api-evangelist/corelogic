@@ -1,0 +1,100 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Trestle RESO Web API — Member & Office Lookup
+  description: 'Trestle RESO Web API — Member & Office Lookup. 4 operations. Lead operation: Query Member
+    Records. Self-contained Naftiko capability for resolving MLS agents and brokerages from CoreLogic
+    Trestle.'
+  tags:
+    - CoreLogic
+    - Trestle
+    - RESO Web API
+    - Member
+    - Office
+  created: '2026-05-23'
+  modified: '2026-05-23'
+binds:
+  - namespace: env
+    keys:
+      CORELOGIC_TRESTLE_ACCESS_TOKEN: CORELOGIC_TRESTLE_ACCESS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: trestle-member-office-lookup
+      baseUri: https://api.cotality.com/trestle/odata
+      description: Trestle RESO Web API — Member & Office Lookup capability. Self-contained.
+      resources:
+        - name: member
+          path: /Member
+          operations:
+            - name: querymember
+              method: GET
+              description: Query Member Records
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: $filter
+                  in: query
+                  type: string
+                - name: $select
+                  in: query
+                  type: string
+                - name: $top
+                  in: query
+                  type: integer
+        - name: member-by-key
+          path: /Member({MemberKey})
+          operations:
+            - name: getmember
+              method: GET
+              description: Get Member By MemberKey
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: MemberKey
+                  in: path
+                  type: string
+                  required: true
+        - name: office
+          path: /Office
+          operations:
+            - name: queryoffice
+              method: GET
+              description: Query Office Records
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: $filter
+                  in: query
+                  type: string
+                - name: $top
+                  in: query
+                  type: integer
+        - name: office-by-key
+          path: /Office({OfficeKey})
+          operations:
+            - name: getoffice
+              method: GET
+              description: Get Office By OfficeKey
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: OfficeKey
+                  in: path
+                  type: string
+                  required: true
+      authentication:
+        type: bearer
+        value: '{{env.CORELOGIC_TRESTLE_ACCESS_TOKEN}}'
+        placement: header

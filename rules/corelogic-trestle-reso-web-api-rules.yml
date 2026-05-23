@@ -1,0 +1,97 @@
+extends: ["spectral:oas"]
+documentationUrl: https://trestle-documentation.corelogic.com/webapi.html
+rules:
+  trestle-info-contact:
+    description: API info object must declare contact info pointing at Trestle support.
+    given: "$.info"
+    severity: error
+    then:
+      field: contact
+      function: truthy
+  trestle-server-https:
+    description: Servers must use HTTPS.
+    given: "$.servers[*].url"
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+  trestle-base-url:
+    description: Base URL must reference the api.cotality.com Trestle OData endpoint.
+    given: "$.servers[*].url"
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "api.cotality.com/trestle/odata"
+  trestle-oauth2-client-credentials:
+    description: Security must be OAuth2 Client Credentials against the cotality token endpoint.
+    given: "$.components.securitySchemes.oauth2ClientCredentials.flows.clientCredentials.tokenUrl"
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "https://api.cotality.com/trestle/oidc/connect/token"
+  trestle-reso-resources:
+    description: API must expose the canonical RESO Web API resources.
+    given: "$.paths"
+    severity: warn
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          required:
+            - /Property
+            - /Member
+            - /Office
+            - /Media
+  trestle-odata-query-parameters:
+    description: Property collection endpoint must accept the standard OData query parameters.
+    given: "$.paths['/Property'].get.parameters[*].name"
+    severity: warn
+    then:
+      function: enumeration
+      functionOptions:
+        values:
+          - $filter
+          - $select
+          - $expand
+          - $orderby
+          - $top
+          - $skip
+          - $count
+          - $apply
+          - Replication
+          - PrettyEnums
+  trestle-operation-id:
+    description: Every operation must define a camelCase operationId.
+    given: "$.paths.*.*"
+    severity: error
+    then:
+      field: operationId
+      function: truthy
+  trestle-summary-title-case:
+    description: Operation summaries must be in Title Case.
+    given: "$.paths.*.*.summary"
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-zA-Z0-9]*)(\\s+[A-Z$][a-zA-Z0-9$()]*)*$"
+  trestle-tags-required:
+    description: Every operation must declare at least one tag.
+    given: "$.paths.*.*"
+    severity: error
+    then:
+      field: tags
+      function: truthy
+  trestle-pascal-case-resources:
+    description: Resource paths must use PascalCase to match RESO Data Dictionary entity names.
+    given: "$.paths"
+    severity: warn
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        match: "^/([A-Z][a-zA-Z]+|\\$metadata)(\\(.*\\))?$"

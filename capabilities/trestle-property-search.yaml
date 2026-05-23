@@ -1,0 +1,79 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Trestle RESO Web API — Property Search
+  description: 'Trestle RESO Web API — Property Search. 2 operations. Lead operation: Query Property Records.
+    Self-contained Naftiko capability for searching and retrieving MLS Property listings from CoreLogic Trestle
+    via OData 4.0 / RESO Web API 2.0.'
+  tags:
+    - CoreLogic
+    - Trestle
+    - RESO Web API
+    - Property
+  created: '2026-05-23'
+  modified: '2026-05-23'
+binds:
+  - namespace: env
+    keys:
+      CORELOGIC_TRESTLE_CLIENT_ID: CORELOGIC_TRESTLE_CLIENT_ID
+      CORELOGIC_TRESTLE_CLIENT_SECRET: CORELOGIC_TRESTLE_CLIENT_SECRET
+      CORELOGIC_TRESTLE_ACCESS_TOKEN: CORELOGIC_TRESTLE_ACCESS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: trestle-property-search
+      baseUri: https://api.cotality.com/trestle/odata
+      description: Trestle RESO Web API — Property Search business capability. Self-contained, no shared references.
+      resources:
+        - name: property
+          path: /Property
+          operations:
+            - name: queryproperty
+              method: GET
+              description: Query Property Records
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: $filter
+                  in: query
+                  type: string
+                  description: OData filter expression.
+                - name: $select
+                  in: query
+                  type: string
+                  description: Comma-separated list of fields to return.
+                - name: $top
+                  in: query
+                  type: integer
+                  description: Maximum number of records (default 10, max 1000).
+                - name: $skip
+                  in: query
+                  type: integer
+                  description: Number of records to skip for pagination.
+                - name: $orderby
+                  in: query
+                  type: string
+                  description: Comma-separated sort fields.
+        - name: property-by-key
+          path: /Property({ListingKey})
+          operations:
+            - name: getproperty
+              method: GET
+              description: Get Property By ListingKey
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: ListingKey
+                  in: path
+                  type: string
+                  required: true
+                  description: The unique RESO ListingKey for the Property record.
+      authentication:
+        type: bearer
+        value: '{{env.CORELOGIC_TRESTLE_ACCESS_TOKEN}}'
+        placement: header
