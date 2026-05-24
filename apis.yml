@@ -274,6 +274,8 @@ common:
     url: https://www.linkedin.com/company/cotality
   - type: News
     url: https://www.cotality.com/news
+  - type: LLMsTxt
+    url: https://developer.corelogic.asia/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
