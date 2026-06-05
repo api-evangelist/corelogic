@@ -1,16 +1,16 @@
 aid: corelogic
 name: CoreLogic (Cotality)
 kind: company
-description: CoreLogic — rebranded as Cotality in 2025 — is a property data and analytics company providing
-  real estate, mortgage, tax, hazard, and climate-risk information across approximately 99% of U.S. residential
-  properties plus operations in Australia, New Zealand, the United Kingdom, Canada, Germany, and India. The
-  company was taken private by Stone Point Capital and Insight Partners in June 2021 in a $6B transaction.
-  The primary public developer surface is Trestle (trestle-documentation.corelogic.com / api.cotality.com),
-  which delivers MLS listing, member, office, media, and team data via a RESO Web API 2.0 / OData 4.0 endpoint,
-  a RETS 1.8 endpoint, and a Direct Web API for Matrix CRM and MLO (member loan officer) integrations. Most
-  other Cotality data products — 360 Property Data, Climate Risk Analytics, Discovery Platform — are delivered
-  through cloud data shares (AWS, Databricks, Google Cloud, Azure, Snowflake) and SFTP rather than self-service
-  REST APIs and are gated behind enterprise sales.
+description: >-
+  CoreLogic — rebranded as Cotality in 2025 — is a property data and analytics company providing real estate, mortgage,
+  tax, hazard, and climate-risk information across approximately 99% of U.S. residential properties plus operations in
+  Australia, New Zealand, the United Kingdom, Canada, Germany, and India. The company was taken private by Stone Point
+  Capital and Insight Partners in June 2021 in a $6B transaction. The primary public developer surface is Trestle
+  (trestle-documentation.corelogic.com / api.cotality.com), which delivers MLS listing, member, office, media, and team
+  data via a RESO Web API 2.0 / OData 4.0 endpoint, a RETS 1.8 endpoint, and a Direct Web API for Matrix CRM and MLO
+  (member loan officer) integrations. Most other Cotality data products — 360 Property Data, Climate Risk Analytics,
+  Discovery Platform — are delivered through cloud data shares (AWS, Databricks, Google Cloud, Azure, Snowflake) and
+  SFTP rather than self-service REST APIs and are gated behind enterprise sales.
 url: https://raw.githubusercontent.com/api-evangelist/corelogic/refs/heads/main/apis.yml
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 type: Index
@@ -44,14 +44,15 @@ specificationVersion: '0.20'
 apis:
   - aid: corelogic:trestle-reso-web-api
     name: Trestle RESO Web API
-    description: Trestle's RESO Web API is an OData 4.0 / RESO Web API 2.0 compliant endpoint that delivers
-      MLS Property, Member, Office, Media, OpenHouse, Teams, TeamMembers, PropertyRooms, PropertyUnitTypes,
-      CustomProperty, Field, Lookup, Model, and HistoryTransactional resources across multiple aggregated
-      U.S. MLSs. Authentication uses OAuth2 Client Credentials against api.cotality.com/trestle/oidc/connect/token
-      with scope=api; tokens are valid for 8 hours. Query support includes $filter, $select, $expand, $orderby,
-      $top (max 1000, or 300000 for key-only), $skip, $count, $apply=groupby (max 10000), Replication=true
-      for 1M+ row datasets, and PrettyEnums=true. Conforms to the RESO Data Dictionary 2.0 and the RESO 2.0
-      certification including CLIP (machine-learning property identifier) and UPI (Universal Parcel Identifier).
+    description: >-
+      Trestle's RESO Web API is an OData 4.0 / RESO Web API 2.0 compliant endpoint that delivers MLS Property, Member,
+      Office, Media, OpenHouse, Teams, TeamMembers, PropertyRooms, PropertyUnitTypes, CustomProperty, Field, Lookup,
+      Model, and HistoryTransactional resources across multiple aggregated U.S. MLSs. Authentication uses OAuth2 Client
+      Credentials against api.cotality.com/trestle/oidc/connect/token with scope=api; tokens are valid for 8 hours.
+      Query support includes $filter, $select, $expand, $orderby, $top (max 1000, or 300000 for key-only), $skip,
+      $count, $apply=groupby (max 10000), Replication=true for 1M+ row datasets, and PrettyEnums=true. Conforms to the
+      RESO Data Dictionary 2.0 and the RESO 2.0 certification including CLIP (machine-learning property identifier) and
+      UPI (Universal Parcel Identifier).
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://trestle-documentation.corelogic.com/webapi.html
     baseURL: https://api.cotality.com/trestle/odata
@@ -84,20 +85,14 @@ apis:
         url: openapi/corelogic-trestle-reso-web-api-openapi.yml
       - type: Rules
         url: rules/corelogic-trestle-reso-web-api-rules.yml
-      - type: NaftikoCapability
-        url: capabilities/trestle-property-search.yaml
-      - type: NaftikoCapability
-        url: capabilities/trestle-media-fetch.yaml
-      - type: NaftikoCapability
-        url: capabilities/trestle-member-office-lookup.yaml
   - aid: corelogic:trestle-rets
     name: Trestle RETS
-    description: Trestle's RETS endpoint implements the RETS 1.8 specification on top of the same data
-      catalog as the RESO Web API. The service is session-less; authentication uses HTTP Basic with client
-      credentials or OAuth2 bearer tokens issued from /trestle/oidc/connect/token with scope=rets. Supported
-      transactions include Login, GetMetadata, Search (up to 1000 records per request, default 10), and
-      GetObject for media. The same RESO resources are exposed as RETS SearchType / Class names (Property,
-      Member, Office, Teams, Media, Lookup). Digest authentication is not supported.
+    description: >-
+      Trestle's RETS endpoint implements the RETS 1.8 specification on top of the same data catalog as the RESO Web API.
+      The service is session-less; authentication uses HTTP Basic with client credentials or OAuth2 bearer tokens issued
+      from /trestle/oidc/connect/token with scope=rets. Supported transactions include Login, GetMetadata, Search (up to
+      1000 records per request, default 10), and GetObject for media. The same RESO resources are exposed as RETS
+      SearchType / Class names (Property, Member, Office, Teams, Media, Lookup). Digest authentication is not supported.
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://trestle-documentation.corelogic.com/rets.html
     baseURL: https://api.cotality.com/trestle/rets
@@ -116,12 +111,12 @@ apis:
         url: https://trestle-documentation.corelogic.com/rets-connector.html
   - aid: corelogic:direct-webapi-crm
     name: Direct Web API — CRM
-    description: The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS
-      CRM database. Resources include Contacts, EmailHistory, Lists (carts), PortalContents (with
-      AddListingNote / MarkAsViewed / SetListingPreference actions), SavedSearches, UserRegistry, and a
-      DashboardAPI for aggregated MyListings, HotSheet, MarketWatch, Concierge, and Timeline data.
-      Authentication is OpenID Connect via Clareity Single Sign-On or basic authentication. Standard
-      OData $select / $expand / $orderby / $filter query options are supported.
+    description: >-
+      The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources
+      include Contacts, EmailHistory, Lists (carts), PortalContents (with AddListingNote / MarkAsViewed /
+      SetListingPreference actions), SavedSearches, UserRegistry, and a DashboardAPI for aggregated MyListings,
+      HotSheet, MarketWatch, Concierge, and Timeline data. Authentication is OpenID Connect via Clareity Single Sign-On
+      or basic authentication. Standard OData $select / $expand / $orderby / $filter query options are supported.
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
     baseURL: https://api.cotality.com/trestle/odata
@@ -139,15 +134,12 @@ apis:
         url: openapi/corelogic-direct-webapi-crm-openapi.yml
       - type: Rules
         url: rules/corelogic-direct-webapi-crm-rules.yml
-      - type: NaftikoCapability
-        url: capabilities/direct-webapi-crm-contacts.yaml
-      - type: NaftikoCapability
-        url: capabilities/direct-webapi-crm-saved-searches.yaml
   - aid: corelogic:direct-webapi-mlo
     name: Direct Web API — MLO
-    description: The Direct Web API MLO reference exposes Member Loan Officer / lender-side data from
-      the Matrix MLS platform via OData. Used to integrate originator and loan-officer profiles, branches,
-      and licensing data into third-party CRM and lead-routing systems.
+    description: >-
+      The Direct Web API MLO reference exposes Member Loan Officer / lender-side data from the Matrix MLS platform via
+      OData. Used to integrate originator and loan-officer profiles, branches, and licensing data into third-party CRM
+      and lead-routing systems.
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://trestle-documentation.corelogic.com/direct-webapi-mlo-reference.html
     baseURL: https://api.cotality.com/trestle/odata
@@ -163,9 +155,10 @@ apis:
         url: https://trestle-documentation.corelogic.com/direct-webapi-mlo-reference.html
   - aid: corelogic:participant-reporting-api
     name: Participant Reporting API
-    description: The Participant Reporting API allows MLS staff and brokerages to report broker/agent
-      participation events back to Trestle. Documented in a published PDF reference; used for audit,
-      compliance, and royalty/fee-share reporting against listing activity.
+    description: >-
+      The Participant Reporting API allows MLS staff and brokerages to report broker/agent participation events back to
+      Trestle. Documented in a published PDF reference; used for audit, compliance, and royalty/fee-share reporting
+      against listing activity.
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://trestle-documentation.corelogic.com/ParticipantReportingHowTo.pdf
     baseURL: https://api.cotality.com/trestle/odata
@@ -180,11 +173,12 @@ apis:
         url: https://trestle-documentation.corelogic.com/ParticipantReportingHowTo.pdf
   - aid: corelogic:360-property-data
     name: 360 Property Data
-    description: 360 Property Data is Cotality's enterprise property data product covering structure,
-      ownership, tax, mortgages, hazard risk, climate risk, and geospatial overlays across approximately
-      99% of U.S. residential properties. Delivery is via cloud data shares (AWS, Databricks, Google
-      Cloud, Microsoft Azure, Snowflake) and SFTP rather than a self-service REST API; access is gated
-      by enterprise sales contract. Sold to lenders, insurers, government, and proptech platforms.
+    description: >-
+      360 Property Data is Cotality's enterprise property data product covering structure, ownership, tax, mortgages,
+      hazard risk, climate risk, and geospatial overlays across approximately 99% of U.S. residential properties.
+      Delivery is via cloud data shares (AWS, Databricks, Google Cloud, Microsoft Azure, Snowflake) and SFTP rather than
+      a self-service REST API; access is gated by enterprise sales contract. Sold to lenders, insurers, government, and
+      proptech platforms.
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://www.cotality.com/360-property-data
     tags:
@@ -200,13 +194,13 @@ apis:
         url: https://www.cotality.com/360-property-data
   - aid: corelogic:climate-risk-analytics
     name: Climate Risk Analytics
-    description: Climate Risk Analytics (CRA) delivers parcel- and structure-level chronic climate risk
-      indices and acute peril scores across the continental United States and the District of Columbia.
-      Chronic Perils covers cold wave, heat wave, extreme precipitation, and drought via 84 indices,
-      with IPCC SSP1-2.6, SSP2-4.5, SSP3-7.0, and SSP5-8.5 scenarios projected to 2030, 2040, and 2050.
-      Acute Perils products cover wildfire, flood, hurricane, severe convective storm, and earthquake.
-      Delivery is via AWS, Databricks, Google Cloud, Azure, Snowflake, and SFTP — semantic companion
-      files ship alongside the data for AI/ML ingestion.
+    description: >-
+      Climate Risk Analytics (CRA) delivers parcel- and structure-level chronic climate risk indices and acute peril
+      scores across the continental United States and the District of Columbia. Chronic Perils covers cold wave, heat
+      wave, extreme precipitation, and drought via 84 indices, with IPCC SSP1-2.6, SSP2-4.5, SSP3-7.0, and SSP5-8.5
+      scenarios projected to 2030, 2040, and 2050. Acute Perils products cover wildfire, flood, hurricane, severe
+      convective storm, and earthquake. Delivery is via AWS, Databricks, Google Cloud, Azure, Snowflake, and SFTP —
+      semantic companion files ship alongside the data for AI/ML ingestion.
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://www.cotality.com/360-property-data/climate-risk-analytics
     tags:
