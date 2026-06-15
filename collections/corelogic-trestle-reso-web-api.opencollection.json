@@ -1,0 +1,665 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoreLogic Trestle RESO Web API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.cotality.com/trestle/oidc/connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Property",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Property Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Property",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to inline-expand."
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields with optional asc / desc modifiers."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query",
+                "description": "When true, includes the total count of matching records in @odata.count."
+              },
+              {
+                "name": "$apply",
+                "value": "",
+                "type": "query",
+                "description": "OData apply transformation (e.g. groupby) — max 10000 result rows."
+              },
+              {
+                "name": "Replication",
+                "value": "",
+                "type": "query",
+                "description": "When true, enables high-volume replication mode for datasets exceeding 1M rows."
+              },
+              {
+                "name": "PrettyEnums",
+                "value": "",
+                "type": "query",
+                "description": "When true, returns human-readable enumeration values instead of internal codes."
+              }
+            ]
+          },
+          "docs": "Returns Property records matching the supplied OData query options. Supports $filter, $select, $expand, $orderby, $top (max 1000, or 300000 for key-only), $skip, $count, $apply=groupby (max 10000), Replication=true for large datasets, and PrettyEnums=true."
+        },
+        {
+          "info": {
+            "name": "Get Property By ListingKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Property(:ListingKey)",
+            "params": [
+              {
+                "name": "ListingKey",
+                "value": "",
+                "type": "path",
+                "description": "The unique RESO ListingKey for the Property record."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to inline-expand."
+              }
+            ]
+          },
+          "docs": "Returns a single Property record by ListingKey."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Member",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Member Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Member",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to inline-expand."
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields with optional asc / desc modifiers."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query",
+                "description": "When true, includes the total count of matching records in @odata.count."
+              }
+            ]
+          },
+          "docs": "Returns MLS Member (agent) records matching OData query options."
+        },
+        {
+          "info": {
+            "name": "Get Member By MemberKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Member(:MemberKey)",
+            "params": [
+              {
+                "name": "MemberKey",
+                "value": "",
+                "type": "path",
+                "description": "The unique RESO MemberKey for the Member record."
+              }
+            ]
+          },
+          "docs": "Returns a single Member record by MemberKey."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Office",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Office Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Office",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query",
+                "description": "When true, includes the total count of matching records in @odata.count."
+              }
+            ]
+          },
+          "docs": "Returns MLS Office (brokerage) records matching OData query options."
+        },
+        {
+          "info": {
+            "name": "Get Office By OfficeKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Office(:OfficeKey)",
+            "params": [
+              {
+                "name": "OfficeKey",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a single Office record by OfficeKey."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Media",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Media Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Media",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns Media (photos, videos, documents) for listings."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "OpenHouse",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Open House Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/OpenHouse",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns scheduled open-house events for listings."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Team Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Teams",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns MLS team records."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "TeamMembers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Team Member Relationships",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/TeamMembers",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              }
+            ]
+          },
+          "docs": "Returns membership relationships between Teams and Members."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "PropertyRooms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Property Rooms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/PropertyRooms",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              }
+            ]
+          },
+          "docs": "Returns per-room detail records linked to Property listings."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "PropertyUnitTypes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Property Unit Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/PropertyUnitTypes",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              }
+            ]
+          },
+          "docs": "Returns per-unit detail records for multi-unit properties."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "HistoryTransactional",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query History Transactional Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/HistoryTransactional",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              },
+              {
+                "name": "Replication",
+                "value": "",
+                "type": "query",
+                "description": "When true, enables high-volume replication mode for datasets exceeding 1M rows."
+              }
+            ]
+          },
+          "docs": "Returns transactional change history events for tracked resources."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "CustomProperty",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Custom Property Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/CustomProperty",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              }
+            ]
+          },
+          "docs": "Returns MLS-specific extensions to the RESO Property resource."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Field",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Field Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Field"
+          },
+          "docs": "Returns field-level metadata describing all available fields per resource."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Lookup",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Lookup Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Lookup"
+          },
+          "docs": "Returns enumerated lookup values used across RESO resources."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Model",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Resource Models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Model"
+          },
+          "docs": "Returns resource model definitions enumerated by the service."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "DataSystem",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Data System Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/DataSystem"
+          },
+          "docs": "Returns top-level service metadata and the list of available resources."
+        },
+        {
+          "info": {
+            "name": "Get OData Service Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/$metadata"
+          },
+          "docs": "Returns the OData EDMX service metadata document describing every entity, property, and enumeration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

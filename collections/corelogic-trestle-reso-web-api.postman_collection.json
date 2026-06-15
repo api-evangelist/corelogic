@@ -1,0 +1,2785 @@
+{
+  "item": [
+    {
+      "id": "379afdd3-079e-4c01-a0bd-8bda782a92c5",
+      "name": "Property",
+      "description": {
+        "content": "MLS property listings and detail records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f736cc9-bb09-4d00-a665-dca35d0951b7",
+          "name": "Query Property Records",
+          "request": {
+            "name": "Query Property Records",
+            "description": {
+              "content": "Returns Property records matching the supplied OData query options. Supports $filter, $select, $expand, $orderby, $top (max 1000, or 300000 for key-only), $skip, $count, $apply=groupby (max 10000), Replication=true for large datasets, and PrettyEnums=true.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Property"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to inline-expand."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields with optional asc / desc modifiers."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "$count",
+                  "value": "<boolean>",
+                  "description": "When true, includes the total count of matching records in @odata.count."
+                },
+                {
+                  "disabled": false,
+                  "key": "$apply",
+                  "value": "<string>",
+                  "description": "OData apply transformation (e.g. groupby) — max 10000 result rows."
+                },
+                {
+                  "disabled": false,
+                  "key": "Replication",
+                  "value": "<boolean>",
+                  "description": "When true, enables high-volume replication mode for datasets exceeding 1M rows."
+                },
+                {
+                  "disabled": false,
+                  "key": "PrettyEnums",
+                  "value": "<boolean>",
+                  "description": "When true, returns human-readable enumeration values instead of internal codes."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5361f7ed-f6de-4b7d-81b6-a5f98d0e51b8",
+              "name": "OData collection of Property records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$apply",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Replication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PrettyEnums",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"@odata.count\": 7378,\n  \"@odata.nextLink\": \"string\",\n  \"value\": [\n    {\n      \"ListingKey\": \"string\",\n      \"ListingId\": \"string\",\n      \"StandardStatus\": \"string\",\n      \"PropertyType\": \"string\",\n      \"PropertySubType\": \"string\",\n      \"ListPrice\": 9754.026492598368,\n      \"ClosePrice\": 7230.776303401577,\n      \"BedroomsTotal\": 5859,\n      \"BathroomsTotalInteger\": 617,\n      \"LivingArea\": 2945.072371341253,\n      \"LotSizeArea\": 8152.5381437398055,\n      \"YearBuilt\": 4780,\n      \"StreetNumber\": \"string\",\n      \"StreetName\": \"string\",\n      \"StreetSuffix\": \"string\",\n      \"City\": \"string\",\n      \"StateOrProvince\": \"string\",\n      \"PostalCode\": \"string\",\n      \"Country\": \"string\",\n      \"Latitude\": 8806.19515831921,\n      \"Longitude\": 3683.1004940505263,\n      \"ListAgentKey\": \"string\",\n      \"ListOfficeKey\": \"string\",\n      \"ModificationTimestamp\": \"2013-05-30T12:04:12.918Z\",\n      \"OriginatingSystemName\": \"string\",\n      \"UniversalParcelId\": \"string\",\n      \"CLIP\": \"string\"\n    },\n    {\n      \"ListingKey\": \"string\",\n      \"ListingId\": \"string\",\n      \"StandardStatus\": \"string\",\n      \"PropertyType\": \"string\",\n      \"PropertySubType\": \"string\",\n      \"ListPrice\": 1518.2302408887583,\n      \"ClosePrice\": 7146.208129670609,\n      \"BedroomsTotal\": 8693,\n      \"BathroomsTotalInteger\": 2100,\n      \"LivingArea\": 7016.847900267267,\n      \"LotSizeArea\": 5295.807123892745,\n      \"YearBuilt\": 2404,\n      \"StreetNumber\": \"string\",\n      \"StreetName\": \"string\",\n      \"StreetSuffix\": \"string\",\n      \"City\": \"string\",\n      \"StateOrProvince\": \"string\",\n      \"PostalCode\": \"string\",\n      \"Country\": \"string\",\n      \"Latitude\": 479.4326254451697,\n      \"Longitude\": 305.3191043451464,\n      \"ListAgentKey\": \"string\",\n      \"ListOfficeKey\": \"string\",\n      \"ModificationTimestamp\": \"2025-10-15T13:54:06.517Z\",\n      \"OriginatingSystemName\": \"string\",\n      \"UniversalParcelId\": \"string\",\n      \"CLIP\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04309fa3-6b1e-442d-ade4-609cb3ae923a",
+              "name": "Request was malformed or referenced an unknown field.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$apply",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Replication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PrettyEnums",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc4d8f57-7768-4953-b31a-863b35b3b36d",
+              "name": "Access token missing, expired, or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$apply",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Replication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PrettyEnums",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25187a57-bd4a-403b-89d9-809c243c1369",
+              "name": "Rate limit or quota exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$apply",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Replication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PrettyEnums",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "646ed31e-9c4a-4b78-93bf-1e05b1c46e8a",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$apply",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Replication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PrettyEnums",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23342308-6fcc-4cf0-995f-e3a552b4ecf6",
+              "name": "Upstream gateway timeout.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$apply",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Replication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PrettyEnums",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0a531ab-ee9c-4f5c-9029-53c67a96ab21",
+          "name": "Get Property By ListingKey",
+          "request": {
+            "name": "Get Property By ListingKey",
+            "description": {
+              "content": "Returns a single Property record by ListingKey.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Property({{ListingKey}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to inline-expand."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67ef7932-93e7-46f5-8c08-997eb84c62b5",
+              "name": "A single Property record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property({{ListingKey}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ListingKey\": \"string\",\n  \"ListingId\": \"string\",\n  \"StandardStatus\": \"string\",\n  \"PropertyType\": \"string\",\n  \"PropertySubType\": \"string\",\n  \"ListPrice\": 3050.705640027108,\n  \"ClosePrice\": 9515.672659248357,\n  \"BedroomsTotal\": 363,\n  \"BathroomsTotalInteger\": 4776,\n  \"LivingArea\": 7239.771422632823,\n  \"LotSizeArea\": 4409.959595205979,\n  \"YearBuilt\": 4685,\n  \"StreetNumber\": \"string\",\n  \"StreetName\": \"string\",\n  \"StreetSuffix\": \"string\",\n  \"City\": \"string\",\n  \"StateOrProvince\": \"string\",\n  \"PostalCode\": \"string\",\n  \"Country\": \"string\",\n  \"Latitude\": 7489.81467563304,\n  \"Longitude\": 2570.4122647381055,\n  \"ListAgentKey\": \"string\",\n  \"ListOfficeKey\": \"string\",\n  \"ModificationTimestamp\": \"2014-02-12T15:57:42.439Z\",\n  \"OriginatingSystemName\": \"string\",\n  \"UniversalParcelId\": \"string\",\n  \"CLIP\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a7ac2ac-db95-4437-a109-b44a47a4d2ae",
+              "name": "Access token missing, expired, or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property({{ListingKey}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7258b85-e3f2-4684-b7c5-a633ebe08de5",
+              "name": "The requested resource record does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property({{ListingKey}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ac34ee1b-a33a-4575-9d27-1bb3d7238d34",
+      "name": "Member",
+      "description": {
+        "content": "MLS member (agent) records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f1cf3622-8951-4532-a3d7-ce4f94a3b441",
+          "name": "Query Member Records",
+          "request": {
+            "name": "Query Member Records",
+            "description": {
+              "content": "Returns MLS Member (agent) records matching OData query options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Member"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to inline-expand."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields with optional asc / desc modifiers."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "$count",
+                  "value": "<boolean>",
+                  "description": "When true, includes the total count of matching records in @odata.count."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a7fdaac-1bca-41f5-8edc-0a714db1f2c2",
+              "name": "OData collection of Member records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Member"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"@odata.count\": 3190,\n  \"@odata.nextLink\": \"string\",\n  \"value\": [\n    {\n      \"MemberKey\": \"string\",\n      \"MemberFirstName\": \"string\",\n      \"MemberLastName\": \"string\",\n      \"MemberFullName\": \"string\",\n      \"MemberLoginId\": \"string\",\n      \"MemberStatus\": \"string\",\n      \"MemberEmail\": \"string\",\n      \"MemberPreferredPhone\": \"string\",\n      \"OfficeKey\": \"string\",\n      \"OriginatingSystemName\": \"string\",\n      \"ModificationTimestamp\": \"2023-10-20T08:38:17.775Z\"\n    },\n    {\n      \"MemberKey\": \"string\",\n      \"MemberFirstName\": \"string\",\n      \"MemberLastName\": \"string\",\n      \"MemberFullName\": \"string\",\n      \"MemberLoginId\": \"string\",\n      \"MemberStatus\": \"string\",\n      \"MemberEmail\": \"string\",\n      \"MemberPreferredPhone\": \"string\",\n      \"OfficeKey\": \"string\",\n      \"OriginatingSystemName\": \"string\",\n      \"ModificationTimestamp\": \"1950-01-26T09:50:33.326Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cab4d893-42b9-4241-bfd1-1d31c4eefbf5",
+              "name": "Access token missing, expired, or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Member"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5582f2e5-07b9-442e-b978-c5b4e9bc4c4b",
+          "name": "Get Member By MemberKey",
+          "request": {
+            "name": "Get Member By MemberKey",
+            "description": {
+              "content": "Returns a single Member record by MemberKey.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Member({{MemberKey}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b34a796b-1144-4981-94e0-bdbe873bbc56",
+              "name": "A single Member record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Member({{MemberKey}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"MemberKey\": \"string\",\n  \"MemberFirstName\": \"string\",\n  \"MemberLastName\": \"string\",\n  \"MemberFullName\": \"string\",\n  \"MemberLoginId\": \"string\",\n  \"MemberStatus\": \"string\",\n  \"MemberEmail\": \"string\",\n  \"MemberPreferredPhone\": \"string\",\n  \"OfficeKey\": \"string\",\n  \"OriginatingSystemName\": \"string\",\n  \"ModificationTimestamp\": \"1948-04-09T03:55:38.928Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8bb9834c-0432-476f-b495-46609e27a220",
+      "name": "Office",
+      "description": {
+        "content": "MLS office (brokerage) records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "756ba140-b4e1-48aa-82de-f1c4ff73519a",
+          "name": "Query Office Records",
+          "request": {
+            "name": "Query Office Records",
+            "description": {
+              "content": "Returns MLS Office (brokerage) records matching OData query options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Office"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "$count",
+                  "value": "<boolean>",
+                  "description": "When true, includes the total count of matching records in @odata.count."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0058d780-e7ed-4c12-b0e9-5a28720946ae",
+              "name": "OData collection of Office records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Office"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"@odata.count\": 7963,\n  \"@odata.nextLink\": \"string\",\n  \"value\": [\n    {\n      \"OfficeKey\": \"string\",\n      \"OfficeName\": \"string\",\n      \"OfficeStatus\": \"string\",\n      \"OfficePhone\": \"string\",\n      \"OfficeAddress1\": \"string\",\n      \"OfficeCity\": \"string\",\n      \"OfficeStateOrProvince\": \"string\",\n      \"OfficePostalCode\": \"string\",\n      \"OriginatingSystemName\": \"string\",\n      \"ModificationTimestamp\": \"1996-07-24T00:06:13.700Z\"\n    },\n    {\n      \"OfficeKey\": \"string\",\n      \"OfficeName\": \"string\",\n      \"OfficeStatus\": \"string\",\n      \"OfficePhone\": \"string\",\n      \"OfficeAddress1\": \"string\",\n      \"OfficeCity\": \"string\",\n      \"OfficeStateOrProvince\": \"string\",\n      \"OfficePostalCode\": \"string\",\n      \"OriginatingSystemName\": \"string\",\n      \"ModificationTimestamp\": \"1979-04-23T14:22:22.800Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4468ad72-9d81-4fbb-90d3-69a6aeda313b",
+          "name": "Get Office By OfficeKey",
+          "request": {
+            "name": "Get Office By OfficeKey",
+            "description": {
+              "content": "Returns a single Office record by OfficeKey.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Office({{OfficeKey}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f7b46e1-824f-4881-9d7f-c7b5fc0e8df6",
+              "name": "A single Office record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Office({{OfficeKey}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"OfficeKey\": \"string\",\n  \"OfficeName\": \"string\",\n  \"OfficeStatus\": \"string\",\n  \"OfficePhone\": \"string\",\n  \"OfficeAddress1\": \"string\",\n  \"OfficeCity\": \"string\",\n  \"OfficeStateOrProvince\": \"string\",\n  \"OfficePostalCode\": \"string\",\n  \"OriginatingSystemName\": \"string\",\n  \"ModificationTimestamp\": \"1954-12-29T20:05:27.335Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1c3bd85c-471c-45dd-aac8-561e2b1c97e0",
+      "name": "Media",
+      "description": {
+        "content": "Listing media (photos, videos, documents).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "05a24fc0-7b0b-4e50-8ed8-ea9a9d2b6545",
+          "name": "Query Media Records",
+          "request": {
+            "name": "Query Media Records",
+            "description": {
+              "content": "Returns Media (photos, videos, documents) for listings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Media"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip for pagination."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cfd249a9-9553-4c57-a045-b6941e84e902",
+              "name": "OData collection of Media records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"@odata.count\": 7654,\n  \"@odata.nextLink\": \"string\",\n  \"value\": [\n    {\n      \"MediaKey\": \"string\",\n      \"ResourceRecordKey\": \"string\",\n      \"ResourceName\": \"string\",\n      \"ClassName\": \"string\",\n      \"MediaURL\": \"string\",\n      \"MediaType\": \"string\",\n      \"MediaCategory\": \"string\",\n      \"Order\": 6983,\n      \"ModificationTimestamp\": \"1963-05-20T01:33:43.550Z\"\n    },\n    {\n      \"MediaKey\": \"string\",\n      \"ResourceRecordKey\": \"string\",\n      \"ResourceName\": \"string\",\n      \"ClassName\": \"string\",\n      \"MediaURL\": \"string\",\n      \"MediaType\": \"string\",\n      \"MediaCategory\": \"string\",\n      \"Order\": 1829,\n      \"ModificationTimestamp\": \"1974-10-09T03:37:38.245Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8dab6a61-ec52-441c-893d-204b0e0042bf",
+      "name": "OpenHouse",
+      "description": {
+        "content": "Scheduled open-house events.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5161363d-5ea1-402f-be62-cae0bf180e41",
+          "name": "Query Open House Events",
+          "request": {
+            "name": "Query Open House Events",
+            "description": {
+              "content": "Returns scheduled open-house events for listings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "OpenHouse"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip for pagination."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0b92d32e-5fef-4d73-80c9-9f1f9fb93a1d",
+              "name": "OData collection of OpenHouse records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "OpenHouse"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fc793028-3db9-4e24-a8be-9df3c5e41e01",
+      "name": "Teams",
+      "description": {
+        "content": "MLS team records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9e329168-06d3-4504-b4e7-042594c91dd3",
+          "name": "Query Team Records",
+          "request": {
+            "name": "Query Team Records",
+            "description": {
+              "content": "Returns MLS team records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Teams"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip for pagination."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6020508c-b8f6-462c-b8d4-f30df469d12b",
+              "name": "OData collection of Team records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Teams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a6075945-13f7-41ae-a94f-1b2d3905d462",
+      "name": "TeamMembers",
+      "description": {
+        "content": "Membership relationships between teams and members.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9f73a363-7115-405c-b771-0cd5e9b6440b",
+          "name": "Query Team Member Relationships",
+          "request": {
+            "name": "Query Team Member Relationships",
+            "description": {
+              "content": "Returns membership relationships between Teams and Members.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "TeamMembers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4facb98e-1496-4ab7-b984-d26bd90b3921",
+              "name": "OData collection of TeamMember records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "TeamMembers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "05744e3a-eaf7-48db-927d-c6a547350bb3",
+      "name": "PropertyRooms",
+      "description": {
+        "content": "Per-room detail for listed properties.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "83bbdbbc-d4ef-4296-99bd-cb646d3e7f52",
+          "name": "Query Property Rooms",
+          "request": {
+            "name": "Query Property Rooms",
+            "description": {
+              "content": "Returns per-room detail records linked to Property listings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "PropertyRooms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c46bf07-f4a9-4f24-b5b5-4bad5d2c12cf",
+              "name": "OData collection of PropertyRoom records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "PropertyRooms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cdab221e-0f9d-4eee-aeae-1d2d9c684326",
+      "name": "PropertyUnitTypes",
+      "description": {
+        "content": "Per-unit detail for multi-unit properties.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cdfca054-faea-4781-8d61-ed6eb1e2f417",
+          "name": "Query Property Unit Types",
+          "request": {
+            "name": "Query Property Unit Types",
+            "description": {
+              "content": "Returns per-unit detail records for multi-unit properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "PropertyUnitTypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad7e3801-6d8e-4afe-a912-9b1b0c562aa6",
+              "name": "OData collection of PropertyUnitType records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "PropertyUnitTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1eaef1fc-d921-4b1e-aaa0-45158c110ef1",
+      "name": "HistoryTransactional",
+      "description": {
+        "content": "Transactional change history for tracked resources.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fc1b3ecf-e096-42b1-9176-0c3d2c228358",
+          "name": "Query History Transactional Records",
+          "request": {
+            "name": "Query History Transactional Records",
+            "description": {
+              "content": "Returns transactional change history events for tracked resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "HistoryTransactional"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                },
+                {
+                  "disabled": false,
+                  "key": "Replication",
+                  "value": "<boolean>",
+                  "description": "When true, enables high-volume replication mode for datasets exceeding 1M rows."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "323cb045-fa4f-4c78-b049-8b3eead7695e",
+              "name": "OData collection of HistoryTransactional records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "HistoryTransactional"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "Replication",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3955860e-06f8-4ac6-8c99-46a3bd92b31c",
+      "name": "CustomProperty",
+      "description": {
+        "content": "MLS-specific extensions to the RESO Property resource.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a3a65bf7-0eff-4216-b1e8-2f695f8530b4",
+          "name": "Query Custom Property Records",
+          "request": {
+            "name": "Query Custom Property Records",
+            "description": {
+              "content": "Returns MLS-specific extensions to the RESO Property resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "CustomProperty"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3d0bbb7-1cec-4180-afc7-3aafecd3cafc",
+              "name": "OData collection of CustomProperty records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CustomProperty"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ee5d7643-ca4f-4372-8e5c-37b2ec38487e",
+      "name": "Field",
+      "description": {
+        "content": "Metadata describing fields available on each resource.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b93dd20d-4d30-452a-8e7b-63bf18b261c5",
+          "name": "Query Field Metadata",
+          "request": {
+            "name": "Query Field Metadata",
+            "description": {
+              "content": "Returns field-level metadata describing all available fields per resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Field"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be9a95a5-5ec8-4f1c-ac72-0e3b338f3912",
+              "name": "OData collection of Field metadata records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Field"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d85904f5-cf2b-42ca-a69d-71c7612ebcf8",
+      "name": "Lookup",
+      "description": {
+        "content": "Enumerated lookup values used across resources.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "221d49a7-d296-4ed3-87b9-7f29054d5d87",
+          "name": "Query Lookup Values",
+          "request": {
+            "name": "Query Lookup Values",
+            "description": {
+              "content": "Returns enumerated lookup values used across RESO resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80904c0b-ec4f-409e-9611-e295d1620945",
+              "name": "OData collection of Lookup values.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "84e27c15-0e45-49c4-ad59-4ba4ea105583",
+      "name": "Model",
+      "description": {
+        "content": "Resource model definitions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2d6a25f4-b701-4d60-a0d0-25e26ef200f8",
+          "name": "Query Resource Models",
+          "request": {
+            "name": "Query Resource Models",
+            "description": {
+              "content": "Returns resource model definitions enumerated by the service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Model"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29bae7a7-6a78-4576-babf-58de1738e27f",
+              "name": "OData collection of Model definitions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "82140929-c79e-464e-89e2-f2e7fc79abf6",
+      "name": "DataSystem",
+      "description": {
+        "content": "Service-level metadata and available resources.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3c669e4d-8a94-44b3-8ecd-82a28de8e885",
+          "name": "Get Data System Metadata",
+          "request": {
+            "name": "Get Data System Metadata",
+            "description": {
+              "content": "Returns top-level service metadata and the list of available resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DataSystem"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd920d3e-ffb5-4856-91b0-86b00b785c5a",
+              "name": "DataSystem metadata document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DataSystem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9479ef14-ff55-4bee-877e-97040d7f473a",
+          "name": "Get OData Service Metadata",
+          "request": {
+            "name": "Get OData Service Metadata",
+            "description": {
+              "content": "Returns the OData EDMX service metadata document describing every entity, property, and enumeration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "$metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d71e4f03-0c40-47e7-b83a-90ce1af41fa2",
+              "name": "EDMX metadata document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "$metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.cotality.com/trestle/odata",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "OfficeKey"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The unique RESO MemberKey for the Member record.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "MemberKey"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The unique RESO ListingKey for the Property record.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "ListingKey"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.cotality.com/trestle/oidc/connect/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1bd6e1fa-8f8d-46d4-8190-62d935f1d7f9",
+    "name": "CoreLogic Trestle RESO Web API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Trestle's RESO Web API is an OData 4.0 / RESO Web API 2.0 compliant endpoint that delivers MLS Property, Member, Office, Media, OpenHouse, Teams, and related real-estate resources across multiple aggregated U.S. MLSs. Authentication uses OAuth2 Client Credentials against api.cotality.com/trestle/oidc/connect/token with scope=api; tokens are valid for 8 hours. Conforms to the RESO Data Dictionary 2.0.\n\nContact Support:\n Name: Trestle Support\n Email: trestlesupport@cotality.com",
+      "type": "text/plain"
+    }
+  }
+}

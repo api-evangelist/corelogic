@@ -1,0 +1,2287 @@
+{
+  "item": [
+    {
+      "id": "0784f471-8cfa-43fc-bcec-f28f48ade4e2",
+      "name": "Contacts",
+      "description": {
+        "content": "CRM contact records (name, address, phone, email).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "592856bc-5e5c-4540-8313-512bccff7c76",
+          "name": "Query Contacts",
+          "request": {
+            "name": "Query Contacts",
+            "description": {
+              "content": "Returns contact records matching OData query options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5765e0d-7275-47e6-b0ef-e1f4dd94707d",
+              "name": "OData collection of Contact records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa26c7f7-d450-4293-89ab-c895194c1d40",
+          "name": "Create Contact",
+          "request": {
+            "name": "Create Contact",
+            "description": {
+              "content": "Creates a new contact record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"City\": \"<string>\",\n  \"StateOrProvince\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9954ccab-fd20-44c7-97c3-3b701f90cf7f",
+              "name": "Created Contact record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"City\": \"<string>\",\n  \"StateOrProvince\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"City\": \"<string>\",\n  \"StateOrProvince\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2a15e83-36bf-4194-950d-0d92849e608d",
+          "name": "Get Contact",
+          "request": {
+            "name": "Get Contact",
+            "description": {
+              "content": "Returns a single Contact by its numeric key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Contacts({{ContactKeyNumeric}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cbc0788f-2b74-4806-a3f4-5622c856710c",
+              "name": "A single Contact record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Contacts({{ContactKeyNumeric}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"City\": \"<string>\",\n  \"StateOrProvince\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab1df0f0-1e93-4b41-918c-ec7c94a1f0c4",
+          "name": "Update Contact",
+          "request": {
+            "name": "Update Contact",
+            "description": {
+              "content": "Updates an existing Contact record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Contacts({{ContactKeyNumeric}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"City\": \"<string>\",\n  \"StateOrProvince\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dce0e29b-740a-46a1-9390-f3da123df2d6",
+              "name": "Contact updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Contacts({{ContactKeyNumeric}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Address\": \"<string>\",\n  \"City\": \"<string>\",\n  \"StateOrProvince\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "103d9dbf-8373-4a06-bee8-745360311b45",
+          "name": "Delete Contact",
+          "request": {
+            "name": "Delete Contact",
+            "description": {
+              "content": "Deletes a Contact record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Contacts({{ContactKeyNumeric}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67620ca2-1548-4b6f-8f12-af3286380ad9",
+              "name": "Contact deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Contacts({{ContactKeyNumeric}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7479820-e3cf-4185-8a6e-6e1e03140c7c",
+          "name": "Get Contact Portal Contents",
+          "request": {
+            "name": "Get Contact Portal Contents",
+            "description": {
+              "content": "Returns the PortalContents records associated with a contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Contacts({{ContactKeyNumeric}})",
+                "PortalContents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e7cce71-fc1d-4819-a3e8-5235dbf96aa8",
+              "name": "OData collection of PortalContents records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Contacts({{ContactKeyNumeric}})",
+                    "PortalContents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5e7b050a-7915-42c2-9d69-2899d169a8f5",
+      "name": "EmailHistory",
+      "description": {
+        "content": "Outbound messages sent to contacts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "04806933-7e11-415e-9378-098629b0a07c",
+          "name": "Query Email History",
+          "request": {
+            "name": "Query Email History",
+            "description": {
+              "content": "Returns email-history records for messages sent to contacts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EmailHistory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f634cbc-e9f9-4b13-8f15-7317d14c6ad0",
+              "name": "OData collection of EmailHistory records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EmailHistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "795fd87e-4146-4aac-b7d0-4511c8f99b03",
+          "name": "Create Email History Record",
+          "request": {
+            "name": "Create Email History Record",
+            "description": {
+              "content": "Records an email sent to a contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EmailHistory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"EmailHistoryKeyNumeric\": \"<integer>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Subject\": \"<string>\",\n  \"Body\": \"<string>\",\n  \"SentTimestamp\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "65a80e3d-3ff0-482d-82de-89e1097f978e",
+              "name": "Created EmailHistory record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EmailHistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"EmailHistoryKeyNumeric\": \"<integer>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Subject\": \"<string>\",\n  \"Body\": \"<string>\",\n  \"SentTimestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"EmailHistoryKeyNumeric\": \"<integer>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Subject\": \"<string>\",\n  \"Body\": \"<string>\",\n  \"SentTimestamp\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17102af0-36d1-47e1-9f39-e420332b1986",
+          "name": "Get Email History Record",
+          "request": {
+            "name": "Get Email History Record",
+            "description": {
+              "content": "Returns a single EmailHistory record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EmailHistory({{EmailHistoryKeyNumeric}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d262528-b0c8-4235-a0ea-95696fdebe38",
+              "name": "A single EmailHistory record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EmailHistory({{EmailHistoryKeyNumeric}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"EmailHistoryKeyNumeric\": \"<integer>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Subject\": \"<string>\",\n  \"Body\": \"<string>\",\n  \"SentTimestamp\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ae99c29a-c45c-420a-be43-9fc90c55b26d",
+      "name": "Lists",
+      "description": {
+        "content": "Property lists / carts attached to contacts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1fd9d489-a581-4e75-9faa-b2eefdc82166",
+          "name": "Query Lists",
+          "request": {
+            "name": "Query Lists",
+            "description": {
+              "content": "Returns property list / cart records attached to contacts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Lists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1b5a9b0-4c17-4e8d-ac82-515bba472236",
+              "name": "OData collection of List records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Lists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8c783f05-f5fa-4b2a-9e07-8c611e6dc3ad",
+          "name": "Create List",
+          "request": {
+            "name": "Create List",
+            "description": {
+              "content": "Creates a new property list / cart.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Lists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ListKey\": \"<string>\",\n  \"ClassName\": \"<string>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e1334513-2e35-470b-b485-f230a84500b9",
+              "name": "Created List record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Lists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ListKey\": \"<string>\",\n  \"ClassName\": \"<string>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ListKey\": \"<string>\",\n  \"ClassName\": \"<string>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46515752-dfad-4074-b7b2-4b32c6d4b571",
+          "name": "Get List",
+          "request": {
+            "name": "Get List",
+            "description": {
+              "content": "Returns a single List by composite key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Lists(ListKey={{ListKey}},ClassName={{ClassName}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e419a88-11b7-4bc0-b18f-549ad1a1aaf5",
+              "name": "A single List record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Lists(ListKey={{ListKey}},ClassName={{ClassName}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ListKey\": \"<string>\",\n  \"ClassName\": \"<string>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4bbc0e94-4ceb-4b33-ba67-561ac9d476fe",
+      "name": "PortalContents",
+      "description": {
+        "content": "Contact-scoped listing notes, views, and preferences.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "22dd56c4-cda2-4b56-b355-123bb7f04d2a",
+          "name": "Get Contact Portal Contents",
+          "request": {
+            "name": "Get Contact Portal Contents",
+            "description": {
+              "content": "Returns the PortalContents records associated with a contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Contacts({{ContactKeyNumeric}})",
+                "PortalContents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9258b831-0a2a-497a-93e1-8079f5ad924d",
+              "name": "OData collection of PortalContents records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Contacts({{ContactKeyNumeric}})",
+                    "PortalContents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5fde51ef-cbc4-43a7-8138-f0dc0315c7de",
+          "name": "Query Portal Contents",
+          "request": {
+            "name": "Query Portal Contents",
+            "description": {
+              "content": "Returns PortalContents records (listing notes, views, preferences).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "PortalContents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "39b5a463-7c85-4418-835c-aaf305857a8d",
+              "name": "OData collection of PortalContents records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "PortalContents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf66c0e1-9f14-4d4a-9601-5711f5df7406",
+          "name": "Create Portal Content Record",
+          "request": {
+            "name": "Create Portal Content Record",
+            "description": {
+              "content": "Creates a new PortalContents record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "PortalContents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"PortalContentKey\": \"<string>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"ListingKey\": \"<string>\",\n  \"Note\": \"<string>\",\n  \"Preference\": \"<string>\",\n  \"Viewed\": \"<boolean>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f04dd0b4-8ef1-4146-906f-087c21eabe4b",
+              "name": "Created PortalContents record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "PortalContents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PortalContentKey\": \"<string>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"ListingKey\": \"<string>\",\n  \"Note\": \"<string>\",\n  \"Preference\": \"<string>\",\n  \"Viewed\": \"<boolean>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"PortalContentKey\": \"<string>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"ListingKey\": \"<string>\",\n  \"Note\": \"<string>\",\n  \"Preference\": \"<string>\",\n  \"Viewed\": \"<boolean>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e2871fb-f10d-417b-a9c4-abd15f0508a5",
+          "name": "Add Listing Note",
+          "request": {
+            "name": "Add Listing Note",
+            "description": {
+              "content": "OData action that attaches a note to a listing for a contact's portal.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "PortalContents",
+                "AddListingNote"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4f2704d3-8eb3-4b71-90bc-8e596d7268c8",
+              "name": "Note added.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "PortalContents",
+                    "AddListingNote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ae79344-841f-4663-806a-e3f891901ec3",
+          "name": "Mark Listing As Viewed",
+          "request": {
+            "name": "Mark Listing As Viewed",
+            "description": {
+              "content": "OData action that marks a listing as viewed in a contact's portal.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "PortalContents",
+                "MarkAsViewed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "73792fd8-6375-4d84-ab4e-be2398c6d2a8",
+              "name": "Listing marked as viewed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "PortalContents",
+                    "MarkAsViewed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab138a6c-0a2d-40c8-be3f-ee5d51b1deca",
+          "name": "Set Listing Preference",
+          "request": {
+            "name": "Set Listing Preference",
+            "description": {
+              "content": "OData action that sets a contact's preference flag on a listing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "PortalContents",
+                "SetListingPreference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dc927b9c-43b5-4ffb-bfba-98e35b732983",
+              "name": "Preference set.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "PortalContents",
+                    "SetListingPreference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "08ae1cb9-087e-4026-a8a0-814ab88e9253",
+      "name": "SavedSearches",
+      "description": {
+        "content": "Saved listing search criteria with auto-email schedules.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1b727bb5-4933-412c-b852-1a5957c90039",
+          "name": "Query Saved Searches",
+          "request": {
+            "name": "Query Saved Searches",
+            "description": {
+              "content": "Returns SavedSearch records (listing search criteria for auto-email).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "SavedSearches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18f42cfd-f867-481d-b28e-fc14a2b53dc7",
+              "name": "OData collection of SavedSearch records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "SavedSearches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9227f00c-4e01-430c-aa6c-e5106b8dca83",
+          "name": "Create Saved Search",
+          "request": {
+            "name": "Create Saved Search",
+            "description": {
+              "content": "Creates a new SavedSearch record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "SavedSearches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SavedSearchKeyNumeric\": \"<integer>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"Criteria\": \"<string>\",\n  \"EmailFrequency\": \"<string>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fbed699b-8483-44da-a828-29291979a8ba",
+              "name": "Created SavedSearch record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "SavedSearches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SavedSearchKeyNumeric\": \"<integer>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"Criteria\": \"<string>\",\n  \"EmailFrequency\": \"<string>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SavedSearchKeyNumeric\": \"<integer>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"Criteria\": \"<string>\",\n  \"EmailFrequency\": \"<string>\",\n  \"ModificationTimestamp\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01514f68-2bc0-4fea-9694-54ecdf5365b3",
+          "name": "Get Saved Search Listing IDs",
+          "request": {
+            "name": "Get Saved Search Listing IDs",
+            "description": {
+              "content": "OData function that returns the listing IDs currently matching a saved search.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "SavedSearches({{SavedSearchKeyNumeric}})",
+                "Default.GetSavedSearchListingIDs()"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "90580494-21ac-4c40-8202-795c3ff187c3",
+              "name": "Array of matching listing IDs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "SavedSearches({{SavedSearchKeyNumeric}})",
+                    "Default.GetSavedSearchListingIDs()"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "66c4b33f-7a17-4038-bb5c-8c7306a7beb2",
+      "name": "UserRegistry",
+      "description": {
+        "content": "Per-user preference key/value store.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e1e4ad11-4459-416d-938e-ad80a0143935",
+          "name": "Query User Registry",
+          "request": {
+            "name": "Query User Registry",
+            "description": {
+              "content": "Returns per-user preference key/value records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "UserRegistry"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4a0d3cc-4ee7-4648-9da6-e491a87e0c6d",
+              "name": "OData collection of UserRegistry records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UserRegistry"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d69459f-1e0d-45e3-bed5-1b9faeae6a6d",
+          "name": "Create User Registry Entry",
+          "request": {
+            "name": "Create User Registry Entry",
+            "description": {
+              "content": "Creates a new user registry key/value entry.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "UserRegistry"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "434595d0-daa4-4799-84d9-1756dad7299d",
+              "name": "Created entry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UserRegistry"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55299a2c-c5fe-4e90-982c-c6dd49a0b713",
+          "name": "Get Allowed Registry Keys",
+          "request": {
+            "name": "Get Allowed Registry Keys",
+            "description": {
+              "content": "Returns the list of allowed key names for the UserRegistry.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "UserRegistry",
+                "GetAllowedKeys()"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91640ebb-323a-4ee9-bb2d-83b0df2a2bb2",
+              "name": "Array of allowed key names.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UserRegistry",
+                    "GetAllowedKeys()"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7d02da25-3f5e-474c-bfcd-15799d1f6d9a",
+      "name": "DashboardAPI",
+      "description": {
+        "content": "Aggregated dashboard data for the agent home screen.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "96a5813f-5326-47fc-aa2a-3fbe1dc0357f",
+          "name": "Get Aggregated Dashboard Data",
+          "request": {
+            "name": "Get Aggregated Dashboard Data",
+            "description": {
+              "content": "Returns MyListings, HotSheet, MarketWatch, Concierge, and Timeline data for the agent dashboard.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DashboardAPI",
+                "GetAggregatedData"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d03d9252-2f10-4727-97e0-41489c784588",
+              "name": "Aggregated dashboard payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DashboardAPI",
+                    "GetAggregatedData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.cotality.com/trestle/odata",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<integer>",
+      "key": "SavedSearchKeyNumeric"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<integer>",
+      "key": "ContactKeyNumeric"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "ListKey"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "ClassName"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<integer>",
+      "key": "EmailHistoryKeyNumeric"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2323244e-67ee-4c75-a1e1-408718439825",
+    "name": "CoreLogic Trestle Direct Web API — CRM",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.\n\nContact Support:\n Name: Trestle Support\n Email: trestlesupport@cotality.com",
+      "type": "text/plain"
+    }
+  }
+}
