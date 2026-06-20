@@ -12,7 +12,7 @@ description: >-
   Discovery Platform — are delivered through cloud data shares (AWS, Databricks, Google Cloud, Azure, Snowflake) and
   SFTP rather than self-service REST APIs and are gated behind enterprise sales.
 url: https://raw.githubusercontent.com/api-evangelist/corelogic/refs/heads/main/apis.yml
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 type: Index
 access: 3rd-Party
 position: Consumer
@@ -53,7 +53,7 @@ apis:
       $count, $apply=groupby (max 10000), Replication=true for 1M+ row datasets, and PrettyEnums=true. Conforms to the
       RESO Data Dictionary 2.0 and the RESO 2.0 certification including CLIP (machine-learning property identifier) and
       UPI (Universal Parcel Identifier).
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://trestle-documentation.corelogic.com/webapi.html
     baseURL: https://api.cotality.com/trestle/odata
     tags:
@@ -93,7 +93,7 @@ apis:
       from /trestle/oidc/connect/token with scope=rets. Supported transactions include Login, GetMetadata, Search (up to
       1000 records per request, default 10), and GetObject for media. The same RESO resources are exposed as RETS
       SearchType / Class names (Property, Member, Office, Teams, Media, Lookup). Digest authentication is not supported.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://trestle-documentation.corelogic.com/rets.html
     baseURL: https://api.cotality.com/trestle/rets
     tags:
@@ -117,7 +117,7 @@ apis:
       SetListingPreference actions), SavedSearches, UserRegistry, and a DashboardAPI for aggregated MyListings,
       HotSheet, MarketWatch, Concierge, and Timeline data. Authentication is OpenID Connect via Clareity Single Sign-On
       or basic authentication. Standard OData $select / $expand / $orderby / $filter query options are supported.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
     baseURL: https://api.cotality.com/trestle/odata
     tags:
@@ -140,7 +140,7 @@ apis:
       The Direct Web API MLO reference exposes Member Loan Officer / lender-side data from the Matrix MLS platform via
       OData. Used to integrate originator and loan-officer profiles, branches, and licensing data into third-party CRM
       and lead-routing systems.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://trestle-documentation.corelogic.com/direct-webapi-mlo-reference.html
     baseURL: https://api.cotality.com/trestle/odata
     tags:
@@ -159,7 +159,7 @@ apis:
       The Participant Reporting API allows MLS staff and brokerages to report broker/agent participation events back to
       Trestle. Documented in a published PDF reference; used for audit, compliance, and royalty/fee-share reporting
       against listing activity.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://trestle-documentation.corelogic.com/ParticipantReportingHowTo.pdf
     baseURL: https://api.cotality.com/trestle/odata
     tags:
@@ -179,7 +179,7 @@ apis:
       Delivery is via cloud data shares (AWS, Databricks, Google Cloud, Microsoft Azure, Snowflake) and SFTP rather than
       a self-service REST API; access is gated by enterprise sales contract. Sold to lenders, insurers, government, and
       proptech platforms.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.cotality.com/360-property-data
     tags:
       - Data Share
@@ -201,7 +201,7 @@ apis:
       scenarios projected to 2030, 2040, and 2050. Acute Perils products cover wildfire, flood, hurricane, severe
       convective storm, and earthquake. Delivery is via AWS, Databricks, Google Cloud, Azure, Snowflake, and SFTP —
       semantic companion files ship alongside the data for AI/ML ingestion.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.cotality.com/360-property-data/climate-risk-analytics
     tags:
       - Catastrophe Models
