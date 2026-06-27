@@ -246,9 +246,9 @@ common:
     url: mailto:trestlesupport@cotality.com
   - type: SupportPage
     url: https://www.cotality.com/support
-  - type: SignIn
+  - type: Login
     url: https://developer.corelogic.asia/user/sign-in
-  - type: SignUp
+  - type: Signup
     url: https://developer.corelogic.asia/signup
   - type: Vocabulary
     url: vocabulary/corelogic-vocabulary.yml
@@ -268,7 +268,7 @@ common:
     url: https://www.linkedin.com/company/cotality
   - type: News
     url: https://www.cotality.com/news
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://developer.corelogic.asia/llms.txt
 maintainers:
   - FN: Kin Lane
