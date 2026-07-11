@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/corelogic-trestle-reso-web-api-openapi.yml
+schemes:
+- name: oauth2ClientCredentials
+  source: openapi/corelogic-trestle-reso-web-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.cotality.com/trestle/oidc/connect/token
+scopes:
+- scope: api
+  description: Access to the Trestle RESO Web API
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/corelogic-trestle-reso-web-api-openapi.yml

@@ -216,6 +216,8 @@ apis:
       - type: CloudDataShare
         url: https://www.cotality.com/360-property-data/climate-risk-analytics
 common:
+  - type: OAuthScopes
+    url: scopes/corelogic-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/corelogic
   - type: Website
