@@ -1,0 +1,29 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/corelogic-direct-webapi-crm-openapi.yml, openapi/corelogic-trestle-reso-web-api-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  - openIdConnect
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: oidcClareity
+  type: openIdConnect
+  openIdConnectUrl: https://api.cotality.com/trestle/oidc/.well-known/openid-configuration
+  sources:
+  - openapi/corelogic-direct-webapi-crm-openapi.yml
+- name: basicAuth
+  type: http
+  scheme: basic
+  sources:
+  - openapi/corelogic-direct-webapi-crm-openapi.yml
+- name: oauth2ClientCredentials
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.cotality.com/trestle/oidc/connect/token
+    scopes: 1
+  sources:
+  - openapi/corelogic-trestle-reso-web-api-openapi.yml
