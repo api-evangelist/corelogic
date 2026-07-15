@@ -216,6 +216,8 @@ apis:
       - type: CloudDataShare
         url: https://www.cotality.com/360-property-data/climate-risk-analytics
 common:
+  - type: AgenticAccess
+    url: agentic-access/corelogic-agentic-access.yml
   - type: DomainSecurity
     url: security/corelogic-domain-security.yml
   - type: Authentication
