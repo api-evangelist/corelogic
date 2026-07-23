@@ -1,0 +1,44 @@
+openapi: 3.0.3
+info:
+  title: CoreLogic Trestle Direct Web API — CRM Contacts Model API
+  version: '1.0'
+  description: The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.
+  contact:
+    name: Trestle Support
+    email: trestlesupport@cotality.com
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  license:
+    name: Proprietary
+    url: https://www.cotality.com/terms-of-use
+servers:
+- url: https://api.cotality.com/trestle/odata
+  description: Direct Web API CRM production server
+security:
+- oidcClareity: []
+- basicAuth: []
+tags:
+- name: Model
+  description: Resource model definitions.
+paths:
+  /Model:
+    get:
+      operationId: queryModel
+      summary: Query Resource Models
+      description: Returns resource model definitions enumerated by the service.
+      tags:
+      - Model
+      responses:
+        '200':
+          description: OData collection of Model definitions.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    oidcClareity:
+      type: openIdConnect
+      openIdConnectUrl: https://api.cotality.com/trestle/oidc/.well-known/openid-configuration
+    basicAuth:
+      type: http
+      scheme: basic

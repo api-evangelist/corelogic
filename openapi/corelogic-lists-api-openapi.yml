@@ -1,0 +1,104 @@
+openapi: 3.0.3
+info:
+  title: CoreLogic Trestle Direct Web API — CRM Contacts Lists API
+  version: '1.0'
+  description: The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.
+  contact:
+    name: Trestle Support
+    email: trestlesupport@cotality.com
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  license:
+    name: Proprietary
+    url: https://www.cotality.com/terms-of-use
+servers:
+- url: https://api.cotality.com/trestle/odata
+  description: Direct Web API CRM production server
+security:
+- oidcClareity: []
+- basicAuth: []
+tags:
+- name: Lists
+  description: Property lists / carts attached to contacts.
+paths:
+  /Lists:
+    get:
+      operationId: queryLists
+      summary: Query Lists
+      description: Returns property list / cart records attached to contacts.
+      tags:
+      - Lists
+      responses:
+        '200':
+          description: OData collection of List records.
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      operationId: createList
+      summary: Create List
+      description: Creates a new property list / cart.
+      tags:
+      - Lists
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/List'
+      responses:
+        '201':
+          description: Created List record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/List'
+  /Lists(ListKey={ListKey},ClassName={ClassName}):
+    get:
+      operationId: getList
+      summary: Get List
+      description: Returns a single List by composite key.
+      tags:
+      - Lists
+      parameters:
+      - name: ListKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: ClassName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A single List record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/List'
+components:
+  schemas:
+    List:
+      type: object
+      description: A property list / cart attached to a contact.
+      properties:
+        ListKey:
+          type: string
+        ClassName:
+          type: string
+        ContactKeyNumeric:
+          type: integer
+        Name:
+          type: string
+        ModificationTimestamp:
+          type: string
+          format: date-time
+  securitySchemes:
+    oidcClareity:
+      type: openIdConnect
+      openIdConnectUrl: https://api.cotality.com/trestle/oidc/.well-known/openid-configuration
+    basicAuth:
+      type: http
+      scheme: basic

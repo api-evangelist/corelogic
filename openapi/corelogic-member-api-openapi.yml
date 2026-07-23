@@ -1,0 +1,178 @@
+openapi: 3.0.3
+info:
+  title: CoreLogic Trestle Direct Web API — CRM Contacts Member API
+  version: '1.0'
+  description: The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.
+  contact:
+    name: Trestle Support
+    email: trestlesupport@cotality.com
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  license:
+    name: Proprietary
+    url: https://www.cotality.com/terms-of-use
+servers:
+- url: https://api.cotality.com/trestle/odata
+  description: Direct Web API CRM production server
+security:
+- oidcClareity: []
+- basicAuth: []
+tags:
+- name: Member
+  description: MLS member (agent) records.
+paths:
+  /Member:
+    get:
+      operationId: queryMember
+      summary: Query Member Records
+      description: Returns MLS Member (agent) records matching OData query options.
+      tags:
+      - Member
+      parameters:
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Select'
+      - $ref: '#/components/parameters/Expand'
+      - $ref: '#/components/parameters/OrderBy'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
+      - $ref: '#/components/parameters/Count'
+      responses:
+        '200':
+          description: OData collection of Member records.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MemberCollection'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /Member({MemberKey}):
+    get:
+      operationId: getMember
+      summary: Get Member By MemberKey
+      description: Returns a single Member record by MemberKey.
+      tags:
+      - Member
+      parameters:
+      - name: MemberKey
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The unique RESO MemberKey for the Member record.
+      responses:
+        '200':
+          description: A single Member record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Member'
+components:
+  schemas:
+    MemberCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.count':
+          type: integer
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+    Member:
+      type: object
+      description: A RESO Member (agent) record.
+      properties:
+        MemberKey:
+          type: string
+        MemberFirstName:
+          type: string
+        MemberLastName:
+          type: string
+        MemberFullName:
+          type: string
+        MemberLoginId:
+          type: string
+        MemberStatus:
+          type: string
+        MemberEmail:
+          type: string
+        MemberPreferredPhone:
+          type: string
+        OfficeKey:
+          type: string
+        OriginatingSystemName:
+          type: string
+        ModificationTimestamp:
+          type: string
+          format: date-time
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+  parameters:
+    Count:
+      name: $count
+      in: query
+      description: When true, includes the total count of matching records in @odata.count.
+      schema:
+        type: boolean
+    Expand:
+      name: $expand
+      in: query
+      description: Comma-separated list of related resources to inline-expand.
+      schema:
+        type: string
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      schema:
+        type: string
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to return.
+      schema:
+        type: string
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
+      schema:
+        type: integer
+        maximum: 300000
+        default: 10
+    OrderBy:
+      name: $orderby
+      in: query
+      description: Comma-separated list of fields with optional asc / desc modifiers.
+      schema:
+        type: string
+  responses:
+    Unauthorized:
+      description: Access token missing, expired, or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    oidcClareity:
+      type: openIdConnect
+      openIdConnectUrl: https://api.cotality.com/trestle/oidc/.well-known/openid-configuration
+    basicAuth:
+      type: http
+      scheme: basic

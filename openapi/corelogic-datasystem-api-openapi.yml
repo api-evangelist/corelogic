@@ -1,0 +1,58 @@
+openapi: 3.0.3
+info:
+  title: CoreLogic Trestle Direct Web API — CRM Contacts DataSystem API
+  version: '1.0'
+  description: The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.
+  contact:
+    name: Trestle Support
+    email: trestlesupport@cotality.com
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  license:
+    name: Proprietary
+    url: https://www.cotality.com/terms-of-use
+servers:
+- url: https://api.cotality.com/trestle/odata
+  description: Direct Web API CRM production server
+security:
+- oidcClareity: []
+- basicAuth: []
+tags:
+- name: DataSystem
+  description: Service-level metadata and available resources.
+paths:
+  /DataSystem:
+    get:
+      operationId: getDataSystem
+      summary: Get Data System Metadata
+      description: Returns top-level service metadata and the list of available resources.
+      tags:
+      - DataSystem
+      responses:
+        '200':
+          description: DataSystem metadata document.
+          content:
+            application/json:
+              schema:
+                type: object
+  /$metadata:
+    get:
+      operationId: getMetadata
+      summary: Get OData Service Metadata
+      description: Returns the OData EDMX service metadata document describing every entity, property, and enumeration.
+      tags:
+      - DataSystem
+      responses:
+        '200':
+          description: EDMX metadata document.
+          content:
+            application/xml:
+              schema:
+                type: string
+components:
+  securitySchemes:
+    oidcClareity:
+      type: openIdConnect
+      openIdConnectUrl: https://api.cotality.com/trestle/oidc/.well-known/openid-configuration
+    basicAuth:
+      type: http
+      scheme: basic

@@ -1,0 +1,165 @@
+openapi: 3.0.3
+info:
+  title: CoreLogic Trestle Direct Web API — CRM Contacts API
+  version: '1.0'
+  description: The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.
+  contact:
+    name: Trestle Support
+    email: trestlesupport@cotality.com
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  license:
+    name: Proprietary
+    url: https://www.cotality.com/terms-of-use
+servers:
+- url: https://api.cotality.com/trestle/odata
+  description: Direct Web API CRM production server
+security:
+- oidcClareity: []
+- basicAuth: []
+tags:
+- name: Contacts
+  description: CRM contact records (name, address, phone, email).
+paths:
+  /Contacts:
+    get:
+      operationId: queryContacts
+      summary: Query Contacts
+      description: Returns contact records matching OData query options.
+      tags:
+      - Contacts
+      responses:
+        '200':
+          description: OData collection of Contact records.
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      operationId: createContact
+      summary: Create Contact
+      description: Creates a new contact record.
+      tags:
+      - Contacts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+      responses:
+        '201':
+          description: Created Contact record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+  /Contacts({ContactKeyNumeric}):
+    get:
+      operationId: getContact
+      summary: Get Contact
+      description: Returns a single Contact by its numeric key.
+      tags:
+      - Contacts
+      parameters:
+      - name: ContactKeyNumeric
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A single Contact record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+    patch:
+      operationId: updateContact
+      summary: Update Contact
+      description: Updates an existing Contact record.
+      tags:
+      - Contacts
+      parameters:
+      - name: ContactKeyNumeric
+        in: path
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+      responses:
+        '204':
+          description: Contact updated.
+    delete:
+      operationId: deleteContact
+      summary: Delete Contact
+      description: Deletes a Contact record.
+      tags:
+      - Contacts
+      parameters:
+      - name: ContactKeyNumeric
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: Contact deleted.
+  /Contacts({ContactKeyNumeric})/PortalContents:
+    get:
+      operationId: getContactPortalContents
+      summary: Get Contact Portal Contents
+      description: Returns the PortalContents records associated with a contact.
+      tags:
+      - Contacts
+      parameters:
+      - name: ContactKeyNumeric
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OData collection of PortalContents records.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    Contact:
+      type: object
+      description: A CRM Contact record.
+      properties:
+        ContactKeyNumeric:
+          type: integer
+        FirstName:
+          type: string
+        LastName:
+          type: string
+        Email:
+          type: string
+        Phone:
+          type: string
+        Address:
+          type: string
+        City:
+          type: string
+        StateOrProvince:
+          type: string
+        PostalCode:
+          type: string
+        ModificationTimestamp:
+          type: string
+          format: date-time
+  securitySchemes:
+    oidcClareity:
+      type: openIdConnect
+      openIdConnectUrl: https://api.cotality.com/trestle/oidc/.well-known/openid-configuration
+    basicAuth:
+      type: http
+      scheme: basic

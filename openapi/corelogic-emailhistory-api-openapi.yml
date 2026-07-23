@@ -1,0 +1,99 @@
+openapi: 3.0.3
+info:
+  title: CoreLogic Trestle Direct Web API — CRM Contacts EmailHistory API
+  version: '1.0'
+  description: The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.
+  contact:
+    name: Trestle Support
+    email: trestlesupport@cotality.com
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  license:
+    name: Proprietary
+    url: https://www.cotality.com/terms-of-use
+servers:
+- url: https://api.cotality.com/trestle/odata
+  description: Direct Web API CRM production server
+security:
+- oidcClareity: []
+- basicAuth: []
+tags:
+- name: EmailHistory
+  description: Outbound messages sent to contacts.
+paths:
+  /EmailHistory:
+    get:
+      operationId: queryEmailHistory
+      summary: Query Email History
+      description: Returns email-history records for messages sent to contacts.
+      tags:
+      - EmailHistory
+      responses:
+        '200':
+          description: OData collection of EmailHistory records.
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      operationId: createEmailHistory
+      summary: Create Email History Record
+      description: Records an email sent to a contact.
+      tags:
+      - EmailHistory
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailHistory'
+      responses:
+        '201':
+          description: Created EmailHistory record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailHistory'
+  /EmailHistory({EmailHistoryKeyNumeric}):
+    get:
+      operationId: getEmailHistory
+      summary: Get Email History Record
+      description: Returns a single EmailHistory record.
+      tags:
+      - EmailHistory
+      parameters:
+      - name: EmailHistoryKeyNumeric
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A single EmailHistory record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailHistory'
+components:
+  schemas:
+    EmailHistory:
+      type: object
+      description: A record of a message sent to a contact.
+      properties:
+        EmailHistoryKeyNumeric:
+          type: integer
+        ContactKeyNumeric:
+          type: integer
+        Subject:
+          type: string
+        Body:
+          type: string
+        SentTimestamp:
+          type: string
+          format: date-time
+  securitySchemes:
+    oidcClareity:
+      type: openIdConnect
+      openIdConnectUrl: https://api.cotality.com/trestle/oidc/.well-known/openid-configuration
+    basicAuth:
+      type: http
+      scheme: basic

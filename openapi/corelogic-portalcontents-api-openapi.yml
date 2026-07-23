@@ -1,0 +1,151 @@
+openapi: 3.0.3
+info:
+  title: CoreLogic Trestle Direct Web API — CRM Contacts PortalContents API
+  version: '1.0'
+  description: The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.
+  contact:
+    name: Trestle Support
+    email: trestlesupport@cotality.com
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  license:
+    name: Proprietary
+    url: https://www.cotality.com/terms-of-use
+servers:
+- url: https://api.cotality.com/trestle/odata
+  description: Direct Web API CRM production server
+security:
+- oidcClareity: []
+- basicAuth: []
+tags:
+- name: PortalContents
+  description: Contact-scoped listing notes, views, and preferences.
+paths:
+  /Contacts({ContactKeyNumeric})/PortalContents:
+    get:
+      operationId: getContactPortalContents
+      summary: Get Contact Portal Contents
+      description: Returns the PortalContents records associated with a contact.
+      tags:
+      - PortalContents
+      parameters:
+      - name: ContactKeyNumeric
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OData collection of PortalContents records.
+          content:
+            application/json:
+              schema:
+                type: object
+  /PortalContents:
+    get:
+      operationId: queryPortalContents
+      summary: Query Portal Contents
+      description: Returns PortalContents records (listing notes, views, preferences).
+      tags:
+      - PortalContents
+      responses:
+        '200':
+          description: OData collection of PortalContents records.
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      operationId: createPortalContent
+      summary: Create Portal Content Record
+      description: Creates a new PortalContents record.
+      tags:
+      - PortalContents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PortalContent'
+      responses:
+        '201':
+          description: Created PortalContents record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PortalContent'
+  /PortalContents/AddListingNote:
+    post:
+      operationId: addListingNote
+      summary: Add Listing Note
+      description: OData action that attaches a note to a listing for a contact's portal.
+      tags:
+      - PortalContents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '204':
+          description: Note added.
+  /PortalContents/MarkAsViewed:
+    post:
+      operationId: markAsViewed
+      summary: Mark Listing As Viewed
+      description: OData action that marks a listing as viewed in a contact's portal.
+      tags:
+      - PortalContents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '204':
+          description: Listing marked as viewed.
+  /PortalContents/SetListingPreference:
+    post:
+      operationId: setListingPreference
+      summary: Set Listing Preference
+      description: OData action that sets a contact's preference flag on a listing.
+      tags:
+      - PortalContents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '204':
+          description: Preference set.
+components:
+  schemas:
+    PortalContent:
+      type: object
+      description: Per-contact listing note, view, or preference.
+      properties:
+        PortalContentKey:
+          type: string
+        ContactKeyNumeric:
+          type: integer
+        ListingKey:
+          type: string
+        Note:
+          type: string
+        Preference:
+          type: string
+        Viewed:
+          type: boolean
+        ModificationTimestamp:
+          type: string
+          format: date-time
+  securitySchemes:
+    oidcClareity:
+      type: openIdConnect
+      openIdConnectUrl: https://api.cotality.com/trestle/oidc/.well-known/openid-configuration
+    basicAuth:
+      type: http
+      scheme: basic

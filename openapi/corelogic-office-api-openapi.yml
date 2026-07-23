@@ -1,0 +1,142 @@
+openapi: 3.0.3
+info:
+  title: CoreLogic Trestle Direct Web API — CRM Contacts Office API
+  version: '1.0'
+  description: The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.
+  contact:
+    name: Trestle Support
+    email: trestlesupport@cotality.com
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  license:
+    name: Proprietary
+    url: https://www.cotality.com/terms-of-use
+servers:
+- url: https://api.cotality.com/trestle/odata
+  description: Direct Web API CRM production server
+security:
+- oidcClareity: []
+- basicAuth: []
+tags:
+- name: Office
+  description: MLS office (brokerage) records.
+paths:
+  /Office:
+    get:
+      operationId: queryOffice
+      summary: Query Office Records
+      description: Returns MLS Office (brokerage) records matching OData query options.
+      tags:
+      - Office
+      parameters:
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Select'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
+      - $ref: '#/components/parameters/Count'
+      responses:
+        '200':
+          description: OData collection of Office records.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OfficeCollection'
+  /Office({OfficeKey}):
+    get:
+      operationId: getOffice
+      summary: Get Office By OfficeKey
+      description: Returns a single Office record by OfficeKey.
+      tags:
+      - Office
+      parameters:
+      - name: OfficeKey
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A single Office record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Office'
+components:
+  schemas:
+    OfficeCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.count':
+          type: integer
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Office'
+    Office:
+      type: object
+      description: A RESO Office (brokerage) record.
+      properties:
+        OfficeKey:
+          type: string
+        OfficeName:
+          type: string
+        OfficeStatus:
+          type: string
+        OfficePhone:
+          type: string
+        OfficeAddress1:
+          type: string
+        OfficeCity:
+          type: string
+        OfficeStateOrProvince:
+          type: string
+        OfficePostalCode:
+          type: string
+        OriginatingSystemName:
+          type: string
+        ModificationTimestamp:
+          type: string
+          format: date-time
+  parameters:
+    Count:
+      name: $count
+      in: query
+      description: When true, includes the total count of matching records in @odata.count.
+      schema:
+        type: boolean
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      schema:
+        type: string
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to return.
+      schema:
+        type: string
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
+      schema:
+        type: integer
+        maximum: 300000
+        default: 10
+  securitySchemes:
+    oidcClareity:
+      type: openIdConnect
+      openIdConnectUrl: https://api.cotality.com/trestle/oidc/.well-known/openid-configuration
+    basicAuth:
+      type: http
+      scheme: basic

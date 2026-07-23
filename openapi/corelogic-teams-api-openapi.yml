@@ -1,0 +1,69 @@
+openapi: 3.0.3
+info:
+  title: CoreLogic Trestle Direct Web API — CRM Contacts Teams API
+  version: '1.0'
+  description: The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.
+  contact:
+    name: Trestle Support
+    email: trestlesupport@cotality.com
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  license:
+    name: Proprietary
+    url: https://www.cotality.com/terms-of-use
+servers:
+- url: https://api.cotality.com/trestle/odata
+  description: Direct Web API CRM production server
+security:
+- oidcClareity: []
+- basicAuth: []
+tags:
+- name: Teams
+  description: MLS team records.
+paths:
+  /Teams:
+    get:
+      operationId: queryTeams
+      summary: Query Team Records
+      description: Returns MLS team records.
+      tags:
+      - Teams
+      parameters:
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
+      responses:
+        '200':
+          description: OData collection of Team records.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  parameters:
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      schema:
+        type: string
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
+      schema:
+        type: integer
+        maximum: 300000
+        default: 10
+  securitySchemes:
+    oidcClareity:
+      type: openIdConnect
+      openIdConnectUrl: https://api.cotality.com/trestle/oidc/.well-known/openid-configuration
+    basicAuth:
+      type: http
+      scheme: basic

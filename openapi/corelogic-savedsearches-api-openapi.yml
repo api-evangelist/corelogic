@@ -1,0 +1,103 @@
+openapi: 3.0.3
+info:
+  title: CoreLogic Trestle Direct Web API — CRM Contacts SavedSearches API
+  version: '1.0'
+  description: The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.
+  contact:
+    name: Trestle Support
+    email: trestlesupport@cotality.com
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  license:
+    name: Proprietary
+    url: https://www.cotality.com/terms-of-use
+servers:
+- url: https://api.cotality.com/trestle/odata
+  description: Direct Web API CRM production server
+security:
+- oidcClareity: []
+- basicAuth: []
+tags:
+- name: SavedSearches
+  description: Saved listing search criteria with auto-email schedules.
+paths:
+  /SavedSearches:
+    get:
+      operationId: querySavedSearches
+      summary: Query Saved Searches
+      description: Returns SavedSearch records (listing search criteria for auto-email).
+      tags:
+      - SavedSearches
+      responses:
+        '200':
+          description: OData collection of SavedSearch records.
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      operationId: createSavedSearch
+      summary: Create Saved Search
+      description: Creates a new SavedSearch record.
+      tags:
+      - SavedSearches
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SavedSearch'
+      responses:
+        '201':
+          description: Created SavedSearch record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SavedSearch'
+  /SavedSearches({SavedSearchKeyNumeric})/Default.GetSavedSearchListingIDs():
+    get:
+      operationId: getSavedSearchListingIds
+      summary: Get Saved Search Listing IDs
+      description: OData function that returns the listing IDs currently matching a saved search.
+      tags:
+      - SavedSearches
+      parameters:
+      - name: SavedSearchKeyNumeric
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Array of matching listing IDs.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+components:
+  schemas:
+    SavedSearch:
+      type: object
+      description: A saved listing search with optional auto-email schedule.
+      properties:
+        SavedSearchKeyNumeric:
+          type: integer
+        ContactKeyNumeric:
+          type: integer
+        Name:
+          type: string
+        Criteria:
+          type: string
+        EmailFrequency:
+          type: string
+        ModificationTimestamp:
+          type: string
+          format: date-time
+  securitySchemes:
+    oidcClareity:
+      type: openIdConnect
+      openIdConnectUrl: https://api.cotality.com/trestle/oidc/.well-known/openid-configuration
+    basicAuth:
+      type: http
+      scheme: basic
