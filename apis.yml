@@ -12,7 +12,20 @@ description: >-
   Discovery Platform — are delivered through cloud data shares (AWS, Databricks, Google Cloud, Azure, Snowflake) and
   SFTP rather than self-service REST APIs and are gated behind enterprise sales.
 url: https://raw.githubusercontent.com/api-evangelist/corelogic/refs/heads/main/apis.yml
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/corelogic.png
 type: Index
 access: 3rd-Party
 position: Consumer
@@ -42,179 +55,817 @@ created: '2026-05-23'
 modified: '2026-05-23'
 specificationVersion: '0.20'
 apis:
-  - aid: corelogic:trestle-reso-web-api
-    name: Trestle RESO Web API
-    description: >-
-      Trestle's RESO Web API is an OData 4.0 / RESO Web API 2.0 compliant endpoint that delivers MLS Property, Member,
-      Office, Media, OpenHouse, Teams, TeamMembers, PropertyRooms, PropertyUnitTypes, CustomProperty, Field, Lookup,
-      Model, and HistoryTransactional resources across multiple aggregated U.S. MLSs. Authentication uses OAuth2 Client
-      Credentials against api.cotality.com/trestle/oidc/connect/token with scope=api; tokens are valid for 8 hours.
-      Query support includes $filter, $select, $expand, $orderby, $top (max 1000, or 300000 for key-only), $skip,
-      $count, $apply=groupby (max 10000), Replication=true for 1M+ row datasets, and PrettyEnums=true. Conforms to the
-      RESO Data Dictionary 2.0 and the RESO 2.0 certification including CLIP (machine-learning property identifier) and
-      UPI (Universal Parcel Identifier).
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://trestle-documentation.corelogic.com/webapi.html
-    baseURL: https://api.cotality.com/trestle/odata
-    tags:
-      - Listings
-      - MLS
-      - OData
-      - Property Data
-      - RESO Data Dictionary
-      - RESO Web API
-      - Trestle
-    properties:
-      - type: Documentation
-        url: https://trestle-documentation.corelogic.com/webapi.html
-      - type: APIReference
-        url: https://trestle-documentation.corelogic.com/webapi-reference.html
-      - type: GettingStarted
-        url: https://trestle-documentation.corelogic.com/webapi.html
-      - type: Authorization
-        url: https://trestle-documentation.corelogic.com/webapi.html
-      - type: ClientLibraries
-        url: https://trestle-documentation.corelogic.com/webapi-libraries.html
-      - type: Scale
-        url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
-      - type: Metadata
-        url: https://api.cotality.com/trestle/odata/$metadata
-      - type: RESOCommonFormat
-        url: https://trestle-documentation.corelogic.com/reso-common-format.html
-      - type: OpenAPI
-        url: openapi/corelogic-trestle-reso-web-api-openapi.yml
-      - type: Rules
-        url: rules/corelogic-trestle-reso-web-api-rules.yml
-  - aid: corelogic:trestle-rets
-    name: Trestle RETS
-    description: >-
-      Trestle's RETS endpoint implements the RETS 1.8 specification on top of the same data catalog as the RESO Web API.
-      The service is session-less; authentication uses HTTP Basic with client credentials or OAuth2 bearer tokens issued
-      from /trestle/oidc/connect/token with scope=rets. Supported transactions include Login, GetMetadata, Search (up to
-      1000 records per request, default 10), and GetObject for media. The same RESO resources are exposed as RETS
-      SearchType / Class names (Property, Member, Office, Teams, Media, Lookup). Digest authentication is not supported.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://trestle-documentation.corelogic.com/rets.html
-    baseURL: https://api.cotality.com/trestle/rets
-    tags:
-      - Legacy
-      - Listings
-      - MLS
-      - RETS
-      - Trestle
-    properties:
-      - type: Documentation
-        url: https://trestle-documentation.corelogic.com/rets.html
-      - type: ClientLibraries
-        url: https://trestle-documentation.corelogic.com/rets-libraries.html
-      - type: Connector
-        url: https://trestle-documentation.corelogic.com/rets-connector.html
-  - aid: corelogic:direct-webapi-crm
-    name: Direct Web API — CRM
-    description: >-
-      The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources
-      include Contacts, EmailHistory, Lists (carts), PortalContents (with AddListingNote / MarkAsViewed /
-      SetListingPreference actions), SavedSearches, UserRegistry, and a DashboardAPI for aggregated MyListings,
-      HotSheet, MarketWatch, Concierge, and Timeline data. Authentication is OpenID Connect via Clareity Single Sign-On
-      or basic authentication. Standard OData $select / $expand / $orderby / $filter query options are supported.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
-    baseURL: https://api.cotality.com/trestle/odata
-    tags:
-      - CRM
-      - Direct Web API
-      - Matrix MLS
-      - OData
-      - OpenID Connect
-      - Trestle
-    properties:
-      - type: Documentation
-        url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
-      - type: OpenAPI
-        url: openapi/corelogic-direct-webapi-crm-openapi.yml
-      - type: Rules
-        url: rules/corelogic-direct-webapi-crm-rules.yml
-  - aid: corelogic:direct-webapi-mlo
-    name: Direct Web API — MLO
-    description: >-
-      The Direct Web API MLO reference exposes Member Loan Officer / lender-side data from the Matrix MLS platform via
-      OData. Used to integrate originator and loan-officer profiles, branches, and licensing data into third-party CRM
-      and lead-routing systems.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://trestle-documentation.corelogic.com/direct-webapi-mlo-reference.html
-    baseURL: https://api.cotality.com/trestle/odata
-    tags:
-      - Direct Web API
-      - Lending
-      - Matrix MLS
-      - MLO
-      - OData
-      - Trestle
-    properties:
-      - type: Documentation
-        url: https://trestle-documentation.corelogic.com/direct-webapi-mlo-reference.html
-  - aid: corelogic:participant-reporting-api
-    name: Participant Reporting API
-    description: >-
-      The Participant Reporting API allows MLS staff and brokerages to report broker/agent participation events back to
-      Trestle. Documented in a published PDF reference; used for audit, compliance, and royalty/fee-share reporting
-      against listing activity.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://trestle-documentation.corelogic.com/ParticipantReportingHowTo.pdf
-    baseURL: https://api.cotality.com/trestle/odata
-    tags:
-      - Compliance
-      - MLS
-      - Participant Reporting
-      - Reporting
-      - Trestle
-    properties:
-      - type: Documentation
-        url: https://trestle-documentation.corelogic.com/ParticipantReportingHowTo.pdf
-  - aid: corelogic:360-property-data
-    name: 360 Property Data
-    description: >-
-      360 Property Data is Cotality's enterprise property data product covering structure, ownership, tax, mortgages,
-      hazard risk, climate risk, and geospatial overlays across approximately 99% of U.S. residential properties.
-      Delivery is via cloud data shares (AWS, Databricks, Google Cloud, Microsoft Azure, Snowflake) and SFTP rather than
-      a self-service REST API; access is gated by enterprise sales contract. Sold to lenders, insurers, government, and
-      proptech platforms.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.cotality.com/360-property-data
-    tags:
-      - Data Share
-      - Hazard Data
-      - Mortgage Data
-      - Property Data
-      - Tax Data
-    properties:
-      - type: Overview
-        url: https://www.cotality.com/360-property-data
-      - type: CloudDataShare
-        url: https://www.cotality.com/360-property-data
-  - aid: corelogic:climate-risk-analytics
-    name: Climate Risk Analytics
-    description: >-
-      Climate Risk Analytics (CRA) delivers parcel- and structure-level chronic climate risk indices and acute peril
-      scores across the continental United States and the District of Columbia. Chronic Perils covers cold wave, heat
-      wave, extreme precipitation, and drought via 84 indices, with IPCC SSP1-2.6, SSP2-4.5, SSP3-7.0, and SSP5-8.5
-      scenarios projected to 2030, 2040, and 2050. Acute Perils products cover wildfire, flood, hurricane, severe
-      convective storm, and earthquake. Delivery is via AWS, Databricks, Google Cloud, Azure, Snowflake, and SFTP —
-      semantic companion files ship alongside the data for AI/ML ingestion.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.cotality.com/360-property-data/climate-risk-analytics
-    tags:
-      - Catastrophe Models
-      - Climate Risk
-      - Data Share
-      - IPCC
-      - Insurance Data
-      - Perils
-    properties:
-      - type: Overview
-        url: https://www.cotality.com/360-property-data/climate-risk-analytics
-      - type: CloudDataShare
-        url: https://www.cotality.com/360-property-data/climate-risk-analytics
+- aid: corelogic:trestle-rets
+  name: Trestle RETS
+  description: >-
+    Trestle's RETS endpoint implements the RETS 1.8 specification on top of the same data catalog as the
+    RESO Web API. The service is session-less; authentication uses HTTP Basic with client credentials
+    or OAuth2 bearer tokens issued from /trestle/oidc/connect/token with scope=rets. Supported transactions
+    include Login, GetMetadata, Search (up to 1000 records per request, default 10), and GetObject for
+    media. The same RESO resources are exposed as RETS SearchType / Class names (Property, Member, Office,
+    Teams, Media, Lookup). Digest authentication is not supported.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://trestle-documentation.corelogic.com/rets.html
+  baseURL: https://api.cotality.com/trestle/rets
+  tags:
+  - Legacy
+  - Listings
+  - MLS
+  - RETS
+  - Trestle
+  properties:
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/rets.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/rets-libraries.html
+  - type: Connector
+    url: https://trestle-documentation.corelogic.com/rets-connector.html
+- aid: corelogic:direct-webapi-mlo
+  name: Direct Web API — MLO
+  description: >-
+    The Direct Web API MLO reference exposes Member Loan Officer / lender-side data from the Matrix MLS
+    platform via OData. Used to integrate originator and loan-officer profiles, branches, and licensing
+    data into third-party CRM and lead-routing systems.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://trestle-documentation.corelogic.com/direct-webapi-mlo-reference.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - Direct Web API
+  - Lending
+  - Matrix MLS
+  - MLO
+  - OData
+  - Trestle
+  properties:
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-mlo-reference.html
+- aid: corelogic:participant-reporting-api
+  name: Participant Reporting API
+  description: >-
+    The Participant Reporting API allows MLS staff and brokerages to report broker/agent participation
+    events back to Trestle. Documented in a published PDF reference; used for audit, compliance, and royalty/fee-share
+    reporting against listing activity.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://trestle-documentation.corelogic.com/ParticipantReportingHowTo.pdf
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - Compliance
+  - MLS
+  - Participant Reporting
+  - Reporting
+  - Trestle
+  properties:
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/ParticipantReportingHowTo.pdf
+- aid: corelogic:360-property-data
+  name: 360 Property Data
+  description: >-
+    360 Property Data is Cotality's enterprise property data product covering structure, ownership, tax,
+    mortgages, hazard risk, climate risk, and geospatial overlays across approximately 99% of U.S. residential
+    properties. Delivery is via cloud data shares (AWS, Databricks, Google Cloud, Microsoft Azure, Snowflake)
+    and SFTP rather than a self-service REST API; access is gated by enterprise sales contract. Sold to
+    lenders, insurers, government, and proptech platforms.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.cotality.com/360-property-data
+  tags:
+  - Data Share
+  - Hazard Data
+  - Mortgage Data
+  - Property Data
+  - Tax Data
+  properties:
+  - type: Overview
+    url: https://www.cotality.com/360-property-data
+  - type: CloudDataShare
+    url: https://www.cotality.com/360-property-data
+- aid: corelogic:climate-risk-analytics
+  name: Climate Risk Analytics
+  description: >-
+    Climate Risk Analytics (CRA) delivers parcel- and structure-level chronic climate risk indices and
+    acute peril scores across the continental United States and the District of Columbia. Chronic Perils
+    covers cold wave, heat wave, extreme precipitation, and drought via 84 indices, with IPCC SSP1-2.6,
+    SSP2-4.5, SSP3-7.0, and SSP5-8.5 scenarios projected to 2030, 2040, and 2050. Acute Perils products
+    cover wildfire, flood, hurricane, severe convective storm, and earthquake. Delivery is via AWS, Databricks,
+    Google Cloud, Azure, Snowflake, and SFTP — semantic companion files ship alongside the data for AI/ML
+    ingestion.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.cotality.com/360-property-data/climate-risk-analytics
+  tags:
+  - Catastrophe Models
+  - Climate Risk
+  - Data Share
+  - IPCC
+  - Insurance Data
+  - Perils
+  properties:
+  - type: Overview
+    url: https://www.cotality.com/360-property-data/climate-risk-analytics
+  - type: CloudDataShare
+    url: https://www.cotality.com/360-property-data/climate-risk-analytics
+- aid: corelogic:corelogic-contacts-api
+  name: CoreLogic (Cotality) Contacts API
+  description: CRM contact records (name, address, phone, email).
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-contacts-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-customproperty-api
+  name: CoreLogic (Cotality) CustomProperty API
+  description: MLS-specific extensions to the RESO Property resource.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - CustomProperty
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-customproperty-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-dashboardapi-api
+  name: CoreLogic (Cotality) DashboardAPI API
+  description: Aggregated dashboard data for the agent home screen.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - DashboardAPI
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-dashboardapi-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-datasystem-api
+  name: CoreLogic (Cotality) DataSystem API
+  description: Service-level metadata and available resources.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - DataSystem
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-datasystem-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-emailhistory-api
+  name: CoreLogic (Cotality) EmailHistory API
+  description: Outbound messages sent to contacts.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - EmailHistory
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-emailhistory-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-field-api
+  name: CoreLogic (Cotality) Field API
+  description: Metadata describing fields available on each resource.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - Field
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-field-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-historytransactional-api
+  name: CoreLogic (Cotality) HistoryTransactional API
+  description: Transactional change history for tracked resources.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - HistoryTransactional
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-historytransactional-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-lists-api
+  name: CoreLogic (Cotality) Lists API
+  description: Property lists / carts attached to contacts.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-lists-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-lookup-api
+  name: CoreLogic (Cotality) Lookup API
+  description: Enumerated lookup values used across resources.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - Lookup
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-lookup-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-media-api
+  name: CoreLogic (Cotality) Media API
+  description: Listing media (photos, videos, documents).
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - Media
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-media-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-member-api
+  name: CoreLogic (Cotality) Member API
+  description: MLS member (agent) records.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - Member
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-member-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-model-api
+  name: CoreLogic (Cotality) Model API
+  description: Resource model definitions.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - Model
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-model-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-office-api
+  name: CoreLogic (Cotality) Office API
+  description: MLS office (brokerage) records.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - Office
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-office-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-openhouse-api
+  name: CoreLogic (Cotality) OpenHouse API
+  description: Scheduled open-house events.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - OpenHouse
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-openhouse-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-portalcontents-api
+  name: CoreLogic (Cotality) PortalContents API
+  description: Contact-scoped listing notes, views, and preferences.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - PortalContents
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-portalcontents-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-property-api
+  name: CoreLogic (Cotality) Property API
+  description: MLS property listings and detail records.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - Property
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-property-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-propertyrooms-api
+  name: CoreLogic (Cotality) PropertyRooms API
+  description: Per-room detail for listed properties.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - PropertyRooms
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-propertyrooms-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-propertyunittypes-api
+  name: CoreLogic (Cotality) PropertyUnitTypes API
+  description: Per-unit detail for multi-unit properties.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - PropertyUnitTypes
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-propertyunittypes-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-savedsearches-api
+  name: CoreLogic (Cotality) SavedSearches API
+  description: Saved listing search criteria with auto-email schedules.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - SavedSearches
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-savedsearches-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-teammembers-api
+  name: CoreLogic (Cotality) TeamMembers API
+  description: Membership relationships between teams and members.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - TeamMembers
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-teammembers-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-teams-api
+  name: CoreLogic (Cotality) Teams API
+  description: MLS team records.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - Teams
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-teams-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
+- aid: corelogic:corelogic-userregistry-api
+  name: CoreLogic (Cotality) UserRegistry API
+  description: Per-user preference key/value store.
+  humanURL: https://trestle-documentation.corelogic.com/webapi.html
+  baseURL: https://api.cotality.com/trestle/odata
+  tags:
+  - UserRegistry
+  properties:
+  - type: OpenAPI
+    url: openapi/corelogic-userregistry-api-openapi.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: APIReference
+    url: https://trestle-documentation.corelogic.com/webapi-reference.html
+  - type: GettingStarted
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: Authorization
+    url: https://trestle-documentation.corelogic.com/webapi.html
+  - type: ClientLibraries
+    url: https://trestle-documentation.corelogic.com/webapi-libraries.html
+  - type: Scale
+    url: https://trestle-documentation.corelogic.com/webapi-at-scale.html
+  - type: Metadata
+    url: https://api.cotality.com/trestle/odata/$metadata
+  - type: RESOCommonFormat
+    url: https://trestle-documentation.corelogic.com/reso-common-format.html
+  - type: Rules
+    url: rules/corelogic-trestle-reso-web-api-rules.yml
+  - type: Documentation
+    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+  - type: Rules
+    url: rules/corelogic-direct-webapi-crm-rules.yml
 common:
   - type: AgenticAccess
     url: agentic-access/corelogic-agentic-access.yml
