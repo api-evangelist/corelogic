@@ -1,0 +1,735 @@
+openapi: 3.0.3
+info:
+  title: CoreLogic Trestle RESO Web API
+  version: '2.0'
+  description: >-
+    Trestle's RESO Web API is an OData 4.0 / RESO Web API 2.0 compliant endpoint
+    that delivers MLS Property, Member, Office, Media, OpenHouse, Teams, and
+    related real-estate resources across multiple aggregated U.S. MLSs.
+    Authentication uses OAuth2 Client Credentials against
+    api.cotality.com/trestle/oidc/connect/token with scope=api; tokens are valid
+    for 8 hours. Conforms to the RESO Data Dictionary 2.0.
+  contact:
+    name: Trestle Support
+    email: trestlesupport@cotality.com
+    url: https://trestle-documentation.corelogic.com/
+  license:
+    name: Proprietary
+    url: https://www.cotality.com/terms-of-use
+servers:
+  - url: https://api.cotality.com/trestle/odata
+    description: Trestle RESO Web API production server
+security:
+  - oauth2ClientCredentials: []
+tags:
+  - name: Property
+    description: MLS property listings and detail records.
+  - name: Member
+    description: MLS member (agent) records.
+  - name: Office
+    description: MLS office (brokerage) records.
+  - name: Media
+    description: Listing media (photos, videos, documents).
+  - name: OpenHouse
+    description: Scheduled open-house events.
+  - name: Teams
+    description: MLS team records.
+  - name: TeamMembers
+    description: Membership relationships between teams and members.
+  - name: PropertyRooms
+    description: Per-room detail for listed properties.
+  - name: PropertyUnitTypes
+    description: Per-unit detail for multi-unit properties.
+  - name: HistoryTransactional
+    description: Transactional change history for tracked resources.
+  - name: CustomProperty
+    description: MLS-specific extensions to the RESO Property resource.
+  - name: Field
+    description: Metadata describing fields available on each resource.
+  - name: Lookup
+    description: Enumerated lookup values used across resources.
+  - name: Model
+    description: Resource model definitions.
+  - name: DataSystem
+    description: Service-level metadata and available resources.
+paths:
+  /Property:
+    get:
+      operationId: queryProperty
+      summary: Query Property Records
+      description: >-
+        Returns Property records matching the supplied OData query options.
+        Supports $filter, $select, $expand, $orderby, $top (max 1000, or 300000
+        for key-only), $skip, $count, $apply=groupby (max 10000),
+        Replication=true for large datasets, and PrettyEnums=true.
+      tags:
+        - Property
+      parameters:
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Select'
+        - $ref: '#/components/parameters/Expand'
+        - $ref: '#/components/parameters/OrderBy'
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Skip'
+        - $ref: '#/components/parameters/Count'
+        - $ref: '#/components/parameters/Apply'
+        - $ref: '#/components/parameters/Replication'
+        - $ref: '#/components/parameters/PrettyEnums'
+      responses:
+        '200':
+          description: OData collection of Property records.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyCollection'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/QuotaExceeded'
+        '500':
+          $ref: '#/components/responses/ServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+  /Property({ListingKey}):
+    get:
+      operationId: getProperty
+      summary: Get Property By ListingKey
+      description: Returns a single Property record by ListingKey.
+      tags:
+        - Property
+      parameters:
+        - name: ListingKey
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The unique RESO ListingKey for the Property record.
+        - $ref: '#/components/parameters/Select'
+        - $ref: '#/components/parameters/Expand'
+      responses:
+        '200':
+          description: A single Property record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Property'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /Member:
+    get:
+      operationId: queryMember
+      summary: Query Member Records
+      description: Returns MLS Member (agent) records matching OData query options.
+      tags:
+        - Member
+      parameters:
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Select'
+        - $ref: '#/components/parameters/Expand'
+        - $ref: '#/components/parameters/OrderBy'
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Skip'
+        - $ref: '#/components/parameters/Count'
+      responses:
+        '200':
+          description: OData collection of Member records.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MemberCollection'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /Member({MemberKey}):
+    get:
+      operationId: getMember
+      summary: Get Member By MemberKey
+      description: Returns a single Member record by MemberKey.
+      tags:
+        - Member
+      parameters:
+        - name: MemberKey
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The unique RESO MemberKey for the Member record.
+      responses:
+        '200':
+          description: A single Member record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Member'
+  /Office:
+    get:
+      operationId: queryOffice
+      summary: Query Office Records
+      description: Returns MLS Office (brokerage) records matching OData query options.
+      tags:
+        - Office
+      parameters:
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Select'
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Skip'
+        - $ref: '#/components/parameters/Count'
+      responses:
+        '200':
+          description: OData collection of Office records.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OfficeCollection'
+  /Office({OfficeKey}):
+    get:
+      operationId: getOffice
+      summary: Get Office By OfficeKey
+      description: Returns a single Office record by OfficeKey.
+      tags:
+        - Office
+      parameters:
+        - name: OfficeKey
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A single Office record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Office'
+  /Media:
+    get:
+      operationId: queryMedia
+      summary: Query Media Records
+      description: Returns Media (photos, videos, documents) for listings.
+      tags:
+        - Media
+      parameters:
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Select'
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Skip'
+      responses:
+        '200':
+          description: OData collection of Media records.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MediaCollection'
+  /OpenHouse:
+    get:
+      operationId: queryOpenHouse
+      summary: Query Open House Events
+      description: Returns scheduled open-house events for listings.
+      tags:
+        - OpenHouse
+      parameters:
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Skip'
+      responses:
+        '200':
+          description: OData collection of OpenHouse records.
+          content:
+            application/json:
+              schema:
+                type: object
+  /Teams:
+    get:
+      operationId: queryTeams
+      summary: Query Team Records
+      description: Returns MLS team records.
+      tags:
+        - Teams
+      parameters:
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Skip'
+      responses:
+        '200':
+          description: OData collection of Team records.
+          content:
+            application/json:
+              schema:
+                type: object
+  /TeamMembers:
+    get:
+      operationId: queryTeamMembers
+      summary: Query Team Member Relationships
+      description: Returns membership relationships between Teams and Members.
+      tags:
+        - TeamMembers
+      parameters:
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Top'
+      responses:
+        '200':
+          description: OData collection of TeamMember records.
+          content:
+            application/json:
+              schema:
+                type: object
+  /PropertyRooms:
+    get:
+      operationId: queryPropertyRooms
+      summary: Query Property Rooms
+      description: Returns per-room detail records linked to Property listings.
+      tags:
+        - PropertyRooms
+      parameters:
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Top'
+      responses:
+        '200':
+          description: OData collection of PropertyRoom records.
+          content:
+            application/json:
+              schema:
+                type: object
+  /PropertyUnitTypes:
+    get:
+      operationId: queryPropertyUnitTypes
+      summary: Query Property Unit Types
+      description: Returns per-unit detail records for multi-unit properties.
+      tags:
+        - PropertyUnitTypes
+      parameters:
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Top'
+      responses:
+        '200':
+          description: OData collection of PropertyUnitType records.
+          content:
+            application/json:
+              schema:
+                type: object
+  /HistoryTransactional:
+    get:
+      operationId: queryHistoryTransactional
+      summary: Query History Transactional Records
+      description: Returns transactional change history events for tracked resources.
+      tags:
+        - HistoryTransactional
+      parameters:
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Replication'
+      responses:
+        '200':
+          description: OData collection of HistoryTransactional records.
+          content:
+            application/json:
+              schema:
+                type: object
+  /CustomProperty:
+    get:
+      operationId: queryCustomProperty
+      summary: Query Custom Property Records
+      description: Returns MLS-specific extensions to the RESO Property resource.
+      tags:
+        - CustomProperty
+      parameters:
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Top'
+      responses:
+        '200':
+          description: OData collection of CustomProperty records.
+          content:
+            application/json:
+              schema:
+                type: object
+  /Field:
+    get:
+      operationId: queryField
+      summary: Query Field Metadata
+      description: Returns field-level metadata describing all available fields per resource.
+      tags:
+        - Field
+      responses:
+        '200':
+          description: OData collection of Field metadata records.
+          content:
+            application/json:
+              schema:
+                type: object
+  /Lookup:
+    get:
+      operationId: queryLookup
+      summary: Query Lookup Values
+      description: Returns enumerated lookup values used across RESO resources.
+      tags:
+        - Lookup
+      responses:
+        '200':
+          description: OData collection of Lookup values.
+          content:
+            application/json:
+              schema:
+                type: object
+  /Model:
+    get:
+      operationId: queryModel
+      summary: Query Resource Models
+      description: Returns resource model definitions enumerated by the service.
+      tags:
+        - Model
+      responses:
+        '200':
+          description: OData collection of Model definitions.
+          content:
+            application/json:
+              schema:
+                type: object
+  /DataSystem:
+    get:
+      operationId: getDataSystem
+      summary: Get Data System Metadata
+      description: Returns top-level service metadata and the list of available resources.
+      tags:
+        - DataSystem
+      responses:
+        '200':
+          description: DataSystem metadata document.
+          content:
+            application/json:
+              schema:
+                type: object
+  /$metadata:
+    get:
+      operationId: getMetadata
+      summary: Get OData Service Metadata
+      description: Returns the OData EDMX service metadata document describing every entity, property, and enumeration.
+      tags:
+        - DataSystem
+      responses:
+        '200':
+          description: EDMX metadata document.
+          content:
+            application/xml:
+              schema:
+                type: string
+components:
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.cotality.com/trestle/oidc/connect/token
+          scopes:
+            api: Access to the Trestle RESO Web API
+  parameters:
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      schema:
+        type: string
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to return.
+      schema:
+        type: string
+    Expand:
+      name: $expand
+      in: query
+      description: Comma-separated list of related resources to inline-expand.
+      schema:
+        type: string
+    OrderBy:
+      name: $orderby
+      in: query
+      description: Comma-separated list of fields with optional asc / desc modifiers.
+      schema:
+        type: string
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
+      schema:
+        type: integer
+        maximum: 300000
+        default: 10
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+    Count:
+      name: $count
+      in: query
+      description: When true, includes the total count of matching records in @odata.count.
+      schema:
+        type: boolean
+    Apply:
+      name: $apply
+      in: query
+      description: OData apply transformation (e.g. groupby) — max 10000 result rows.
+      schema:
+        type: string
+    Replication:
+      name: Replication
+      in: query
+      description: When true, enables high-volume replication mode for datasets exceeding 1M rows.
+      schema:
+        type: boolean
+    PrettyEnums:
+      name: PrettyEnums
+      in: query
+      description: When true, returns human-readable enumeration values instead of internal codes.
+      schema:
+        type: boolean
+  responses:
+    BadRequest:
+      description: Request was malformed or referenced an unknown field.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Access token missing, expired, or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource record does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    QuotaExceeded:
+      description: Rate limit or quota exceeded.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    GatewayTimeout:
+      description: Upstream gateway timeout.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Property:
+      type: object
+      description: A RESO Data Dictionary 2.0 Property record.
+      properties:
+        ListingKey:
+          type: string
+          description: The unique key identifying the listing record.
+        ListingId:
+          type: string
+          description: The MLS-issued listing number visible to consumers.
+        StandardStatus:
+          type: string
+          description: RESO normalized listing status (Active, Pending, Closed, etc.).
+        PropertyType:
+          type: string
+          description: RESO normalized property type (Residential, Land, Commercial, etc.).
+        PropertySubType:
+          type: string
+        ListPrice:
+          type: number
+          format: double
+        ClosePrice:
+          type: number
+          format: double
+        BedroomsTotal:
+          type: integer
+        BathroomsTotalInteger:
+          type: integer
+        LivingArea:
+          type: number
+          format: double
+        LotSizeArea:
+          type: number
+          format: double
+        YearBuilt:
+          type: integer
+        StreetNumber:
+          type: string
+        StreetName:
+          type: string
+        StreetSuffix:
+          type: string
+        City:
+          type: string
+        StateOrProvince:
+          type: string
+        PostalCode:
+          type: string
+        Country:
+          type: string
+        Latitude:
+          type: number
+          format: double
+        Longitude:
+          type: number
+          format: double
+        ListAgentKey:
+          type: string
+        ListOfficeKey:
+          type: string
+        ModificationTimestamp:
+          type: string
+          format: date-time
+        OriginatingSystemName:
+          type: string
+        UniversalParcelId:
+          type: string
+          description: RESO 2.0 Universal Parcel Identifier (UPI).
+        CLIP:
+          type: string
+          description: CoreLogic machine-learning property identifier.
+    PropertyCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.count':
+          type: integer
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    Member:
+      type: object
+      description: A RESO Member (agent) record.
+      properties:
+        MemberKey:
+          type: string
+        MemberFirstName:
+          type: string
+        MemberLastName:
+          type: string
+        MemberFullName:
+          type: string
+        MemberLoginId:
+          type: string
+        MemberStatus:
+          type: string
+        MemberEmail:
+          type: string
+        MemberPreferredPhone:
+          type: string
+        OfficeKey:
+          type: string
+        OriginatingSystemName:
+          type: string
+        ModificationTimestamp:
+          type: string
+          format: date-time
+    MemberCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.count':
+          type: integer
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+    Office:
+      type: object
+      description: A RESO Office (brokerage) record.
+      properties:
+        OfficeKey:
+          type: string
+        OfficeName:
+          type: string
+        OfficeStatus:
+          type: string
+        OfficePhone:
+          type: string
+        OfficeAddress1:
+          type: string
+        OfficeCity:
+          type: string
+        OfficeStateOrProvince:
+          type: string
+        OfficePostalCode:
+          type: string
+        OriginatingSystemName:
+          type: string
+        ModificationTimestamp:
+          type: string
+          format: date-time
+    OfficeCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.count':
+          type: integer
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Office'
+    Media:
+      type: object
+      description: A RESO Media record (photo, video, document).
+      properties:
+        MediaKey:
+          type: string
+        ResourceRecordKey:
+          type: string
+        ResourceName:
+          type: string
+        ClassName:
+          type: string
+        MediaURL:
+          type: string
+        MediaType:
+          type: string
+        MediaCategory:
+          type: string
+        Order:
+          type: integer
+        ModificationTimestamp:
+          type: string
+          format: date-time
+    MediaCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.count':
+          type: integer
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Media'
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
