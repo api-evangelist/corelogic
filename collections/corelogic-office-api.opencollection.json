@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts Office API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Office",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Office Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Office",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query",
+                "description": "When true, includes the total count of matching records in @odata.count."
+              }
+            ]
+          },
+          "docs": "Returns MLS Office (brokerage) records matching OData query options."
+        },
+        {
+          "info": {
+            "name": "Get Office By OfficeKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Office(:OfficeKey)",
+            "params": [
+              {
+                "name": "OfficeKey",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a single Office record by OfficeKey."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

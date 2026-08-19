@@ -1,0 +1,125 @@
+{
+  "item": [
+    {
+      "id": "b79605af-cfc8-4019-b210-491c636df1a6",
+      "name": "DashboardAPI",
+      "description": {
+        "content": "Aggregated dashboard data for the agent home screen.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "341ec3ec-f41a-4961-85eb-c188cb46ddfa",
+          "name": "Get Aggregated Dashboard Data",
+          "request": {
+            "name": "Get Aggregated Dashboard Data",
+            "description": {
+              "content": "Returns MyListings, HotSheet, MarketWatch, Concierge, and Timeline data for the agent dashboard.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DashboardAPI",
+                "GetAggregatedData"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "caa91805-d1c4-41bf-a3d9-a79bcdc27bf7",
+              "name": "Aggregated dashboard payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DashboardAPI",
+                    "GetAggregatedData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.cotality.com/trestle/odata",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "18c9bf23-f0bb-40b1-89ce-81f3c0e4f33f",
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts DashboardAPI API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.\n\nContact Support:\n Name: Trestle Support\n Email: trestlesupport@cotality.com",
+      "type": "text/plain"
+    }
+  }
+}

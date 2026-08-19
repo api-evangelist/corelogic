@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts PropertyUnitTypes API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PropertyUnitTypes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Property Unit Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/PropertyUnitTypes",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              }
+            ]
+          },
+          "docs": "Returns per-unit detail records for multi-unit properties."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

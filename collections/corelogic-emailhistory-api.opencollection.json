@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts EmailHistory API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EmailHistory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Email History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/EmailHistory"
+          },
+          "docs": "Returns email-history records for messages sent to contacts."
+        },
+        {
+          "info": {
+            "name": "Create Email History Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cotality.com/trestle/odata/EmailHistory",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records an email sent to a contact."
+        },
+        {
+          "info": {
+            "name": "Get Email History Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/EmailHistory(:EmailHistoryKeyNumeric)",
+            "params": [
+              {
+                "name": "EmailHistoryKeyNumeric",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a single EmailHistory record."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

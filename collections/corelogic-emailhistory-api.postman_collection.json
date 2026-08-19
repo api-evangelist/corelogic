@@ -1,0 +1,310 @@
+{
+  "item": [
+    {
+      "id": "69732a17-c486-432e-915c-586d37c1a8f3",
+      "name": "EmailHistory",
+      "description": {
+        "content": "Outbound messages sent to contacts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4c441a70-8ac7-4002-9008-b244fe495220",
+          "name": "Query Email History",
+          "request": {
+            "name": "Query Email History",
+            "description": {
+              "content": "Returns email-history records for messages sent to contacts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EmailHistory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14bff791-9802-49c3-8ee1-a1683aa2752f",
+              "name": "OData collection of EmailHistory records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EmailHistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03d953cf-b266-4a8c-a88d-cf6608723c99",
+          "name": "Create Email History Record",
+          "request": {
+            "name": "Create Email History Record",
+            "description": {
+              "content": "Records an email sent to a contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EmailHistory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"EmailHistoryKeyNumeric\": \"<integer>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Subject\": \"<string>\",\n  \"Body\": \"<string>\",\n  \"SentTimestamp\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "935ec790-55b9-45c0-bcc2-7f75c0dca824",
+              "name": "Created EmailHistory record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EmailHistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"EmailHistoryKeyNumeric\": \"<integer>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Subject\": \"<string>\",\n  \"Body\": \"<string>\",\n  \"SentTimestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"EmailHistoryKeyNumeric\": \"<integer>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Subject\": \"<string>\",\n  \"Body\": \"<string>\",\n  \"SentTimestamp\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5949c7b6-4ca3-4e9d-90a1-3b7a365e3fa7",
+          "name": "Get Email History Record",
+          "request": {
+            "name": "Get Email History Record",
+            "description": {
+              "content": "Returns a single EmailHistory record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EmailHistory({{EmailHistoryKeyNumeric}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ffb16045-70a7-4589-8adb-ceea23fca51e",
+              "name": "A single EmailHistory record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EmailHistory({{EmailHistoryKeyNumeric}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"EmailHistoryKeyNumeric\": \"<integer>\",\n  \"ContactKeyNumeric\": \"<integer>\",\n  \"Subject\": \"<string>\",\n  \"Body\": \"<string>\",\n  \"SentTimestamp\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.cotality.com/trestle/odata",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<integer>",
+      "key": "EmailHistoryKeyNumeric"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "19be20ae-6945-401b-9b86-a5c0e18f5089",
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts EmailHistory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.\n\nContact Support:\n Name: Trestle Support\n Email: trestlesupport@cotality.com",
+      "type": "text/plain"
+    }
+  }
+}

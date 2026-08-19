@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts Property API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Property",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Property Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Property",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to inline-expand."
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields with optional asc / desc modifiers."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query",
+                "description": "When true, includes the total count of matching records in @odata.count."
+              },
+              {
+                "name": "$apply",
+                "value": "",
+                "type": "query",
+                "description": "OData apply transformation (e.g. groupby) — max 10000 result rows."
+              },
+              {
+                "name": "Replication",
+                "value": "",
+                "type": "query",
+                "description": "When true, enables high-volume replication mode for datasets exceeding 1M rows."
+              },
+              {
+                "name": "PrettyEnums",
+                "value": "",
+                "type": "query",
+                "description": "When true, returns human-readable enumeration values instead of internal codes."
+              }
+            ]
+          },
+          "docs": "Returns Property records matching the supplied OData query options. Supports $filter, $select, $expand, $orderby, $top (max 1000, or 300000 for key-only), $skip, $count, $apply=groupby (max 10000), Replication=true for large datasets, and PrettyEnums=true."
+        },
+        {
+          "info": {
+            "name": "Get Property By ListingKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Property(:ListingKey)",
+            "params": [
+              {
+                "name": "ListingKey",
+                "value": "",
+                "type": "path",
+                "description": "The unique RESO ListingKey for the Property record."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to inline-expand."
+              }
+            ]
+          },
+          "docs": "Returns a single Property record by ListingKey."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

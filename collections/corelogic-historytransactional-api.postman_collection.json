@@ -1,0 +1,155 @@
+{
+  "item": [
+    {
+      "id": "90f5139d-1179-4610-97b6-1e125c76fa80",
+      "name": "HistoryTransactional",
+      "description": {
+        "content": "Transactional change history for tracked resources.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f2a6e82f-fcb8-4b08-baac-c2cb9ffb7fb5",
+          "name": "Query History Transactional Records",
+          "request": {
+            "name": "Query History Transactional Records",
+            "description": {
+              "content": "Returns transactional change history events for tracked resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "HistoryTransactional"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                },
+                {
+                  "disabled": false,
+                  "key": "Replication",
+                  "value": "<boolean>",
+                  "description": "When true, enables high-volume replication mode for datasets exceeding 1M rows."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab515baf-b09b-4412-8048-ccf8dda4618b",
+              "name": "OData collection of HistoryTransactional records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "HistoryTransactional"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "Replication",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.cotality.com/trestle/odata",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0b5dda09-cbf3-4309-b27d-929416be9b7c",
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts HistoryTransactional API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.\n\nContact Support:\n Name: Trestle Support\n Email: trestlesupport@cotality.com",
+      "type": "text/plain"
+    }
+  }
+}

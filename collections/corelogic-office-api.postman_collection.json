@@ -1,0 +1,263 @@
+{
+  "item": [
+    {
+      "id": "6379fc6f-73b4-46f6-9317-c89848c4f14d",
+      "name": "Office",
+      "description": {
+        "content": "MLS office (brokerage) records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3f8ca8ec-6d8d-484d-8a76-5b999f5d1403",
+          "name": "Query Office Records",
+          "request": {
+            "name": "Query Office Records",
+            "description": {
+              "content": "Returns MLS Office (brokerage) records matching OData query options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Office"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "$count",
+                  "value": "<boolean>",
+                  "description": "When true, includes the total count of matching records in @odata.count."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1865a9eb-31d5-4298-84e5-c88c2bd09112",
+              "name": "OData collection of Office records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Office"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"@odata.count\": 1201,\n  \"@odata.nextLink\": \"string\",\n  \"value\": [\n    {\n      \"OfficeKey\": \"string\",\n      \"OfficeName\": \"string\",\n      \"OfficeStatus\": \"string\",\n      \"OfficePhone\": \"string\",\n      \"OfficeAddress1\": \"string\",\n      \"OfficeCity\": \"string\",\n      \"OfficeStateOrProvince\": \"string\",\n      \"OfficePostalCode\": \"string\",\n      \"OriginatingSystemName\": \"string\",\n      \"ModificationTimestamp\": \"2017-01-16T08:19:25.428Z\"\n    },\n    {\n      \"OfficeKey\": \"string\",\n      \"OfficeName\": \"string\",\n      \"OfficeStatus\": \"string\",\n      \"OfficePhone\": \"string\",\n      \"OfficeAddress1\": \"string\",\n      \"OfficeCity\": \"string\",\n      \"OfficeStateOrProvince\": \"string\",\n      \"OfficePostalCode\": \"string\",\n      \"OriginatingSystemName\": \"string\",\n      \"ModificationTimestamp\": \"1992-07-01T23:23:53.270Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "627fbdd4-bfcc-4695-af2c-954f475650e0",
+          "name": "Get Office By OfficeKey",
+          "request": {
+            "name": "Get Office By OfficeKey",
+            "description": {
+              "content": "Returns a single Office record by OfficeKey.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Office({{OfficeKey}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "61cd4759-96f5-47f1-8710-b28fd1638ceb",
+              "name": "A single Office record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Office({{OfficeKey}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"OfficeKey\": \"string\",\n  \"OfficeName\": \"string\",\n  \"OfficeStatus\": \"string\",\n  \"OfficePhone\": \"string\",\n  \"OfficeAddress1\": \"string\",\n  \"OfficeCity\": \"string\",\n  \"OfficeStateOrProvince\": \"string\",\n  \"OfficePostalCode\": \"string\",\n  \"OriginatingSystemName\": \"string\",\n  \"ModificationTimestamp\": \"2025-07-25T02:59:51.306Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.cotality.com/trestle/odata",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "OfficeKey"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "035e6f51-a621-4de1-ab79-f25f2ec98a3c",
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts Office API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.\n\nContact Support:\n Name: Trestle Support\n Email: trestlesupport@cotality.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts Lists API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Lists"
+          },
+          "docs": "Returns property list / cart records attached to contacts."
+        },
+        {
+          "info": {
+            "name": "Create List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cotality.com/trestle/odata/Lists",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new property list / cart."
+        },
+        {
+          "info": {
+            "name": "Get List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Lists(ListKey=:ListKey,ClassName=:ClassName)",
+            "params": [
+              {
+                "name": "ListKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ClassName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a single List by composite key."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

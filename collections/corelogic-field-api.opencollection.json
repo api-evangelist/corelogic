@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts Field API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Field",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Field Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Field"
+          },
+          "docs": "Returns field-level metadata describing all available fields per resource."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

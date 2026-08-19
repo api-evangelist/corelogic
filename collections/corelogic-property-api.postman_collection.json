@@ -1,0 +1,859 @@
+{
+  "item": [
+    {
+      "id": "d7e3770d-ab65-469b-938d-9c3dee237459",
+      "name": "Property",
+      "description": {
+        "content": "MLS property listings and detail records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "68299638-582c-40cf-8cd2-c0004002205f",
+          "name": "Query Property Records",
+          "request": {
+            "name": "Query Property Records",
+            "description": {
+              "content": "Returns Property records matching the supplied OData query options. Supports $filter, $select, $expand, $orderby, $top (max 1000, or 300000 for key-only), $skip, $count, $apply=groupby (max 10000), Replication=true for large datasets, and PrettyEnums=true.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Property"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to inline-expand."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields with optional asc / desc modifiers."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "$count",
+                  "value": "<boolean>",
+                  "description": "When true, includes the total count of matching records in @odata.count."
+                },
+                {
+                  "disabled": false,
+                  "key": "$apply",
+                  "value": "<string>",
+                  "description": "OData apply transformation (e.g. groupby) — max 10000 result rows."
+                },
+                {
+                  "disabled": false,
+                  "key": "Replication",
+                  "value": "<boolean>",
+                  "description": "When true, enables high-volume replication mode for datasets exceeding 1M rows."
+                },
+                {
+                  "disabled": false,
+                  "key": "PrettyEnums",
+                  "value": "<boolean>",
+                  "description": "When true, returns human-readable enumeration values instead of internal codes."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84aed7b5-0016-4ff6-945e-11a53c3df046",
+              "name": "OData collection of Property records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$apply",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Replication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PrettyEnums",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"@odata.count\": 9143,\n  \"@odata.nextLink\": \"string\",\n  \"value\": [\n    {\n      \"ListingKey\": \"string\",\n      \"ListingId\": \"string\",\n      \"StandardStatus\": \"string\",\n      \"PropertyType\": \"string\",\n      \"PropertySubType\": \"string\",\n      \"ListPrice\": 6581.209810299412,\n      \"ClosePrice\": 3830.859340670727,\n      \"BedroomsTotal\": 4006,\n      \"BathroomsTotalInteger\": 984,\n      \"LivingArea\": 2530.2016860232966,\n      \"LotSizeArea\": 181.98111389897466,\n      \"YearBuilt\": 7508,\n      \"StreetNumber\": \"string\",\n      \"StreetName\": \"string\",\n      \"StreetSuffix\": \"string\",\n      \"City\": \"string\",\n      \"StateOrProvince\": \"string\",\n      \"PostalCode\": \"string\",\n      \"Country\": \"string\",\n      \"Latitude\": 1297.5936243923747,\n      \"Longitude\": 7027.389381828797,\n      \"ListAgentKey\": \"string\",\n      \"ListOfficeKey\": \"string\",\n      \"ModificationTimestamp\": \"2021-12-30T22:11:20.682Z\",\n      \"OriginatingSystemName\": \"string\",\n      \"UniversalParcelId\": \"string\",\n      \"CLIP\": \"string\"\n    },\n    {\n      \"ListingKey\": \"string\",\n      \"ListingId\": \"string\",\n      \"StandardStatus\": \"string\",\n      \"PropertyType\": \"string\",\n      \"PropertySubType\": \"string\",\n      \"ListPrice\": 2479.8323327083526,\n      \"ClosePrice\": 5847.67480851722,\n      \"BedroomsTotal\": 2104,\n      \"BathroomsTotalInteger\": 6506,\n      \"LivingArea\": 182.9632136711723,\n      \"LotSizeArea\": 9700.615615298802,\n      \"YearBuilt\": 509,\n      \"StreetNumber\": \"string\",\n      \"StreetName\": \"string\",\n      \"StreetSuffix\": \"string\",\n      \"City\": \"string\",\n      \"StateOrProvince\": \"string\",\n      \"PostalCode\": \"string\",\n      \"Country\": \"string\",\n      \"Latitude\": 1265.344127849658,\n      \"Longitude\": 6364.577501833121,\n      \"ListAgentKey\": \"string\",\n      \"ListOfficeKey\": \"string\",\n      \"ModificationTimestamp\": \"1955-08-23T21:21:19.457Z\",\n      \"OriginatingSystemName\": \"string\",\n      \"UniversalParcelId\": \"string\",\n      \"CLIP\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c4c5a73-16a7-4b85-b725-0a2b8597758b",
+              "name": "Request was malformed or referenced an unknown field.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$apply",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Replication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PrettyEnums",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87634ab0-a165-4a42-a2ad-4c18fd4ae7bc",
+              "name": "Access token missing, expired, or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$apply",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Replication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PrettyEnums",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9908f35a-df4f-4260-9fce-c0a182b81ba4",
+              "name": "Rate limit or quota exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$apply",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Replication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PrettyEnums",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be8f31eb-7bb3-44e4-b2d2-5dab13548dac",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$apply",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Replication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PrettyEnums",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e79c86fc-26ef-42e9-a6fa-f1bdd9d9c656",
+              "name": "Upstream gateway timeout.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$apply",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Replication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PrettyEnums",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16fd9522-2afa-484e-bd1a-1f5e63a2727c",
+          "name": "Get Property By ListingKey",
+          "request": {
+            "name": "Get Property By ListingKey",
+            "description": {
+              "content": "Returns a single Property record by ListingKey.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Property({{ListingKey}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to inline-expand."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "019b4589-b389-4d8f-9864-dbc0bc8c5000",
+              "name": "A single Property record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property({{ListingKey}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ListingKey\": \"string\",\n  \"ListingId\": \"string\",\n  \"StandardStatus\": \"string\",\n  \"PropertyType\": \"string\",\n  \"PropertySubType\": \"string\",\n  \"ListPrice\": 2799.4867810720057,\n  \"ClosePrice\": 5971.508951033773,\n  \"BedroomsTotal\": 7520,\n  \"BathroomsTotalInteger\": 501,\n  \"LivingArea\": 342.23696416929016,\n  \"LotSizeArea\": 5624.531942317249,\n  \"YearBuilt\": 8353,\n  \"StreetNumber\": \"string\",\n  \"StreetName\": \"string\",\n  \"StreetSuffix\": \"string\",\n  \"City\": \"string\",\n  \"StateOrProvince\": \"string\",\n  \"PostalCode\": \"string\",\n  \"Country\": \"string\",\n  \"Latitude\": 7572.799027604447,\n  \"Longitude\": 4578.056415492033,\n  \"ListAgentKey\": \"string\",\n  \"ListOfficeKey\": \"string\",\n  \"ModificationTimestamp\": \"1955-09-11T22:17:43.194Z\",\n  \"OriginatingSystemName\": \"string\",\n  \"UniversalParcelId\": \"string\",\n  \"CLIP\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c71d2540-e1b3-44c7-b4cc-f7d9a09a378e",
+              "name": "Access token missing, expired, or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property({{ListingKey}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22ee7b4e-3d8a-4f26-9b4b-bde07aa99219",
+              "name": "The requested resource record does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Property({{ListingKey}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.cotality.com/trestle/odata",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The unique RESO ListingKey for the Property record.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "ListingKey"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6adee13e-cf9e-4ed0-a139-01b321442131",
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts Property API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.\n\nContact Support:\n Name: Trestle Support\n Email: trestlesupport@cotality.com",
+      "type": "text/plain"
+    }
+  }
+}

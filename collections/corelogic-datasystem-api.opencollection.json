@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts DataSystem API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DataSystem",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Data System Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/DataSystem"
+          },
+          "docs": "Returns top-level service metadata and the list of available resources."
+        },
+        {
+          "info": {
+            "name": "Get OData Service Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/$metadata"
+          },
+          "docs": "Returns the OData EDMX service metadata document describing every entity, property, and enumeration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,165 @@
+{
+  "item": [
+    {
+      "id": "2122b00d-b602-4632-8fab-e9c2a5b0c62c",
+      "name": "Media",
+      "description": {
+        "content": "Listing media (photos, videos, documents).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9dbdeee9-172d-4ab1-aead-f6660730e29b",
+          "name": "Query Media Records",
+          "request": {
+            "name": "Query Media Records",
+            "description": {
+              "content": "Returns Media (photos, videos, documents) for listings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Media"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "10",
+                  "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip for pagination."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba7af622-ecd2-4298-98c0-46404d531f81",
+              "name": "OData collection of Media records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"@odata.count\": 3896,\n  \"@odata.nextLink\": \"string\",\n  \"value\": [\n    {\n      \"MediaKey\": \"string\",\n      \"ResourceRecordKey\": \"string\",\n      \"ResourceName\": \"string\",\n      \"ClassName\": \"string\",\n      \"MediaURL\": \"string\",\n      \"MediaType\": \"string\",\n      \"MediaCategory\": \"string\",\n      \"Order\": 9079,\n      \"ModificationTimestamp\": \"1985-09-17T12:22:09.264Z\"\n    },\n    {\n      \"MediaKey\": \"string\",\n      \"ResourceRecordKey\": \"string\",\n      \"ResourceName\": \"string\",\n      \"ClassName\": \"string\",\n      \"MediaURL\": \"string\",\n      \"MediaType\": \"string\",\n      \"MediaCategory\": \"string\",\n      \"Order\": 7291,\n      \"ModificationTimestamp\": \"1996-05-20T15:30:02.871Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.cotality.com/trestle/odata",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8737da4c-d452-466f-9061-5fd1b1c8ed43",
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts Media API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.\n\nContact Support:\n Name: Trestle Support\n Email: trestlesupport@cotality.com",
+      "type": "text/plain"
+    }
+  }
+}

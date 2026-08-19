@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts UserRegistry API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "UserRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query User Registry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/UserRegistry"
+          },
+          "docs": "Returns per-user preference key/value records."
+        },
+        {
+          "info": {
+            "name": "Create User Registry Entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cotality.com/trestle/odata/UserRegistry",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new user registry key/value entry."
+        },
+        {
+          "info": {
+            "name": "Get Allowed Registry Keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/UserRegistry/GetAllowedKeys()"
+          },
+          "docs": "Returns the list of allowed key names for the UserRegistry."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

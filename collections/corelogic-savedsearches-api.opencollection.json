@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts SavedSearches API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SavedSearches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Saved Searches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/SavedSearches"
+          },
+          "docs": "Returns SavedSearch records (listing search criteria for auto-email)."
+        },
+        {
+          "info": {
+            "name": "Create Saved Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cotality.com/trestle/odata/SavedSearches",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new SavedSearch record."
+        },
+        {
+          "info": {
+            "name": "Get Saved Search Listing IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/SavedSearches(:SavedSearchKeyNumeric)/Default.GetSavedSearchListingIDs()",
+            "params": [
+              {
+                "name": "SavedSearchKeyNumeric",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "OData function that returns the listing IDs currently matching a saved search."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

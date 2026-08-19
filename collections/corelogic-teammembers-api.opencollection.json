@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts TeamMembers API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TeamMembers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Team Member Relationships",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/TeamMembers",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              }
+            ]
+          },
+          "docs": "Returns membership relationships between Teams and Members."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

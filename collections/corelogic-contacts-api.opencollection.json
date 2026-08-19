@@ -1,0 +1,120 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Contacts"
+          },
+          "docs": "Returns contact records matching OData query options."
+        },
+        {
+          "info": {
+            "name": "Create Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cotality.com/trestle/odata/Contacts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new contact record."
+        },
+        {
+          "info": {
+            "name": "Get Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Contacts(:ContactKeyNumeric)",
+            "params": [
+              {
+                "name": "ContactKeyNumeric",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a single Contact by its numeric key."
+        },
+        {
+          "info": {
+            "name": "Update Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.cotality.com/trestle/odata/Contacts(:ContactKeyNumeric)",
+            "params": [
+              {
+                "name": "ContactKeyNumeric",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing Contact record."
+        },
+        {
+          "info": {
+            "name": "Delete Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.cotality.com/trestle/odata/Contacts(:ContactKeyNumeric)",
+            "params": [
+              {
+                "name": "ContactKeyNumeric",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a Contact record."
+        },
+        {
+          "info": {
+            "name": "Get Contact Portal Contents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Contacts(:ContactKeyNumeric)/PortalContents",
+            "params": [
+              {
+                "name": "ContactKeyNumeric",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the PortalContents records associated with a contact."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

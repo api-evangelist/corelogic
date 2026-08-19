@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts HistoryTransactional API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "HistoryTransactional",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query History Transactional Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/HistoryTransactional",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression. Field names are case-sensitive and must match $metadata."
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries)."
+              },
+              {
+                "name": "Replication",
+                "value": "",
+                "type": "query",
+                "description": "When true, enables high-volume replication mode for datasets exceeding 1M rows."
+              }
+            ]
+          },
+          "docs": "Returns transactional change history events for tracked resources."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

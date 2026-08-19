@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoreLogic Trestle Direct Web API — CRM Contacts PortalContents API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PortalContents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Contact Portal Contents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/Contacts(:ContactKeyNumeric)/PortalContents",
+            "params": [
+              {
+                "name": "ContactKeyNumeric",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the PortalContents records associated with a contact."
+        },
+        {
+          "info": {
+            "name": "Query Portal Contents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cotality.com/trestle/odata/PortalContents"
+          },
+          "docs": "Returns PortalContents records (listing notes, views, preferences)."
+        },
+        {
+          "info": {
+            "name": "Create Portal Content Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cotality.com/trestle/odata/PortalContents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new PortalContents record."
+        },
+        {
+          "info": {
+            "name": "Add Listing Note",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cotality.com/trestle/odata/PortalContents/AddListingNote",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OData action that attaches a note to a listing for a contact's portal."
+        },
+        {
+          "info": {
+            "name": "Mark Listing As Viewed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cotality.com/trestle/odata/PortalContents/MarkAsViewed",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OData action that marks a listing as viewed in a contact's portal."
+        },
+        {
+          "info": {
+            "name": "Set Listing Preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cotality.com/trestle/odata/PortalContents/SetListingPreference",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OData action that sets a contact's preference flag on a listing."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
