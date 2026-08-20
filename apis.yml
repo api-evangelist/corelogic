@@ -45,6 +45,28 @@ tags:
   - OpenID Connect
   - Participant Reporting
   - Property Data
+  - Real-Estate
+  - RESO Data Dictionary
+  - RESO Web API
+  - RETS
+  - Tax Data
+  - Trestle
+tags_raw:
+  - Climate Risk
+  - CoreLogic
+  - Cotality
+  - Direct Web API
+  - Hazard Data
+  - Insurance Data
+  - Listings
+  - Matrix MLS
+  - Mortgage Data
+  - MLS
+  - OData
+  - OneHome
+  - OpenID Connect
+  - Participant Reporting
+  - Property Data
   - Real Estate
   - RESO Data Dictionary
   - RESO Web API
@@ -200,6 +222,8 @@ apis:
   humanURL: https://trestle-documentation.corelogic.com/webapi.html
   baseURL: https://api.cotality.com/trestle/odata
   tags:
+  - Custom Property
+  tags_raw:
   - CustomProperty
   properties:
   - type: OpenAPI
@@ -392,6 +416,8 @@ apis:
   humanURL: https://trestle-documentation.corelogic.com/webapi.html
   baseURL: https://api.cotality.com/trestle/odata
   tags:
+  - List
+  tags_raw:
   - Lists
   properties:
   - type: OpenAPI
@@ -744,6 +770,8 @@ apis:
   humanURL: https://trestle-documentation.corelogic.com/webapi.html
   baseURL: https://api.cotality.com/trestle/odata
   tags:
+  - Saved Searches
+  tags_raw:
   - SavedSearches
   properties:
   - type: OpenAPI
@@ -776,6 +804,8 @@ apis:
   humanURL: https://trestle-documentation.corelogic.com/webapi.html
   baseURL: https://api.cotality.com/trestle/odata
   tags:
+  - Team Members
+  tags_raw:
   - TeamMembers
   properties:
   - type: OpenAPI
@@ -808,6 +838,8 @@ apis:
   humanURL: https://trestle-documentation.corelogic.com/webapi.html
   baseURL: https://api.cotality.com/trestle/odata
   tags:
+  - Team
+  tags_raw:
   - Teams
   properties:
   - type: OpenAPI
