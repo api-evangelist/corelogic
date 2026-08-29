@@ -911,6 +911,9 @@ apis:
   - type: Rules
     url: rules/corelogic-direct-webapi-crm-rules.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/corelogic-capability-edges.yml
+    name: CoreLogic (Cotality) Business Capability Map
   - type: AgenticAccess
     url: agentic-access/corelogic-agentic-access.yml
   - type: DomainSecurity

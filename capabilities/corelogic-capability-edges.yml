@@ -1,0 +1,54 @@
+slug: corelogic
+provider: CoreLogic (Cotality)
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Real Estate
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: OpenHouse
+  spec_file: corelogic-openhouse-api-openapi.yml
+  capability_id: BC-4960.50
+  capability_id_l1: BC-4960
+  capability_name: Showing & Open House Operations
+  confidence: 0.8
+  evidence: GET /OpenHouse queryOpenHouse Query Open House Events
+  reason: Open house event records in an MLS directly correspond to showing and open house operations
+    for listed property.
+- tag: Property
+  spec_file: corelogic-property-api-openapi.yml
+  capability_id: BC-4960.30
+  capability_id_l1: BC-4960
+  capability_name: Listing Data & MLS Management
+  confidence: 0.8
+  evidence: GET /Property({ListingKey}) getProperty Get Property By ListingKey
+  reason: The Property resource is keyed by ListingKey, i.e. MLS listing records — listing data and MLS
+    management rather than owner-side asset management.
+- tag: Contacts
+  spec_file: corelogic-contacts-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.75
+  evidence: Query Contacts / Create Contact / Update Contact / Delete Contact against the 'Matrix MLS
+    CRM database'
+  reason: Full CRUD over contact records in an MLS CRM — maintenance of the customer/contact master record.
+    Mapped to Customer Data Management; not brokerage representation, since no mandate, showing or offer
+    operations appear.
+- tag: Media
+  spec_file: corelogic-media-api-openapi.yml
+  capability_id: BC-4960.30
+  capability_id_l1: BC-4960
+  capability_name: Listing Data & MLS Management
+  confidence: 0.7
+  evidence: 'GET /Media queryMedia Query Media Records; schemas: MediaCollection, Media'
+  reason: In an MLS (Matrix) context the Media resource carries listing photos/media attached to listings,
+    which is listing data and media management for MLS/portal distribution. Slight ambiguity because operations
+    only expose generic media query.
