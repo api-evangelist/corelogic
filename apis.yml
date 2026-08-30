@@ -234,7 +234,7 @@ apis:
   humanURL: https://trestle-documentation.corelogic.com/webapi.html
   baseURL: https://api.cotality.com/trestle/odata
   tags:
-  - Custom Property
+  - CustomProperty
   tags_raw:
   - CustomProperty
   properties:
@@ -816,7 +816,7 @@ apis:
   humanURL: https://trestle-documentation.corelogic.com/webapi.html
   baseURL: https://api.cotality.com/trestle/odata
   tags:
-  - Team Members
+  - TeamMembers
   tags_raw:
   - TeamMembers
   properties:
