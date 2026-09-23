@@ -1,21 +1,20 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: CoreLogic Trestle Direct Web API — CRM Contacts Office API
-  version: '1.0'
-  description: The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.
+  title: CoreLogic Trestle RESO Web Office API
+  version: '2.0'
+  description: Trestle's RESO Web API is an OData 4.0 / RESO Web API 2.0 compliant endpoint that delivers MLS Property, Member, Office, Media, OpenHouse, Teams, and related real-estate resources across multiple aggregated U.S. MLSs. Authentication uses OAuth2 Client Credentials against api.cotality.com/trestle/oidc/connect/token with scope=api; tokens are valid for 8 hours. Conforms to the RESO Data Dictionary 2.0.
   contact:
     name: Trestle Support
     email: trestlesupport@cotality.com
-    url: https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html
+    url: https://trestle-documentation.corelogic.com/
   license:
     name: Proprietary
     url: https://www.cotality.com/terms-of-use
 servers:
 - url: https://api.cotality.com/trestle/odata
-  description: Direct Web API CRM production server
+  description: Trestle RESO Web API production server
 security:
-- oidcClareity: []
-- basicAuth: []
+- oauth2ClientCredentials: []
 tags:
 - name: Office
   description: MLS office (brokerage) records.
@@ -61,6 +60,39 @@ paths:
               schema:
                 $ref: '#/components/schemas/Office'
 components:
+  parameters:
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      schema:
+        type: string
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to return.
+      schema:
+        type: string
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
+      schema:
+        type: integer
+        maximum: 300000
+        default: 10
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+    Count:
+      name: $count
+      in: query
+      description: When true, includes the total count of matching records in @odata.count.
+      schema:
+        type: boolean
   schemas:
     OfficeCollection:
       type: object
@@ -100,43 +132,11 @@ components:
         ModificationTimestamp:
           type: string
           format: date-time
-  parameters:
-    Count:
-      name: $count
-      in: query
-      description: When true, includes the total count of matching records in @odata.count.
-      schema:
-        type: boolean
-    Skip:
-      name: $skip
-      in: query
-      description: Number of records to skip for pagination.
-      schema:
-        type: integer
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression. Field names are case-sensitive and must match $metadata.
-      schema:
-        type: string
-    Select:
-      name: $select
-      in: query
-      description: Comma-separated list of fields to return.
-      schema:
-        type: string
-    Top:
-      name: $top
-      in: query
-      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
-      schema:
-        type: integer
-        maximum: 300000
-        default: 10
   securitySchemes:
-    oidcClareity:
-      type: openIdConnect
-      openIdConnectUrl: https://api.cotality.com/trestle/oidc/.well-known/openid-configuration
-    basicAuth:
-      type: http
-      scheme: basic
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.cotality.com/trestle/oidc/connect/token
+          scopes:
+            api: Access to the Trestle RESO Web API

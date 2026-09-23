@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: CoreLogic Trestle Direct Web API — CRM Contacts SavedSearches API
+  title: CoreLogic Trestle Direct Web API — CRM Saved Searches API
   version: '1.0'
   description: The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists, PortalContents, SavedSearches, UserRegistry, and an aggregated DashboardAPI. Authentication is OpenID Connect via Clareity Single Sign-On or HTTP Basic. OData query options ($select, $expand, $orderby, $filter) apply throughout.
   contact:
@@ -17,7 +17,7 @@ security:
 - oidcClareity: []
 - basicAuth: []
 tags:
-- name: SavedSearches
+- name: Saved Searches
   description: Saved listing search criteria with auto-email schedules.
 paths:
   /SavedSearches:
@@ -26,7 +26,7 @@ paths:
       summary: Query Saved Searches
       description: Returns SavedSearch records (listing search criteria for auto-email).
       tags:
-      - SavedSearches
+      - Saved Searches
       responses:
         '200':
           description: OData collection of SavedSearch records.
@@ -39,7 +39,7 @@ paths:
       summary: Create Saved Search
       description: Creates a new SavedSearch record.
       tags:
-      - SavedSearches
+      - Saved Searches
       requestBody:
         required: true
         content:
@@ -59,7 +59,7 @@ paths:
       summary: Get Saved Search Listing IDs
       description: OData function that returns the listing IDs currently matching a saved search.
       tags:
-      - SavedSearches
+      - Saved Searches
       parameters:
       - name: SavedSearchKeyNumeric
         in: path
