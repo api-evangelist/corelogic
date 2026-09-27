@@ -57,7 +57,7 @@ tags:
   - OpenID Connect
   - Participant Reporting
   - Property Data
-  - Real-Estate
+  - Real Estate
   - RESO Data Dictionary
   - RESO Web API
   - RETS
@@ -85,6 +85,7 @@ tags_raw:
   - RETS
   - Tax Data
   - Trestle
+  - Real-Estate
 created: '2026-05-23'
 modified: '2026-05-23'
 specificationVersion: '0.23'

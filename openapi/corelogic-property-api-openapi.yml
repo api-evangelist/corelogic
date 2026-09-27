@@ -82,107 +82,17 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    ServerError:
-      description: Internal server error.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    GatewayTimeout:
-      description: Upstream gateway timeout.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Request was malformed or referenced an unknown field.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Access token missing, expired, or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested resource record does not exist.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    QuotaExceeded:
-      description: Rate limit or quota exceeded.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-  parameters:
-    Top:
-      name: $top
-      in: query
-      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
-      schema:
-        type: integer
-        maximum: 300000
-        default: 10
-    Skip:
-      name: $skip
-      in: query
-      description: Number of records to skip for pagination.
-      schema:
-        type: integer
-    Expand:
-      name: $expand
-      in: query
-      description: Comma-separated list of related resources to inline-expand.
-      schema:
-        type: string
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression. Field names are case-sensitive and must match $metadata.
-      schema:
-        type: string
-    Replication:
-      name: Replication
-      in: query
-      description: When true, enables high-volume replication mode for datasets exceeding 1M rows.
-      schema:
-        type: boolean
-    PrettyEnums:
-      name: PrettyEnums
-      in: query
-      description: When true, returns human-readable enumeration values instead of internal codes.
-      schema:
-        type: boolean
-    Count:
-      name: $count
-      in: query
-      description: When true, includes the total count of matching records in @odata.count.
-      schema:
-        type: boolean
-    Select:
-      name: $select
-      in: query
-      description: Comma-separated list of fields to return.
-      schema:
-        type: string
-    Apply:
-      name: $apply
-      in: query
-      description: OData apply transformation (e.g. groupby) — max 10000 result rows.
-      schema:
-        type: string
-    OrderBy:
-      name: $orderby
-      in: query
-      description: Comma-separated list of fields with optional asc / desc modifiers.
-      schema:
-        type: string
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
     Property:
       type: object
       description: A RESO Data Dictionary 2.0 Property record.
@@ -267,16 +177,106 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Property'
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
+  parameters:
+    OrderBy:
+      name: $orderby
+      in: query
+      description: Comma-separated list of fields with optional asc / desc modifiers.
+      schema:
+        type: string
+    Apply:
+      name: $apply
+      in: query
+      description: OData apply transformation (e.g. groupby) — max 10000 result rows.
+      schema:
+        type: string
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to return.
+      schema:
+        type: string
+    Expand:
+      name: $expand
+      in: query
+      description: Comma-separated list of related resources to inline-expand.
+      schema:
+        type: string
+    Count:
+      name: $count
+      in: query
+      description: When true, includes the total count of matching records in @odata.count.
+      schema:
+        type: boolean
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
+      schema:
+        type: integer
+        maximum: 300000
+        default: 10
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      schema:
+        type: string
+    Replication:
+      name: Replication
+      in: query
+      description: When true, enables high-volume replication mode for datasets exceeding 1M rows.
+      schema:
+        type: boolean
+    PrettyEnums:
+      name: PrettyEnums
+      in: query
+      description: When true, returns human-readable enumeration values instead of internal codes.
+      schema:
+        type: boolean
+  responses:
+    GatewayTimeout:
+      description: Upstream gateway timeout.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource record does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Request was malformed or referenced an unknown field.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Access token missing, expired, or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    QuotaExceeded:
+      description: Rate limit or quota exceeded.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

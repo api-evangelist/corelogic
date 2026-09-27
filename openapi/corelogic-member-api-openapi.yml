@@ -65,51 +65,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Member'
 components:
-  parameters:
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression. Field names are case-sensitive and must match $metadata.
-      schema:
-        type: string
-    Select:
-      name: $select
-      in: query
-      description: Comma-separated list of fields to return.
-      schema:
-        type: string
-    Count:
-      name: $count
-      in: query
-      description: When true, includes the total count of matching records in @odata.count.
-      schema:
-        type: boolean
-    Top:
-      name: $top
-      in: query
-      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
-      schema:
-        type: integer
-        maximum: 300000
-        default: 10
-    Skip:
-      name: $skip
-      in: query
-      description: Number of records to skip for pagination.
-      schema:
-        type: integer
-    OrderBy:
-      name: $orderby
-      in: query
-      description: Comma-separated list of fields with optional asc / desc modifiers.
-      schema:
-        type: string
-    Expand:
-      name: $expand
-      in: query
-      description: Comma-separated list of related resources to inline-expand.
-      schema:
-        type: string
   schemas:
     MemberCollection:
       type: object
@@ -124,6 +79,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Member'
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
     Member:
       type: object
       description: A RESO Member (agent) record.
@@ -151,16 +116,51 @@ components:
         ModificationTimestamp:
           type: string
           format: date-time
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
+  parameters:
+    Count:
+      name: $count
+      in: query
+      description: When true, includes the total count of matching records in @odata.count.
+      schema:
+        type: boolean
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      schema:
+        type: string
+    OrderBy:
+      name: $orderby
+      in: query
+      description: Comma-separated list of fields with optional asc / desc modifiers.
+      schema:
+        type: string
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
+      schema:
+        type: integer
+        maximum: 300000
+        default: 10
+    Expand:
+      name: $expand
+      in: query
+      description: Comma-separated list of related resources to inline-expand.
+      schema:
+        type: string
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to return.
+      schema:
+        type: string
   responses:
     Unauthorized:
       description: Access token missing, expired, or invalid.
