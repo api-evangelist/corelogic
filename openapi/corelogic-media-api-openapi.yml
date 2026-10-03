@@ -40,18 +40,6 @@ paths:
                 $ref: '#/components/schemas/MediaCollection'
 components:
   parameters:
-    Skip:
-      name: $skip
-      in: query
-      description: Number of records to skip for pagination.
-      schema:
-        type: integer
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression. Field names are case-sensitive and must match $metadata.
-      schema:
-        type: string
     Top:
       name: $top
       in: query
@@ -64,6 +52,18 @@ components:
       name: $select
       in: query
       description: Comma-separated list of fields to return.
+      schema:
+        type: string
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
       schema:
         type: string
   schemas:

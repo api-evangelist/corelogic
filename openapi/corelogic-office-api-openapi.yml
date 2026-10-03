@@ -61,6 +61,20 @@ paths:
                 $ref: '#/components/schemas/Office'
 components:
   parameters:
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
+      schema:
+        type: integer
+        maximum: 300000
+        default: 10
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to return.
+      schema:
+        type: string
     Count:
       name: $count
       in: query
@@ -77,20 +91,6 @@ components:
       name: $filter
       in: query
       description: OData filter expression. Field names are case-sensitive and must match $metadata.
-      schema:
-        type: string
-    Top:
-      name: $top
-      in: query
-      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
-      schema:
-        type: integer
-        maximum: 300000
-        default: 10
-    Select:
-      name: $select
-      in: query
-      description: Comma-separated list of fields to return.
       schema:
         type: string
   schemas:
