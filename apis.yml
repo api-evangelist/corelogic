@@ -54,7 +54,6 @@ tags:
   - MLS
   - OData
   - OneHome
-  - OpenID Connect
   - Participant Reporting
   - Property Data
   - Real Estate
@@ -76,7 +75,6 @@ tags_raw:
   - MLS
   - OData
   - OneHome
-  - OpenID Connect
   - Participant Reporting
   - Property Data
   - Real Estate
@@ -974,3 +972,5 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-tags-removed:
+- OpenID Connect
