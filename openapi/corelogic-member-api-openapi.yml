@@ -66,6 +66,24 @@ paths:
                 $ref: '#/components/schemas/Member'
 components:
   parameters:
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      schema:
+        type: string
+    Expand:
+      name: $expand
+      in: query
+      description: Comma-separated list of related resources to inline-expand.
+      schema:
+        type: string
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to return.
+      schema:
+        type: string
     Top:
       name: $top
       in: query
@@ -74,10 +92,10 @@ components:
         type: integer
         maximum: 300000
         default: 10
-    Select:
-      name: $select
+    OrderBy:
+      name: $orderby
       in: query
-      description: Comma-separated list of fields to return.
+      description: Comma-separated list of fields with optional asc / desc modifiers.
       schema:
         type: string
     Count:
@@ -86,30 +104,12 @@ components:
       description: When true, includes the total count of matching records in @odata.count.
       schema:
         type: boolean
-    Expand:
-      name: $expand
-      in: query
-      description: Comma-separated list of related resources to inline-expand.
-      schema:
-        type: string
     Skip:
       name: $skip
       in: query
       description: Number of records to skip for pagination.
       schema:
         type: integer
-    OrderBy:
-      name: $orderby
-      in: query
-      description: Comma-separated list of fields with optional asc / desc modifiers.
-      schema:
-        type: string
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression. Field names are case-sensitive and must match $metadata.
-      schema:
-        type: string
   responses:
     Unauthorized:
       description: Access token missing, expired, or invalid.
@@ -118,29 +118,6 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
-    MemberCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        '@odata.count':
-          type: integer
-        '@odata.nextLink':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Member'
     Member:
       type: object
       description: A RESO Member (agent) record.
@@ -168,6 +145,29 @@ components:
         ModificationTimestamp:
           type: string
           format: date-time
+    MemberCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.count':
+          type: integer
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

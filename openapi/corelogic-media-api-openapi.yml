@@ -40,6 +40,18 @@ paths:
                 $ref: '#/components/schemas/MediaCollection'
 components:
   parameters:
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      schema:
+        type: string
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to return.
+      schema:
+        type: string
     Top:
       name: $top
       in: query
@@ -48,25 +60,26 @@ components:
         type: integer
         maximum: 300000
         default: 10
-    Select:
-      name: $select
-      in: query
-      description: Comma-separated list of fields to return.
-      schema:
-        type: string
     Skip:
       name: $skip
       in: query
       description: Number of records to skip for pagination.
       schema:
         type: integer
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression. Field names are case-sensitive and must match $metadata.
-      schema:
-        type: string
   schemas:
+    MediaCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.count':
+          type: integer
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Media'
     Media:
       type: object
       description: A RESO Media record (photo, video, document).
@@ -90,19 +103,6 @@ components:
         ModificationTimestamp:
           type: string
           format: date-time
-    MediaCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        '@odata.count':
-          type: integer
-        '@odata.nextLink':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Media'
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

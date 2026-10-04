@@ -83,26 +83,8 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   responses:
-    NotFound:
-      description: The requested resource record does not exist.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    ServerError:
-      description: Internal server error.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     GatewayTimeout:
       description: Upstream gateway timeout.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Access token missing, expired, or invalid.
       content:
         application/json:
           schema:
@@ -113,12 +95,93 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource record does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     BadRequest:
       description: Request was malformed or referenced an unknown field.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Access token missing, expired, or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to return.
+      schema:
+        type: string
+    Expand:
+      name: $expand
+      in: query
+      description: Comma-separated list of related resources to inline-expand.
+      schema:
+        type: string
+    Apply:
+      name: $apply
+      in: query
+      description: OData apply transformation (e.g. groupby) — max 10000 result rows.
+      schema:
+        type: string
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      schema:
+        type: string
+    Replication:
+      name: Replication
+      in: query
+      description: When true, enables high-volume replication mode for datasets exceeding 1M rows.
+      schema:
+        type: boolean
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
+      schema:
+        type: integer
+        maximum: 300000
+        default: 10
+    PrettyEnums:
+      name: PrettyEnums
+      in: query
+      description: When true, returns human-readable enumeration values instead of internal codes.
+      schema:
+        type: boolean
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+    OrderBy:
+      name: $orderby
+      in: query
+      description: Comma-separated list of fields with optional asc / desc modifiers.
+      schema:
+        type: string
+    Count:
+      name: $count
+      in: query
+      description: When true, includes the total count of matching records in @odata.count.
+      schema:
+        type: boolean
   schemas:
     Property:
       type: object
@@ -214,69 +277,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Property'
-  parameters:
-    Skip:
-      name: $skip
-      in: query
-      description: Number of records to skip for pagination.
-      schema:
-        type: integer
-    Apply:
-      name: $apply
-      in: query
-      description: OData apply transformation (e.g. groupby) — max 10000 result rows.
-      schema:
-        type: string
-    Replication:
-      name: Replication
-      in: query
-      description: When true, enables high-volume replication mode for datasets exceeding 1M rows.
-      schema:
-        type: boolean
-    Top:
-      name: $top
-      in: query
-      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
-      schema:
-        type: integer
-        maximum: 300000
-        default: 10
-    Select:
-      name: $select
-      in: query
-      description: Comma-separated list of fields to return.
-      schema:
-        type: string
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression. Field names are case-sensitive and must match $metadata.
-      schema:
-        type: string
-    PrettyEnums:
-      name: PrettyEnums
-      in: query
-      description: When true, returns human-readable enumeration values instead of internal codes.
-      schema:
-        type: boolean
-    OrderBy:
-      name: $orderby
-      in: query
-      description: Comma-separated list of fields with optional asc / desc modifiers.
-      schema:
-        type: string
-    Count:
-      name: $count
-      in: query
-      description: When true, includes the total count of matching records in @odata.count.
-      schema:
-        type: boolean
-    Expand:
-      name: $expand
-      in: query
-      description: Comma-separated list of related resources to inline-expand.
-      schema:
-        type: string
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2
