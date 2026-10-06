@@ -85,7 +85,7 @@ tags_raw:
   - Trestle
   - Real-Estate
 created: '2026-05-23'
-modified: '2026-05-23'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: corelogic:trestle-rets
@@ -904,6 +904,8 @@ apis:
   - type: Rules
     url: rules/corelogic-direct-webapi-crm-rules.yml
 common:
+  - url: https://www.cotality.com/insights
+    type: Blog
   - type: CapabilityMap
     url: capabilities/corelogic-capability-edges.yml
     name: CoreLogic (Cotality) Business Capability Map
