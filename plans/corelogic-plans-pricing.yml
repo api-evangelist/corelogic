@@ -106,3 +106,35 @@ plans:
         name: pricing
         type: contact
         notes: Enterprise sales — pricing not published.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - negotiated
+  units: []
+  plans:
+  - name: Developer Portal (Documentation Access)
+    access: free
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Trestle (MLS-Provisioned Vendor Access)
+    access: negotiated
+    model: negotiated
+    model_how: stated
+    units: []
+    periods: []
+  - name: 360 Property Data (Enterprise Data Share)
+    access: enterprise
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Climate Risk Analytics (Enterprise Data Share)
+    access: enterprise
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
