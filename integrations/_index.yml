@@ -27,7 +27,7 @@
     - Data Dictionary 1.7 Certified
     summary_url: https://certification.reso.org/summary/T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-altitude-mls
@@ -50,7 +50,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-amelia-island-nassau-county-association-of-realtors
@@ -73,7 +73,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-arkansasone-mls
@@ -96,7 +96,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-bagnell-dam-association-of-realtors
@@ -119,7 +119,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-beachesmls
@@ -142,7 +142,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-big-sky-country-mls
@@ -165,7 +165,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-billings-multiple-listing-service
@@ -188,7 +188,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-bryan-college-station-regional-multiple-listing-service
@@ -211,11 +211,12 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-california-regional-multiple-listing-service-crmls
   label: California Regional Multiple Listing Service (CRMLS)
+  partner: crmls
   partner_name: California Regional Multiple Listing Service (CRMLS)
   category: RESO-certified MLS feed
   type: contract
@@ -234,7 +235,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-capital-area-technology-realtor-services-tallahassee-board-of-realtors
@@ -257,7 +258,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-cbrar-property-services
@@ -280,7 +281,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-cedar-rapids-area-association-of-realtors
@@ -303,7 +304,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-central-illinois-board-of-realtors
@@ -326,7 +327,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-central-panhandle-association-of-realtors
@@ -349,7 +350,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-central-texas-mls-ctxmls
@@ -372,7 +373,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-central-virginia-regional-mls
@@ -395,7 +396,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-chs-regional-mls-charleston-trident-association-of-realtors
@@ -418,7 +419,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-coastal-carolinas-association-of-realtors
@@ -441,7 +442,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-colorado-real-estate-network-cren
@@ -464,7 +465,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-dayton-realtors
@@ -487,7 +488,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-des-moines-area-association-of-realtors
@@ -510,7 +511,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-east-alabama-board-of-realtors
@@ -533,7 +534,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-elevatemls
@@ -555,7 +556,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-elko-county-association-of-realtors
@@ -578,7 +579,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-first-multiple-listing-service-fmls
@@ -601,7 +602,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-florida-gulf-coast-multiple-listing-service
@@ -624,7 +625,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-grand-junction-area-realtor-association
@@ -647,7 +648,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-greater-binghamton-association-of-realtors
@@ -670,7 +671,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-greater-erie-board-of-realtors
@@ -693,7 +694,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-greater-lehigh-valley-realtors
@@ -716,7 +717,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-greater-northwoods-mls
@@ -739,7 +740,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-greater-scranton-board-of-realtors
@@ -762,7 +763,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-heartland-mls
@@ -785,7 +786,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-hicentral-mls-honolulu-board-of-realtors
@@ -807,7 +808,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-high-country-association-of-realtors
@@ -830,7 +831,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-highlands-cashiers-board-of-realtors
@@ -853,7 +854,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-houston-association-of-realtors
@@ -875,7 +876,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-incline-village-realtors
@@ -898,7 +899,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-kanawha-valley-board-of-realtors
@@ -921,7 +922,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-kansas-high-plains-association-of-realtors
@@ -944,7 +945,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-lake-of-the-ozarks-board-of-realtors
@@ -967,7 +968,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-las-vegas-realtors
@@ -990,7 +991,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-lee-county-association-of-realtors
@@ -1013,7 +1014,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-lera-mls-san-antonio-board-of-realtors
@@ -1036,7 +1037,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-lewistown-chapter-of-billings-association-of-realtors
@@ -1059,7 +1060,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-longleaf-pine-realtors
@@ -1082,7 +1083,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-maris-mls
@@ -1105,7 +1106,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-martin-county-realtors-of-the-treasure-coast
@@ -1128,7 +1129,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-miami-realtors-mls
@@ -1151,7 +1152,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-mls-now
@@ -1174,7 +1175,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-mls-technology
@@ -1197,7 +1198,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-mlsok
@@ -1220,7 +1221,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-momentum-mls
@@ -1243,7 +1244,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-montana-regional-mls
@@ -1266,7 +1267,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-montgomery-area-association-of-realtors
@@ -1289,7 +1290,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-mountain-resort-communities-association-of-realtors
@@ -1312,7 +1313,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-naples-area-board-of-realtors
@@ -1334,7 +1335,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-north-texas-real-estate-information-systems-ntreis
@@ -1357,7 +1358,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-northern-kentucky-multiple-listing-service
@@ -1379,7 +1380,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-northwest-ohio-real-estate-information-service-noris
@@ -1402,7 +1403,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-northwestern-wisconsin-multiple-listing-service
@@ -1425,7 +1426,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-onekey-mls
@@ -1448,7 +1449,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-pike-wayne-association-of-realtors
@@ -1471,7 +1472,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-real-estate-information-network-rein
@@ -1494,7 +1495,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-realcomp
@@ -1517,7 +1518,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-realtors-association-of-citrus-county
@@ -1540,7 +1541,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-realtors-association-of-indian-river-county
@@ -1563,7 +1564,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-recolorado
@@ -1585,7 +1586,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-resides
@@ -1608,7 +1609,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-roam-mls
@@ -1630,7 +1631,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-santa-fe-association-of-realtors
@@ -1653,7 +1654,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-scoutmls
@@ -1676,7 +1677,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-silver-city-regional-multiple-listing-service
@@ -1699,7 +1700,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-smartmls
@@ -1722,7 +1723,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-south-texas-mls
@@ -1745,7 +1746,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-southern-indiana-realtors-association
@@ -1768,7 +1769,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-southwest-mls-greater-albuquerque-association-of-realtors
@@ -1791,7 +1792,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-state-wide-mls
@@ -1814,11 +1815,12 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-stellar-mls
   label: Stellar MLS
+  partner: stellar-mls
   partner_name: Stellar MLS
   category: RESO-certified MLS feed
   type: contract
@@ -1837,7 +1839,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-taos-county-association-of-realtors
@@ -1860,7 +1862,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-unlock-mls-austin-board-of-realtors
@@ -1883,7 +1885,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-upstate-new-york-real-estate-information-services-unyreis
@@ -1905,7 +1907,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-west-alabama-multiple-listing-service
@@ -1928,7 +1930,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-west-penn-multi-list
@@ -1951,7 +1953,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-western-new-york-real-estate-information-services-wnyreis
@@ -1974,7 +1976,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-western-upstate-multiple-listing-service
@@ -1997,7 +1999,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-williamsburg-multiple-listing-service
@@ -2020,7 +2022,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-wiregrass-realtors
@@ -2043,7 +2045,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-new-york-state-alliance-of-mlss
@@ -2066,7 +2068,7 @@
     organization_type: Pooled Platform
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-virginia-mls-coop
@@ -2089,7 +2091,7 @@
     organization_type: Pooled Platform
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-omni-mls
@@ -2112,7 +2114,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-association-of-interior-realtors
@@ -2135,7 +2137,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-vancouver-island-real-estate-board
@@ -2158,7 +2160,7 @@
     organization_type: MLS
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
 - slug: corelogic-pillar-9
@@ -2181,6 +2183,6 @@
     organization_type: Pooled Platform
     vendor_uoi: T00000050
     detected_by: sweep-real-estate.py
-    detected: '2026-10-13'
+    detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
