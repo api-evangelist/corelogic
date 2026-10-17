@@ -39,12 +39,12 @@ paths:
                 type: object
 components:
   parameters:
-    Filter:
-      name: $filter
+    Skip:
+      name: $skip
       in: query
-      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      description: Number of records to skip for pagination.
       schema:
-        type: string
+        type: integer
     Top:
       name: $top
       in: query
@@ -53,12 +53,12 @@ components:
         type: integer
         maximum: 300000
         default: 10
-    Skip:
-      name: $skip
+    Filter:
+      name: $filter
       in: query
-      description: Number of records to skip for pagination.
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
       schema:
-        type: integer
+        type: string
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

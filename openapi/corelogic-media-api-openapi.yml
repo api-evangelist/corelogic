@@ -39,33 +39,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/MediaCollection'
 components:
-  parameters:
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression. Field names are case-sensitive and must match $metadata.
-      schema:
-        type: string
-    Select:
-      name: $select
-      in: query
-      description: Comma-separated list of fields to return.
-      schema:
-        type: string
-    Top:
-      name: $top
-      in: query
-      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
-      schema:
-        type: integer
-        maximum: 300000
-        default: 10
-    Skip:
-      name: $skip
-      in: query
-      description: Number of records to skip for pagination.
-      schema:
-        type: integer
   schemas:
     MediaCollection:
       type: object
@@ -103,6 +76,33 @@ components:
         ModificationTimestamp:
           type: string
           format: date-time
+  parameters:
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to return.
+      schema:
+        type: string
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
+      schema:
+        type: integer
+        maximum: 300000
+        default: 10
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      schema:
+        type: string
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

@@ -39,12 +39,12 @@ paths:
                 type: object
 components:
   parameters:
-    Filter:
-      name: $filter
+    Replication:
+      name: Replication
       in: query
-      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      description: When true, enables high-volume replication mode for datasets exceeding 1M rows.
       schema:
-        type: string
+        type: boolean
     Top:
       name: $top
       in: query
@@ -53,12 +53,12 @@ components:
         type: integer
         maximum: 300000
         default: 10
-    Replication:
-      name: Replication
+    Filter:
+      name: $filter
       in: query
-      description: When true, enables high-volume replication mode for datasets exceeding 1M rows.
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
       schema:
-        type: boolean
+        type: string
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

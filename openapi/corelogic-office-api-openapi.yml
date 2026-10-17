@@ -61,26 +61,12 @@ paths:
                 $ref: '#/components/schemas/Office'
 components:
   parameters:
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression. Field names are case-sensitive and must match $metadata.
-      schema:
-        type: string
     Select:
       name: $select
       in: query
       description: Comma-separated list of fields to return.
       schema:
         type: string
-    Top:
-      name: $top
-      in: query
-      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
-      schema:
-        type: integer
-        maximum: 300000
-        default: 10
     Count:
       name: $count
       in: query
@@ -93,20 +79,21 @@ components:
       description: Number of records to skip for pagination.
       schema:
         type: integer
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return. Default 10, maximum 1000 (300000 for key-only queries).
+      schema:
+        type: integer
+        maximum: 300000
+        default: 10
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      schema:
+        type: string
   schemas:
-    OfficeCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        '@odata.count':
-          type: integer
-        '@odata.nextLink':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Office'
     Office:
       type: object
       description: A RESO Office (brokerage) record.
@@ -132,6 +119,19 @@ components:
         ModificationTimestamp:
           type: string
           format: date-time
+    OfficeCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.count':
+          type: integer
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Office'
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

@@ -38,12 +38,6 @@ paths:
                 type: object
 components:
   parameters:
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression. Field names are case-sensitive and must match $metadata.
-      schema:
-        type: string
     Top:
       name: $top
       in: query
@@ -52,6 +46,12 @@ components:
         type: integer
         maximum: 300000
         default: 10
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression. Field names are case-sensitive and must match $metadata.
+      schema:
+        type: string
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2
