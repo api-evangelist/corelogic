@@ -1,4 +1,4 @@
-# CoreLogic (Cotality) (corelogic)
+# CoreLogic (Cotality)
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,251 +66,223 @@
 
 CoreLogic — rebranded as Cotality in 2025 — is a property data and analytics company providing real estate, mortgage, tax, hazard, and climate-risk information across approximately 99% of U.S. residential properties plus operations in Australia, New Zealand, the United Kingdom, Canada, Germany, and India. The company was taken private by Stone Point Capital and Insight Partners in June 2021 in a $6B transaction. The primary public developer surface is Trestle (trestle-documentation.corelogic.com / api.cotality.com), which delivers MLS listing, member, office, media, and team data via a RESO Web API 2.0 / OData 4.0 endpoint, a RETS 1.8 endpoint, and a Direct Web API for Matrix CRM and MLO (member loan officer) integrations. Most other Cotality data products — 360 Property Data, Climate Risk Analytics, Discovery Platform — are delivered through cloud data shares (AWS, Databricks, Google Cloud, Azure, Snowflake) and SFTP rather than self-service REST APIs and are gated behind enterprise sales.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/corelogic/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/corelogic/refs/heads/main/apis.yml)
+**Areas:** Climate Risk · CoreLogic · Cotality · Direct Web API · Hazard Data · Insurance Data · Listings · Matrix MLS · Mortgage Data · MLS · OData · OneHome
 
-## Scope
+## CoreLogic (Cotality) on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for CoreLogic (Cotality) is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/corelogic/](https://apis.io/providers/corelogic/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (27)
 
-- Climate Risk
-- CoreLogic
-- Cotality
-- Direct Web API
-- Hazard Data
-- Insurance Data
-- Listings
-- Matrix MLS
-- Mortgage Data
-- MLS
-- OData
-- OneHome
-- OpenID Connect
-- Participant Reporting
-- Property Data
-- Real Estate
-- RESO Data Dictionary
-- RESO Web API
-- RETS
-- Tax Data
-- Trestle
+- [Trestle RETS](https://apis.io/apis/corelogic/trestle-rets/) — Trestle's RETS endpoint implements the RETS 1.8 specification on top of the same data catalog as the RESO Web API. The service is session-less;…
+- [Direct Web API — MLO](https://apis.io/apis/corelogic/direct-webapi-mlo/) — The Direct Web API MLO reference exposes Member Loan Officer / lender-side data from the Matrix MLS platform via OData. Used to integrate originator and…
+- [Participant Reporting API](https://apis.io/apis/corelogic/participant-reporting-api/) — The Participant Reporting API allows MLS staff and brokerages to report broker/agent participation events back to Trestle. Documented in a published PDF…
+- [360 Property Data](https://apis.io/apis/corelogic/360-property-data/) — 360 Property Data is Cotality's enterprise property data product covering structure, ownership, tax, mortgages, hazard risk, climate risk, and geospatial…
+- [Climate Risk Analytics](https://apis.io/apis/corelogic/climate-risk-analytics/) — Climate Risk Analytics (CRA) delivers parcel- and structure-level chronic climate risk indices and acute peril scores across the continental United States…
+- [CoreLogic (Cotality) Contacts API](https://apis.io/apis/corelogic/corelogic-contacts-api/) — CRM contact records (name, address, phone, email).
+- [CoreLogic (Cotality) DashboardAPI API](https://apis.io/apis/corelogic/corelogic-dashboardapi-api/) — Aggregated dashboard data for the agent home screen.
+- [CoreLogic (Cotality) DataSystem API](https://apis.io/apis/corelogic/corelogic-datasystem-api/) — Service-level metadata and available resources.
+- [CoreLogic (Cotality) EmailHistory API](https://apis.io/apis/corelogic/corelogic-emailhistory-api/) — Outbound messages sent to contacts.
+- [CoreLogic (Cotality) Field API](https://apis.io/apis/corelogic/corelogic-field-api/) — Metadata describing fields available on each resource.
+- [CoreLogic (Cotality) HistoryTransactional API](https://apis.io/apis/corelogic/corelogic-historytransactional-api/) — Transactional change history for tracked resources.
+- [CoreLogic (Cotality) Lists API](https://apis.io/apis/corelogic/corelogic-lists-api/) — Property lists / carts attached to contacts.
+- [CoreLogic (Cotality) Lookup API](https://apis.io/apis/corelogic/corelogic-lookup-api/) — Enumerated lookup values used across resources.
+- [CoreLogic (Cotality) Media API](https://apis.io/apis/corelogic/corelogic-media-api/) — Listing media (photos, videos, documents).
+- [CoreLogic (Cotality) Member API](https://apis.io/apis/corelogic/corelogic-member-api/) — MLS member (agent) records.
+- [CoreLogic (Cotality) Model API](https://apis.io/apis/corelogic/corelogic-model-api/) — Resource model definitions.
+- [CoreLogic (Cotality) Office API](https://apis.io/apis/corelogic/corelogic-office-api/) — MLS office (brokerage) records.
+- [CoreLogic (Cotality) OpenHouse API](https://apis.io/apis/corelogic/corelogic-openhouse-api/) — Scheduled open-house events.
+- [CoreLogic (Cotality) PortalContents API](https://apis.io/apis/corelogic/corelogic-portalcontents-api/) — Contact-scoped listing notes, views, and preferences.
+- [CoreLogic (Cotality) Property API](https://apis.io/apis/corelogic/corelogic-property-api/) — MLS property listings and detail records.
+- [CoreLogic (Cotality) PropertyRooms API](https://apis.io/apis/corelogic/corelogic-propertyrooms-api/) — Per-room detail for listed properties.
+- [CoreLogic (Cotality) PropertyUnitTypes API](https://apis.io/apis/corelogic/corelogic-propertyunittypes-api/) — Per-unit detail for multi-unit properties.
+- [CoreLogic (Cotality) Teams API](https://apis.io/apis/corelogic/corelogic-teams-api/) — MLS team records.
+- [CoreLogic (Cotality) UserRegistry API](https://apis.io/apis/corelogic/corelogic-userregistry-api/) — Per-user preference key/value store.
+- [CoreLogic (Cotality) Custom Property API](https://apis.io/apis/corelogic/corelogic-custom-property-api/) — MLS-specific extensions to the RESO Property resource.
+- [CoreLogic (Cotality) Saved Searches API](https://apis.io/apis/corelogic/corelogic-saved-searches-api/) — Saved listing search criteria with auto-email schedules.
+- [CoreLogic (Cotality) Team Members API](https://apis.io/apis/corelogic/corelogic-team-members-api/) — Membership relationships between teams and members.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-23
-- **Modified:** 2026-05-23
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Trestle RESO Web API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Trestle's RESO Web API is an OData 4.0 / RESO Web API 2.0 compliant endpoint that delivers MLS Property, Member, Office, Media, OpenHouse, Teams, TeamMembers, PropertyRooms, PropertyUnitTypes, CustomProperty, Field, Lookup, Model, and HistoryTransactional resources across multiple aggregated U.S. MLSs. Authentication uses OAuth2 Client Credentials against api.cotality.com/trestle/oidc/connect/token with scope=api; tokens are valid for 8 hours. Query support includes $filter, $select, $expand, $orderby, $top (max 1000, or 300000 for key-only), $skip, $count, $apply=groupby (max 10000), Replication=true for 1M+ row datasets, and PrettyEnums=true. Conforms to the RESO Data Dictionary 2.0 and the RESO 2.0 certification including CLIP (machine-learning property identifier) and UPI (Universal Parcel Identifier).
+- [Corelogic Agentic Access](https://apis.io/agentic-access/corelogic/corelogic-agentic-access/)
 
-- **Human URL:** [https://trestle-documentation.corelogic.com/webapi.html](https://trestle-documentation.corelogic.com/webapi.html)
-- **Base URL:** `https://api.cotality.com/trestle/odata`
+#### JSON Schema (6)
 
-#### Tags
+The data models the API reads and writes.
 
-- Listings
-- MLS
-- OData
-- Property Data
-- RESO Data Dictionary
-- RESO Web API
-- Trestle
+- [CoreLogic Climate Risk Score](https://apis.io/schemas/corelogic/corelogic-climate-risk/)
+- [Direct Web API CRM Contact](https://apis.io/schemas/corelogic/corelogic-contact/)
+- [RESO Media](https://apis.io/schemas/corelogic/corelogic-media/)
+- [RESO Member](https://apis.io/schemas/corelogic/corelogic-member/)
+- [RESO Office](https://apis.io/schemas/corelogic/corelogic-office/)
+- [RESO Property](https://apis.io/schemas/corelogic/corelogic-property/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [Documentation](https://trestle-documentation.corelogic.com/webapi.html)
-- [API Reference](https://trestle-documentation.corelogic.com/webapi-reference.html)
-- [Getting Started](https://trestle-documentation.corelogic.com/webapi.html)
-- [Authorization](https://trestle-documentation.corelogic.com/webapi.html)
-- [Client Libraries](https://trestle-documentation.corelogic.com/webapi-libraries.html)
-- [Scale](https://trestle-documentation.corelogic.com/webapi-at-scale.html)
-- [Metadata](https://api.cotality.com/trestle/odata/$metadata)
-- [R E S O Common Format](https://trestle-documentation.corelogic.com/reso-common-format.html)
-- [OpenAPI](openapi/corelogic-trestle-reso-web-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/corelogic-trestle-reso-web-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/corelogic-trestle-reso-web-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Rules](rules/corelogic-trestle-reso-web-api-rules.yml)
+Data models expressed in JSON Structure.
 
-### Trestle RETS
+- [Corelogic Property Structure](https://apis.io/json-structure/corelogic/corelogic-property-structure/)
 
-Trestle's RETS endpoint implements the RETS 1.8 specification on top of the same data catalog as the RESO Web API. The service is session-less; authentication uses HTTP Basic with client credentials or OAuth2 bearer tokens issued from /trestle/oidc/connect/token with scope=rets. Supported transactions include Login, GetMetadata, Search (up to 1000 records per request, default 10), and GetObject for media. The same RESO resources are exposed as RETS SearchType / Class names (Property, Member, Office, Teams, Media, Lookup). Digest authentication is not supported.
+#### JSON-LD (1)
 
-- **Human URL:** [https://trestle-documentation.corelogic.com/rets.html](https://trestle-documentation.corelogic.com/rets.html)
-- **Base URL:** `https://api.cotality.com/trestle/rets`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Corelogic Context](https://apis.io/jsonld/corelogic/corelogic-context/)
 
-- Legacy
-- Listings
-- MLS
-- RETS
-- Trestle
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://trestle-documentation.corelogic.com/rets.html)
-- [Client Libraries](https://trestle-documentation.corelogic.com/rets-libraries.html)
-- [Connector](https://trestle-documentation.corelogic.com/rets-connector.html)
-- [Postman Collection](collections/corelogic-direct-webapi-crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/corelogic-direct-webapi-crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/corelogic-trestle-reso-web-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/corelogic-trestle-reso-web-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [CoreLogic / Cotality Vocabulary](https://apis.io/vocabularies/corelogic/corelogic-vocabulary/)
 
-### Direct Web API — CRM
+#### Examples (5)
 
-The Direct Web API provides a direct, bidirectional OData connection to the Matrix MLS CRM database. Resources include Contacts, EmailHistory, Lists (carts), PortalContents (with AddListingNote / MarkAsViewed / SetListingPreference actions), SavedSearches, UserRegistry, and a DashboardAPI for aggregated MyListings, HotSheet, MarketWatch, Concierge, and Timeline data. Authentication is OpenID Connect via Clareity Single Sign-On or basic authentication. Standard OData $select / $expand / $orderby / $filter query options are supported.
+Example requests and responses.
 
-- **Human URL:** [https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html](https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html)
-- **Base URL:** `https://api.cotality.com/trestle/odata`
+- [Corelogic Climate Risk Score Example](https://apis.io/examples/corelogic/corelogic-climate-risk-score-example/)
+- [Corelogic Direct Webapi Create Contact Example](https://apis.io/examples/corelogic/corelogic-direct-webapi-create-contact-example/)
+- [Corelogic Trestle Oauth Token Example](https://apis.io/examples/corelogic/corelogic-trestle-oauth-token-example/)
+- [Corelogic Trestle Query Media Example](https://apis.io/examples/corelogic/corelogic-trestle-query-media-example/)
+- [Corelogic Trestle Query Property Example](https://apis.io/examples/corelogic/corelogic-trestle-query-property-example/)
 
-#### Tags
+#### Collections (24)
 
-- CRM
-- Direct Web API
-- Matrix MLS
-- OData
-- OpenID Connect
-- Trestle
+Postman and Open Collection request collections.
 
-#### Properties
+- [CoreLogic Trestle Direct Web API — CRM Contacts API](https://apis.io/collections/corelogic/open-corelogic-contacts-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts CustomProperty API](https://apis.io/collections/corelogic/open-corelogic-customproperty-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts DashboardAPI API](https://apis.io/collections/corelogic/open-corelogic-dashboardapi-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts DataSystem API](https://apis.io/collections/corelogic/open-corelogic-datasystem-api/)
+- [CoreLogic Trestle Direct Web API — CRM](https://apis.io/collections/corelogic/open-corelogic-direct-webapi-crm/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts EmailHistory API](https://apis.io/collections/corelogic/open-corelogic-emailhistory-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts Field API](https://apis.io/collections/corelogic/open-corelogic-field-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts HistoryTransactional API](https://apis.io/collections/corelogic/open-corelogic-historytransactional-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts Lists API](https://apis.io/collections/corelogic/open-corelogic-lists-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts Lookup API](https://apis.io/collections/corelogic/open-corelogic-lookup-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts Media API](https://apis.io/collections/corelogic/open-corelogic-media-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts Member API](https://apis.io/collections/corelogic/open-corelogic-member-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts Model API](https://apis.io/collections/corelogic/open-corelogic-model-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts Office API](https://apis.io/collections/corelogic/open-corelogic-office-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts OpenHouse API](https://apis.io/collections/corelogic/open-corelogic-openhouse-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts PortalContents API](https://apis.io/collections/corelogic/open-corelogic-portalcontents-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts Property API](https://apis.io/collections/corelogic/open-corelogic-property-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts PropertyRooms API](https://apis.io/collections/corelogic/open-corelogic-propertyrooms-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts PropertyUnitTypes API](https://apis.io/collections/corelogic/open-corelogic-propertyunittypes-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts SavedSearches API](https://apis.io/collections/corelogic/open-corelogic-savedsearches-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts TeamMembers API](https://apis.io/collections/corelogic/open-corelogic-teammembers-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts Teams API](https://apis.io/collections/corelogic/open-corelogic-teams-api/)
+- [CoreLogic Trestle RESO Web API](https://apis.io/collections/corelogic/open-corelogic-trestle-reso-web-api/)
+- [CoreLogic Trestle Direct Web API — CRM Contacts UserRegistry API](https://apis.io/collections/corelogic/open-corelogic-userregistry-api/)
 
-- [Documentation](https://trestle-documentation.corelogic.com/direct-webapi-crm-reference.html)
-- [OpenAPI](openapi/corelogic-direct-webapi-crm-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/corelogic-direct-webapi-crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/corelogic-direct-webapi-crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Rules](rules/corelogic-direct-webapi-crm-rules.yml)
+#### Governance rules (3)
 
-### Direct Web API — MLO
+Spectral rulesets for the provider's contracts.
 
-The Direct Web API MLO reference exposes Member Loan Officer / lender-side data from the Matrix MLS platform via OData. Used to integrate originator and loan-officer profiles, branches, and licensing data into third-party CRM and lead-routing systems.
+- [CoreLogic (Cotality) — direct webapi crm rules](https://apis.io/rules/corelogic/corelogic-direct-webapi-crm-rules/)
+- [CoreLogic (Cotality) — jsonschema rules](https://apis.io/rules/corelogic/corelogic-jsonschema-spectral-rules/)
+- [CoreLogic (Cotality) — trestle reso web api rules](https://apis.io/rules/corelogic/corelogic-trestle-reso-web-api-rules/)
 
-- **Human URL:** [https://trestle-documentation.corelogic.com/direct-webapi-mlo-reference.html](https://trestle-documentation.corelogic.com/direct-webapi-mlo-reference.html)
-- **Base URL:** `https://api.cotality.com/trestle/odata`
+#### Security (2)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Direct Web API
-- Lending
-- Matrix MLS
-- MLO
-- OData
-- Trestle
+- [Corelogic Authentication](https://apis.io/security/corelogic/corelogic-authentication/)
+- [Corelogic Domain Security](https://apis.io/security/corelogic/corelogic-domain-security/)
 
-#### Properties
+#### OAuth scopes (1)
 
-- [Documentation](https://trestle-documentation.corelogic.com/direct-webapi-mlo-reference.html)
-- [Postman Collection](collections/corelogic-direct-webapi-crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/corelogic-direct-webapi-crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/corelogic-trestle-reso-web-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/corelogic-trestle-reso-web-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The permissions the API asks for.
 
-### Participant Reporting API
+- [Corelogic Scopes](https://apis.io/scopes/corelogic/corelogic-scopes/)
 
-The Participant Reporting API allows MLS staff and brokerages to report broker/agent participation events back to Trestle. Documented in a published PDF reference; used for audit, compliance, and royalty/fee-share reporting against listing activity.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://trestle-documentation.corelogic.com/ParticipantReportingHowTo.pdf](https://trestle-documentation.corelogic.com/ParticipantReportingHowTo.pdf)
-- **Base URL:** `https://api.cotality.com/trestle/odata`
+Published plans, tiers and prices.
 
-#### Tags
+- [Corelogic Plans Pricing](https://apis.io/plans/corelogic/corelogic-plans-pricing/)
 
-- Compliance
-- MLS
-- Participant Reporting
-- Reporting
-- Trestle
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://trestle-documentation.corelogic.com/ParticipantReportingHowTo.pdf)
-- [Postman Collection](collections/corelogic-direct-webapi-crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/corelogic-direct-webapi-crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/corelogic-trestle-reso-web-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/corelogic-trestle-reso-web-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Corelogic Rate Limits](https://apis.io/rate-limits/corelogic/corelogic-rate-limits/)
 
-### 360 Property Data
+#### FinOps (1)
 
-360 Property Data is Cotality's enterprise property data product covering structure, ownership, tax, mortgages, hazard risk, climate risk, and geospatial overlays across approximately 99% of U.S. residential properties. Delivery is via cloud data shares (AWS, Databricks, Google Cloud, Microsoft Azure, Snowflake) and SFTP rather than a self-service REST API; access is gated by enterprise sales contract. Sold to lenders, insurers, government, and proptech platforms.
+What the API costs to run, by operation.
 
-- **Human URL:** [https://www.cotality.com/360-property-data](https://www.cotality.com/360-property-data)
+- [Corelogic Finops](https://apis.io/finops/corelogic/corelogic-finops/)
 
-#### Tags
+## Where to find this API
 
-- Data Share
-- Hazard Data
-- Mortgage Data
-- Property Data
-- Tax Data
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Properties
-
-- [Overview](https://www.cotality.com/360-property-data)
-- [Cloud Data Share](https://www.cotality.com/360-property-data)
-- [Postman Collection](collections/corelogic-direct-webapi-crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/corelogic-direct-webapi-crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/corelogic-trestle-reso-web-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/corelogic-trestle-reso-web-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Climate Risk Analytics
-
-Climate Risk Analytics (CRA) delivers parcel- and structure-level chronic climate risk indices and acute peril scores across the continental United States and the District of Columbia. Chronic Perils covers cold wave, heat wave, extreme precipitation, and drought via 84 indices, with IPCC SSP1-2.6, SSP2-4.5, SSP3-7.0, and SSP5-8.5 scenarios projected to 2030, 2040, and 2050. Acute Perils products cover wildfire, flood, hurricane, severe convective storm, and earthquake. Delivery is via AWS, Databricks, Google Cloud, Azure, Snowflake, and SFTP — semantic companion files ship alongside the data for AI/ML ingestion.
-
-- **Human URL:** [https://www.cotality.com/360-property-data/climate-risk-analytics](https://www.cotality.com/360-property-data/climate-risk-analytics)
-
-#### Tags
-
-- Catastrophe Models
-- Climate Risk
-- Data Share
-- IPCC
-- Insurance Data
-- Perils
-
-#### Properties
-
-- [Overview](https://www.cotality.com/360-property-data/climate-risk-analytics)
-- [Cloud Data Share](https://www.cotality.com/360-property-data/climate-risk-analytics)
-- [Postman Collection](collections/corelogic-direct-webapi-crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/corelogic-direct-webapi-crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/corelogic-trestle-reso-web-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/corelogic-trestle-reso-web-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/corelogic)
 - [Website](https://www.cotality.com)
-- [Legacy Website](https://www.corelogic.com)
-- [Developer Portal](https://developer.corelogic.com)
-- [Developer Portal A P A C](https://developer.corelogic.asia/)
 - [Documentation](https://trestle-documentation.corelogic.com/)
-- [API Reference](https://trestle-documentation.corelogic.com/webapi-reference.html)
-- [Getting Started](https://trestle-documentation.corelogic.com/webapi.html)
-- [Authorization](https://trestle-documentation.corelogic.com/webapi.html)
-- [Token Endpoint](https://api.cotality.com/trestle/oidc/connect/token)
-- [Base U R L](https://api.cotality.com/trestle/odata)
-- [F A Q](https://trestle-documentation.corelogic.com/faq.html)
-- [Client Libraries](https://trestle-documentation.corelogic.com/webapi-libraries.html)
-- [Support Email](mailto:trestlesupport@cotality.com)
-- [Support Page](https://www.cotality.com/support)
-- [Sign In](https://developer.corelogic.asia/user/sign-in)
-- [Sign Up](https://developer.corelogic.asia/signup)
-- [Vocabulary](vocabulary/corelogic-vocabulary.yml)
-- [JSON-LD](json-ld/corelogic-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Plans](plans/corelogic-plans-pricing.yml)
-- [Rate Limits](rate-limits/corelogic-rate-limits.yml)
-- [Fin Ops](finops/corelogic-finops.yml)
-- [Privacy Policy](https://www.cotality.com/privacy-policy)
-- [Terms of Service](https://www.cotality.com/terms-of-use)
-- [LinkedIn](https://www.linkedin.com/company/cotality)
-- [News](https://www.cotality.com/news)
-- [L L Ms Txt](https://developer.corelogic.asia/llms.txt)
+- [Getting started](https://trestle-documentation.corelogic.com/webapi.html)
+- [API reference](https://trestle-documentation.corelogic.com/webapi-reference.html)
+- [Blog](https://www.cotality.com/insights)
+- [Terms of service](https://www.cotality.com/terms-of-use)
+- [Privacy policy](https://www.cotality.com/privacy-policy)
+- [GitHub](https://github.com/corelogic)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 42.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 65.2 |
+| Contract quality | 56.1 |
+| Contract governance | 27.3 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 52.4 |
+| Access clarity | 25.0 |
+
+**Agent readiness 23.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 33.3** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/corelogic/](https://apis.io/providers/corelogic/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for CoreLogic (Cotality): the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/corelogic/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
